@@ -1,0 +1,70 @@
+# ---------------------------------------------------------------------------
+# DATASETS — NEVER COMMIT THESE
+#
+# Two reasons:
+#   1. Licensing. TVQA's agreement states "please do not share the video frames
+#      with others." AMI, MELD and AVA have their own terms. Pushing corpora to
+#      a repo is redistribution.
+#   2. Size. ~43 GB locally. GitHub caps individual files at 100 MB.
+#
+# The corpora are re-downloadable from source. See data/README.md — that file
+# plus the download scripts IS the dataset, as far as this repo is concerned.
+# ---------------------------------------------------------------------------
+
+AMI/
+AVA/
+MELD/
+LSMDC/
+TVQA/
+amicorpus/
+ava_videos/
+data/raw/
+
+# Video / audio, wherever they end up
+*.mp4
+*.avi
+*.mkv
+*.mov
+*.webm
+*.wav
+*.mp3
+
+# Archives and binary feature dumps
+*.tar
+*.tar.gz
+*.tar.bz2
+*.zip
+*.7z
+*.h5
+*.hdf5
+*.pkl
+*.pickle
+*.npy
+*.npz
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.ipynb_checkpoints/
+venv/
+.venv/
+env/
+
+# Notebooks can carry huge embedded outputs — clear them before committing
+# (or install nbstripout). Uncomment if this becomes a problem:
+# *.ipynb
+
+# Environment / secrets
+.env
+*.key
+
+# OS junk
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs and scratch
+*.log
+scratch/
+tmp/
