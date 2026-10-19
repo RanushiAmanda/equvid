@@ -7,6 +7,10 @@ Pipeline modules live here.
 - `meld_speaking_baseline.py` — speaking-time ratio from the MELD annotation CSVs
   alone, no video processing. Produces the main-cast M:F = 1.094 result that makes
   MELD the project's negative control.
+- `text/` — C3 (EuqVid-Text), started 19 Oct 2026. Utterance tables for MELD and AMI,
+  a provisional gender map, and the four features that need no parser. One-click
+  runner: `text/run_c3_text.bat`. Results: `components/C3_Text/results/`. See
+  `text/README.md`.
 
 ## Planned layout
 
@@ -38,6 +42,11 @@ src/
     ├── stability.py      bootstrap at shard and identity level, never row level
     └── fusion.py         the four sub-scores into one EuqVid score
 ```
+
+C3 note (19 Oct): the first results recommend dropping `dialogue_volume_share` from
+the C3 equation (r = 0.96–0.97 with C2's speaking-time parity) and replacing
+`gendered_reference_ratio` with `ref_log_parity`. Both are open group decisions —
+see `components/C3_Text/results/C3_results_01_lexical_features.md`.
 
 ## Three rules that apply to every module here
 
