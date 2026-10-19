@@ -1,0 +1,298 @@
+<mxfile host="Electron">
+  <diagram id="euqvid-system" name="EuqVid system diagram">
+    <mxGraphModel dx="3367" dy="2002" grid="0" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="2440" pageHeight="2060" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="v1" parent="1" style="text;html=1;align=left;verticalAlign=top;fontFamily=Helvetica;fontColor=#000000;" value="&lt;b style=&quot;font-size:28px&quot;&gt;EuqVid — system diagram of the whole research project&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:15px&quot;&gt;Pre-training gender-bias audit for narrative multi-person video · Group J26-DS-343 · SLIIT IT4010 · measures within-content disparity, 0 = parity · draft, October 2026 — open decisions are marked&lt;/span&gt;" vertex="1">
+          <mxGeometry height="70" width="2400" x="20" y="16" as="geometry" />
+        </mxCell>
+        <mxCell id="v2" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#F2F2F2;swimlaneFillColor=#FFFFFF;" value="&lt;b&gt;1&amp;nbsp; Data sources&lt;/b&gt; — open corpora that every member can download and use (licences forbid redistribution; kept outside the repository)" vertex="1">
+          <mxGeometry height="192" width="2400" x="20" y="100" as="geometry" />
+        </mxCell>
+        <mxCell id="v3" parent="v2" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fillColor=#FFFFFF;" value="&lt;b&gt;MELD&lt;/b&gt; · scripted TV (&lt;i&gt;Friends&lt;/i&gt;)&lt;br&gt;• Utterance CSVs: speaker, text, sentiment, start/end times&lt;br&gt;• Short clips, about 3.6 s and one line each&lt;br&gt;• 3 F / 3 M main cast; guest characters excluded&lt;br&gt;&lt;b&gt;Role:&lt;/b&gt; negative control — a fair metric should score it near 0" vertex="1">
+          <mxGeometry height="132" width="760" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v4" parent="v2" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fillColor=#FFFFFF;" value="&lt;b&gt;AVA-ActiveSpeaker + AVA-Speech&lt;/b&gt; · feature film&lt;br&gt;• 153 films, labelled for minutes 15–30 only&lt;br&gt;• Face boxes, track IDs valid within 60 s, per-frame speaking labels&lt;br&gt;• Speech / music / noise labels (AVA-Speech)&lt;br&gt;• No gender and no transcript → hand labels + speech-to-text&lt;br&gt;&lt;b&gt;Role:&lt;/b&gt; primary corpus for the fused score" vertex="1">
+          <mxGeometry height="132" width="760" x="820" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v5" parent="v2" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fillColor=#FFFFFF;" value="&lt;b&gt;AMI Meeting Corpus&lt;/b&gt; · recorded meetings&lt;br&gt;• 82 mixed-gender meetings with verified gender; room-view video and headset audio for 64&lt;br&gt;• Word-level manual transcripts, participant metadata&lt;br&gt;• DOME human judgements of who dominated — checking only&lt;br&gt;&lt;b&gt;Role:&lt;/b&gt; non-narrative contrast corpus" vertex="1">
+          <mxGeometry height="132" width="760" x="1620" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v6" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;dashed=1;fillColor=#F2F2F2;swimlaneFillColor=#FAFAFA;" value="&lt;b&gt;2&amp;nbsp; Gate 0 — shared group assets&lt;/b&gt; — agreed and frozen by all four members before anyone extracts a feature" vertex="1">
+          <mxGeometry height="172" width="2400" x="20" y="332" as="geometry" />
+        </mxCell>
+        <mxCell id="v7" parent="v6" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;dashed=1;" value="&lt;b&gt;Frozen feature schema&lt;/b&gt;&lt;br&gt;Names, definitions, units. Means throughout; std only for C4&#39;s EuqAud baseline. Versioned as &lt;i&gt;feature_version&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="376" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v8" parent="v6" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;dashed=1;" value="&lt;b&gt;Clip &amp;amp; shard manifest&lt;/b&gt;&lt;br&gt;One clip = one episode, meeting or film window&lt;br&gt;&lt;i&gt;clips.csv&lt;/i&gt; · &lt;i&gt;clip_to_shard.csv&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="376" x="416" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v9" parent="v6" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;dashed=1;" value="&lt;b&gt;Identity-to-gender map&lt;/b&gt;&lt;br&gt;&lt;i&gt;gender_map.csv&lt;/i&gt;: person, gender, source&lt;br&gt;AVA labelled by hand; Cohen&#39;s κ on a 10% double-labelled subset" vertex="1">
+          <mxGeometry height="112" width="376" x="812" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v10" parent="v6" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;dashed=1;" value="&lt;b&gt;Folds — identity firewall&lt;/b&gt;&lt;br&gt;&lt;i&gt;folds.csv&lt;/i&gt;: no person on both sides of a train/test split&lt;br&gt;DOME series never used for training" vertex="1">
+          <mxGeometry height="112" width="376" x="1208" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v11" parent="v6" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;dashed=1;" value="&lt;b&gt;Augmentation protocol&lt;/b&gt;&lt;br&gt;Known-bias versions of each clip, made per modality&lt;br&gt;Signed level −1 … +1, logged as &lt;i&gt;variant_id&lt;/i&gt;" vertex="1">
+          <mxGeometry height="112" width="376" x="1604" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v12" parent="v6" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;dashed=1;" value="&lt;b&gt;Calibration set&lt;/b&gt;&lt;br&gt;&lt;i&gt;calibration_shards.csv&lt;/i&gt;: one shared reference for the −10 … +10 scale; held out of all fitting" vertex="1">
+          <mxGeometry height="112" width="376" x="2000" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v13" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#F2F2F2;swimlaneFillColor=#FFFFFF;" value="&lt;b&gt;3&amp;nbsp; Feature extraction&lt;/b&gt; — four independent modality components, each owned and assessed individually" vertex="1">
+          <mxGeometry height="440" width="2400" x="20" y="544" as="geometry" />
+        </mxCell>
+        <mxCell id="v14" parent="v13" style="swimlane;html=1;startSize=54;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;fontSize=16;strokeWidth=1.5;" value="&lt;b&gt;C1 · Visual&lt;/b&gt; — how each gender is framed on screen&lt;br&gt;&lt;span style=&quot;font-size:13px&quot;&gt;Owner: Hasangani W. R. A. (M1, group leader)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="380" width="560" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v15" parent="v14" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Signal and extraction&lt;/b&gt;&lt;br&gt;• AVA: ground-truth face boxes and tracks, so no detector is needed&lt;br&gt;• MELD, AMI room views: face detection (MTCNN / RetinaFace) and tracking (DeepSORT / ByteTrack)&lt;br&gt;• Detector error measured separately for women and men" vertex="1">
+          <mxGeometry height="132" width="530" x="15" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v16" parent="v14" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Features&lt;/b&gt; (per gender, per clip)&lt;br&gt;• screen_time_share&lt;br&gt;• mean_relative_face_area&lt;br&gt;• mean_centre_proximity&lt;br&gt;• closeup_share&lt;br&gt;• solo_frame_share&lt;br&gt;• identity_share" vertex="1">
+          <mxGeometry height="158" width="530" x="15" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="v17" parent="v13" style="swimlane;html=1;startSize=54;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;fontSize=16;strokeWidth=1.5;" value="&lt;b&gt;C2 · Temporal&lt;/b&gt; — who holds the speaking floor&lt;br&gt;&lt;span style=&quot;font-size:13px&quot;&gt;Owner: Harischandra R. A. S. R. (M2)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="380" width="560" x="620" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v18" parent="v17" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Signal and extraction&lt;/b&gt;&lt;br&gt;Speaker intervals (who, start, end):&lt;br&gt;• MELD: utterance timestamps&lt;br&gt;• AMI: speaker segments&lt;br&gt;• AVA: per-frame speaking labels&lt;br&gt;• Shared turn rule: same-speaker gaps ≤ 1 s merged" vertex="1">
+          <mxGeometry height="132" width="530" x="15" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v19" parent="v17" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Features&lt;/b&gt; (per gender, per clip)&lt;br&gt;• speaking_time_share&lt;br&gt;• turn_count_share&lt;br&gt;• mean_turn_length&lt;br&gt;• interruption_asymmetry&lt;br&gt;• speech_dispersion&lt;br&gt;• presence_voice_gap" vertex="1">
+          <mxGeometry height="158" width="530" x="15" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="v20" parent="v13" style="swimlane;html=1;startSize=54;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;fontSize=16;strokeWidth=1.5;" value="&lt;b&gt;C3 · Text&lt;/b&gt; — what the script gives each gender to say&lt;br&gt;&lt;span style=&quot;font-size:13px&quot;&gt;Owner: Fernando R. S. R. (M3)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="380" width="560" x="1220" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v21" parent="v20" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Signal and extraction&lt;/b&gt;&lt;br&gt;Dialogue text:&lt;br&gt;• MELD: utterance text · AMI: manual transcripts&lt;br&gt;• AVA: Whisper speech-to-text of minutes 15–30, words matched to speaking labels, AVA-Speech filter; word error checked by hand&lt;br&gt;• spaCy parse + Sap et al. agency/power lexicon" vertex="1">
+          <mxGeometry height="132" width="530" x="15" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v22" parent="v20" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Features&lt;/b&gt; (per gender, per clip)&lt;br&gt;• dialogue_volume_share&lt;br&gt;• mean_utterance_length&lt;br&gt;• agency_score_mean&lt;br&gt;• power_score_mean&lt;br&gt;• same_gender_dialogue_share&lt;br&gt;• gendered_reference_ratio&lt;br&gt;• sentiment_valence_mean (tool still to be validated)" vertex="1">
+          <mxGeometry height="158" width="530" x="15" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="v23" parent="v13" style="swimlane;html=1;startSize=54;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;fontSize=16;strokeWidth=1.5;" value="&lt;b&gt;C4 · Audio&lt;/b&gt; — how each voice sits in the sound mix&lt;br&gt;&lt;span style=&quot;font-size:13px&quot;&gt;Owner: Sathsarani W. T. T. S. (M4)&lt;/span&gt;" vertex="1">
+          <mxGeometry height="380" width="560" x="1820" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v24" parent="v23" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Signal and extraction&lt;/b&gt;&lt;br&gt;Speech audio per speaker:&lt;br&gt;• AMI: headset mix · MELD: clip audio · AVA: film soundtrack&lt;br&gt;• Speech regions from speaker timings and AVA-Speech&lt;br&gt;• Voice vs background: source separation or clean-speech regions" vertex="1">
+          <mxGeometry height="132" width="530" x="15" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v25" parent="v23" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Contribution features&lt;/b&gt;&lt;br&gt;• mean_voice_loudness&lt;br&gt;• speech_to_background_ratio&lt;br&gt;• dynamic_range&lt;br&gt;&lt;b&gt;EuqAud baseline&lt;/b&gt; (std, never the mean)&lt;br&gt;• f0_std · energy_std · amplitude_std" vertex="1">
+          <mxGeometry height="158" width="530" x="15" y="210" as="geometry" />
+        </mxCell>
+        <mxCell id="e26" edge="1" parent="v13" source="v16" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;dashed=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v19" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="v27" parent="1" style="swimlane;html=1;startSize=56;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#F2F2F2;swimlaneFillColor=#FFFFFF;" value="&lt;b&gt;4&amp;nbsp; Modelling spine — the same steps run separately inside C1, C2, C3 and C4&lt;/b&gt;&lt;br&gt;&lt;span style=&quot;font-size:13px&quot;&gt;Identical steps keep the four sub-scores comparable. Open decision: a fitted equation (shown) or the fixed 4:1 log-ratio scale proposed in the shared conventions&lt;/span&gt;" vertex="1">
+          <mxGeometry height="192" width="2400" x="20" y="1024" as="geometry" />
+        </mxCell>
+        <mxCell id="v28" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;1 · Per-person parity&lt;/b&gt;&lt;br&gt;Women vs men per person: log ratio for counts, difference for signed scores" vertex="1">
+          <mxGeometry height="112" width="248" x="20" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v29" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;2 · Augment&lt;/b&gt;&lt;br&gt;Shared protocol makes known-bias versions of each clip, giving labelled rows" vertex="1">
+          <mxGeometry height="112" width="248" x="284" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v30" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;3 · Screen features&lt;/b&gt;&lt;br&gt;Inside the shared folds: drop on no coverage, VIF &amp;gt; 10 or ~0 variance (rule fixed first)" vertex="1">
+          <mxGeometry height="112" width="248" x="548" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v31" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;4 · Fit&lt;/b&gt;&lt;br&gt;Polynomial Ridge, degree ≤ 2, grid-search α; at most 6 features (28 coefficients)" vertex="1">
+          <mxGeometry height="112" width="248" x="812" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v32" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;5 · Freeze&lt;/b&gt;&lt;br&gt;Closed-form equation in raw feature units" vertex="1">
+          <mxGeometry height="112" width="248" x="1076" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v33" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;6 · Normalise&lt;/b&gt;&lt;br&gt;To −10 … +10 on the shared calibration set" vertex="1">
+          <mxGeometry height="112" width="248" x="1340" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v34" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;7 · Tiers&lt;/b&gt;&lt;br&gt;Neutral / Moderate / Strong, derived rather than inherited from EuqAud" vertex="1">
+          <mxGeometry height="112" width="248" x="1604" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v35" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;8 · Bootstrap&lt;/b&gt;&lt;br&gt;1,000× resampled by series or identity, never by row" vertex="1">
+          <mxGeometry height="112" width="248" x="1868" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="v36" parent="v27" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;fontSize=13;" value="&lt;b&gt;9 · Generalise&lt;/b&gt;&lt;br&gt;Leave-one-film-out, leave-one-corpus-out, monotonicity, scale invariance, applicability domain" vertex="1">
+          <mxGeometry height="112" width="248" x="2132" y="66" as="geometry" />
+        </mxCell>
+        <mxCell id="e37" edge="1" parent="v27" source="v28" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v29" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e38" edge="1" parent="v27" source="v29" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v30" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e39" edge="1" parent="v27" source="v30" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v31" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e40" edge="1" parent="v27" source="v31" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v32" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e41" edge="1" parent="v27" source="v32" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v33" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e42" edge="1" parent="v27" source="v33" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v34" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e43" edge="1" parent="v27" source="v34" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v35" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e44" edge="1" parent="v27" source="v35" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" target="v36" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="v45" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;fillColor=#E6E6E6;" value="&lt;b&gt;C1 visual sub-score&lt;/b&gt;&lt;br&gt;−10 … +10 with tier, or NA with a reason&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;one row per clip · score · status · reason · feature_version&lt;/span&gt;" vertex="1">
+          <mxGeometry height="76" width="560" x="40" y="1256" as="geometry" />
+        </mxCell>
+        <mxCell id="v46" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;fillColor=#E6E6E6;" value="&lt;b&gt;C2 temporal sub-score&lt;/b&gt;&lt;br&gt;−10 … +10 with tier, or NA with a reason&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;one row per clip · score · status · reason · feature_version&lt;/span&gt;" vertex="1">
+          <mxGeometry height="76" width="560" x="640" y="1256" as="geometry" />
+        </mxCell>
+        <mxCell id="v47" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;fillColor=#E6E6E6;" value="&lt;b&gt;C3 text sub-score&lt;/b&gt;&lt;br&gt;−10 … +10 with tier, or NA with a reason&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;one row per clip · score · status · reason · feature_version&lt;/span&gt;" vertex="1">
+          <mxGeometry height="76" width="560" x="1240" y="1256" as="geometry" />
+        </mxCell>
+        <mxCell id="v48" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;fillColor=#E6E6E6;" value="&lt;b&gt;C4 audio sub-score&lt;/b&gt;&lt;br&gt;−10 … +10 with tier, or NA with a reason&lt;br&gt;&lt;span style=&quot;font-size:12px&quot;&gt;one row per clip · score · status · reason · feature_version&lt;/span&gt;" vertex="1">
+          <mxGeometry height="76" width="560" x="1840" y="1256" as="geometry" />
+        </mxCell>
+        <mxCell id="v49" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#D9D9D9;swimlaneFillColor=#F2F2F2;" value="&lt;b&gt;5&amp;nbsp; Fusion&lt;/b&gt; — group-level; integration lead still to be named (G0.9)" vertex="1">
+          <mxGeometry height="144" width="2400" x="20" y="1372" as="geometry" />
+        </mxCell>
+        <mxCell id="v50" parent="v49" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Late fusion&lt;/b&gt;&lt;br&gt;One equation over the four sub-scores, including pairwise interactions" vertex="1">
+          <mxGeometry height="84" width="773" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v51" parent="v49" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Comparison model&lt;/b&gt;&lt;br&gt;One equation over all features at once — the only view that sees cross-modal patterns, such as a character on screen but silent" vertex="1">
+          <mxGeometry height="84" width="773" x="813" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v52" parent="v49" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Reduced form&lt;/b&gt;&lt;br&gt;When a modality is NA (for example AVA before its transcript exists); shown to track the full form where both can be computed" vertex="1">
+          <mxGeometry height="84" width="773" x="1606" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v53" parent="1" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;fillColor=#BFBFBF;strokeWidth=2.5;fontSize=14;" value="&lt;b style=&quot;font-size:17px&quot;&gt;EuqVid score −10 … +10&lt;/b&gt;&lt;br&gt;Neutral / Moderate / Strong tier · direction (+ = women higher per person, proposed) · per-modality attribution" vertex="1">
+          <mxGeometry height="78" width="1500" x="470" y="1556" as="geometry" />
+        </mxCell>
+        <mxCell id="v54" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#D9D9D9;swimlaneFillColor=#F2F2F2;" value="&lt;b&gt;6&amp;nbsp; Validation&lt;/b&gt; — group-level; every check has its own ground truth, independent of the augmentation" vertex="1">
+          <mxGeometry height="164" width="2400" x="20" y="1674" as="geometry" />
+        </mxCell>
+        <mxCell id="v55" parent="v54" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Baselines&lt;/b&gt;&lt;br&gt;Face-count, screen-time and speaking-time ratios; Kruskal-Wallis ε² (compared with EuqAud, no target to beat)" vertex="1">
+          <mxGeometry height="104" width="376" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v56" parent="v54" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Negative control&lt;/b&gt;&lt;br&gt;MELD (3 F / 3 M) should score near 0; a face count calls it fair by construction" vertex="1">
+          <mxGeometry height="104" width="376" x="416" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v57" parent="v54" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Human judgement&lt;/b&gt;&lt;br&gt;AMI DOME dominance ranks against the scores (Spearman); held out of all training" vertex="1">
+          <mxGeometry height="104" width="376" x="812" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v58" parent="v54" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Downstream harm&lt;/b&gt;&lt;br&gt;Train models on subsets (MELD emotion, AVA active speaker); does the F1 gap rise with the tier?" vertex="1">
+          <mxGeometry height="104" width="376" x="1208" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v59" parent="v54" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Mitigation&lt;/b&gt;&lt;br&gt;Rebalance the worst subsets using the score, then re-measure the harm" vertex="1">
+          <mxGeometry height="104" width="376" x="1604" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v60" parent="v54" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;" value="&lt;b&gt;Perception study&lt;/b&gt;&lt;br&gt;15–20 people rate clips across the score range; SLIIT ethics position confirmed first" vertex="1">
+          <mxGeometry height="104" width="376" x="2000" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v61" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;strokeWidth=2.5;" value="&lt;b&gt;7&amp;nbsp; Deliverables&lt;/b&gt;" vertex="1">
+          <mxGeometry height="142" width="1720" x="20" y="1878" as="geometry" />
+        </mxCell>
+        <mxCell id="v62" parent="v61" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;strokeWidth=2.5;" value="&lt;b&gt;Frozen equations&lt;/b&gt;&lt;br&gt;Four sub-metrics and the fused EuqVid, with constants, thresholds and applicability domain" vertex="1">
+          <mxGeometry height="82" width="546" x="20" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v63" parent="v61" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;strokeWidth=2.5;" value="&lt;b&gt;Audit dashboard&lt;/b&gt;&lt;br&gt;Streamlit + SHAP: score a new video dataset before training, with per-feature attributions" vertex="1">
+          <mxGeometry height="82" width="546" x="586" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v64" parent="v61" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;align=left;verticalAlign=top;spacingLeft=8;spacingRight=6;spacingTop=4;strokeWidth=2.5;" value="&lt;b&gt;Write-up&lt;/b&gt;&lt;br&gt;Four individual theses and one group thesis (Gate 0, fusion, validation)" vertex="1">
+          <mxGeometry height="82" width="546" x="1152" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v65" parent="1" style="swimlane;html=1;startSize=34;collapsible=0;horizontal=1;align=left;spacingLeft=10;fontSize=16;fontStyle=0;strokeColor=#000000;fontFamily=Helvetica;fontColor=#000000;fillColor=#FFFFFF;swimlaneFillColor=#FFFFFF;" value="&lt;b&gt;Legend&lt;/b&gt;" vertex="1">
+          <mxGeometry height="142" width="640" x="1780" y="1878" as="geometry" />
+        </mxCell>
+        <mxCell id="v66" parent="v65" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="" vertex="1">
+          <mxGeometry height="22" width="44" x="16" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v67" parent="v65" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="Component step" vertex="1">
+          <mxGeometry height="26" width="250" x="72" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="v68" parent="v65" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;dashed=1;" value="" vertex="1">
+          <mxGeometry height="22" width="44" x="330" y="46" as="geometry" />
+        </mxCell>
+        <mxCell id="v69" parent="v65" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="Shared group asset (Gate 0)" vertex="1">
+          <mxGeometry height="26" width="250" x="386" y="44" as="geometry" />
+        </mxCell>
+        <mxCell id="v70" parent="v65" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;fillColor=#D9D9D9;" value="" vertex="1">
+          <mxGeometry height="22" width="44" x="16" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="v71" parent="v65" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="Group-level phase" vertex="1">
+          <mxGeometry height="26" width="250" x="72" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="v72" parent="v65" style="rounded=0;whiteSpace=wrap;html=1;strokeColor=#000000;fillColor=#FFFFFF;fontSize=14;fontFamily=Helvetica;fontColor=#000000;strokeWidth=2.5;" value="" vertex="1">
+          <mxGeometry height="22" width="44" x="330" y="78" as="geometry" />
+        </mxCell>
+        <mxCell id="v73" parent="v65" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="Deliverable / final output" vertex="1">
+          <mxGeometry height="26" width="250" x="386" y="76" as="geometry" />
+        </mxCell>
+        <mxCell id="e74" edge="1" parent="v65" style="html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="16" y="121" as="sourcePoint" />
+            <mxPoint x="60" y="121" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v75" parent="v65" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="Data flow" vertex="1">
+          <mxGeometry height="26" width="250" x="72" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="e76" edge="1" parent="v65" style="html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;dashed=1;" value="">
+          <mxGeometry relative="1" as="geometry">
+            <mxPoint x="330" y="121" as="sourcePoint" />
+            <mxPoint x="374" y="121" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="v77" parent="v65" style="text;html=1;align=left;verticalAlign=middle;fontSize=14;fontFamily=Helvetica;fontColor=#000000;" value="Cross-component input" vertex="1">
+          <mxGeometry height="26" width="250" x="386" y="108" as="geometry" />
+        </mxCell>
+        <mxCell id="e78" edge="1" parent="1" source="v2" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v6" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e79" edge="1" parent="1" source="v6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v13" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e80" edge="1" parent="1" source="v14" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.125;entryY=0;entryDx=0;entryDy=0;" target="v27" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e81" edge="1" parent="1" source="v27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.125;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v45" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e82" edge="1" parent="1" source="v45" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v49" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e83" edge="1" parent="1" source="v17" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.375;entryY=0;entryDx=0;entryDy=0;" target="v27" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e84" edge="1" parent="1" source="v27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.375;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v46" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e85" edge="1" parent="1" source="v46" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v49" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e86" edge="1" parent="1" source="v20" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.625;entryY=0;entryDx=0;entryDy=0;" target="v27" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e87" edge="1" parent="1" source="v27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.625;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v47" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e88" edge="1" parent="1" source="v47" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v49" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e89" edge="1" parent="1" source="v23" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.875;entryY=0;entryDx=0;entryDy=0;" target="v27" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e90" edge="1" parent="1" source="v27" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.875;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v48" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e91" edge="1" parent="1" source="v48" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v49" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e92" edge="1" parent="1" source="v49" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v53" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e93" edge="1" parent="1" source="v53" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v54" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e94" edge="1" parent="1" source="v54" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;endArrow=block;endFill=1;endSize=7;strokeColor=#000000;strokeWidth=1.5;exitX=0.5;exitY=1;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" target="v61" value="">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

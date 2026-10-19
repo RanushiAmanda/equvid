@@ -68,3 +68,9 @@ desktop.ini
 *.log
 scratch/
 tmp/
+
+# draw.io saves a hidden backup (.$<name>.drawio.bkp) beside every diagram
+*.bkp
+
+# Local copies written by Claude sessions; the real files live in docs/ and components/
+Claude outputs/
