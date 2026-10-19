@@ -27,10 +27,9 @@ src/
 ├── temporal/      C2 — speaking_time_share, turn_count_share, mean_turn_length,
 │                       interruption_asymmetry, speech_dispersion,
 │                       presence_voice_gap
-├── text/          C3 — dialogue_volume_share, mean_utterance_length,
-│                       agency_score_mean, power_score_mean,
-│                       same_gender_dialogue_share, gendered_reference_ratio,
-│                       sentiment_valence_mean
+├── text/          C3 — mean_utterance_length, agency_score_mean,
+│                       power_score_mean, same_gender_dialogue_share,
+│                       ref_log_parity, sentiment_valence_mean
 ├── audio/         C4 — mean_voice_loudness, speech_to_background_ratio,
 │                       dynamic_range, f0_std, energy_std, amplitude_std
 └── shared/        group-level, one implementation for all four
@@ -43,10 +42,10 @@ src/
     └── fusion.py         the four sub-scores into one EuqVid score
 ```
 
-C3 note (19 Oct): the first results recommend dropping `dialogue_volume_share` from
-the C3 equation (r = 0.96–0.97 with C2's speaking-time parity) and replacing
-`gendered_reference_ratio` with `ref_log_parity`. Both are open group decisions —
-see `components/C3_Text/results/C3_results_01_lexical_features.md`.
+C3 note (19 Oct 2026): `dialogue_volume_share` has left the C3 equation, because
+it repeats C2's speaking-time parity (r = 0.96–0.97); it is kept as a check.
+`gendered_reference_ratio` is replaced by `ref_log_parity`, which the group still has
+to confirm. See `components/C3_Text/C3_decision_log.md`.
 
 ## Three rules that apply to every module here
 

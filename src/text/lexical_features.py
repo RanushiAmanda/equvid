@@ -18,6 +18,9 @@ re-extraction. That keeps C3 unblocked while the shard design is still open.
 Sign convention (shared-conventions proposal): positive = higher for women.
 
   volume_log_parity        F1  log((words_F / persons_F) / (words_M / persons_M))
+                               CHECK ONLY since 19 Oct 2026: it repeats C2's
+                               speaking-time parity (r = 0.96-0.97), so it left
+                               the C3 equation (decision D1 in C3_decision_log.md)
   volume_share_F           F1 exactly as the spec words it: words_F / all words.
                                Reported, not modelled: it moves with headcount.
   length_log_ratio         F3  log(mean words per utterance, F / M), all lines
@@ -250,6 +253,23 @@ FEATURES = ["volume_log_parity", "volume_share_F", "length_log_ratio",
             "gref_share_diff", "cross_ref_share_diff", "talked_about_log",
             "time_log_parity"]
 
+# What each number is for. Only "equation" features go into the C3 model;
+# agency, power and sentiment are added by their own scripts. The reasons are
+# in components/C3_Text/C3_decision_log.md (D1 = F1 dropped, D2 = ref_log_parity).
+ROLE = {
+    "length_log_ratio": "equation",          # F3 mean_utterance_length
+    "same_gender_excess_diff": "equation",   # same_gender_dialogue_share
+    "ref_log_parity": "equation",            # replaces gendered_reference_ratio (D2)
+    "length_log_ratio_ge3": "sensitivity",   # F3 without lines of 1-2 words
+    "volume_log_parity": "check",            # F1, dropped from the equation (D1)
+    "volume_share_F": "check",               # F1 as the spec words it
+    "time_log_parity": "check",              # C2's quantity, only for the F1 check
+    "gref_share_diff": "superseded",         # gendered_reference_ratio as documented
+    "cross_ref_share_diff": "superseded",    # reduces to the referent mix
+    "talked_about_log": "superseded",        # = ref_log_parity - F1
+}
+MODEL_FEATURES = [f for f, role in ROLE.items() if role == "equation"]
+
 
 def pooled(stats, clip_ids):
     """Sum counts over a list of clips (repeats allowed) and compute features."""
@@ -287,7 +307,8 @@ def corpus_summary(stats, scored, n_boot, seed=0):
         boots = pd.DataFrame(boots)
         for f in FEATURES:
             lo, hi = np.nanpercentile(boots[f], [2.5, 97.5])
-            rows.append({"corpus": corpus, "feature": f, "estimate": est[f],
+            rows.append({"corpus": corpus, "feature": f, "role": ROLE[f],
+                         "estimate": est[f],
                          "ci_low": lo, "ci_high": hi,
                          "n_clips": len(sg) if f == "same_gender_excess_diff" else len(base),
                          "n_series": len(series), "n_boot": n_boot,

@@ -6,8 +6,9 @@
 Reads   derived/c3/c3_lexical_features.csv
         equvid/components/C3_Text/results/c3_lexical_corpus_summary.csv
 Writes  equvid/components/C3_Text/results/
-          fig1_corpus_parity.png     pooled value and 95% CI per feature and corpus
-          fig2_words_vs_time.png     F1 against C2's speaking-time parity, per clip
+          fig1_corpus_parity.png     the C3 equation features: pooled value and 95% CI
+          fig2_words_vs_time.png     F1 against C2's speaking-time parity, per clip:
+                                     the evidence for dropping F1 from the equation
           fig3_clip_coverage.png     share of clips where each feature can be computed
 
 Every number drawn here is also in the CSVs, which are the table view.
@@ -35,11 +36,12 @@ plt.rcParams.update({
     "axes.labelcolor": INK, "text.color": INK, "savefig.dpi": 200,
 })
 
-PANELS = [  # feature, title, unit of the value label
-    ("volume_log_parity", "Words per person (F1)", "log"),
+PANELS = [  # feature, title, unit of the value label -- the C3 equation features only.
+    # F1 (words per person) is not here: it left the C3 equation on 19 Oct 2026
+    # because it repeats C2 (fig2). It is still computed, as a pipeline check.
     ("length_log_ratio", "Words per utterance (F3)", "log"),
     ("same_gender_excess_diff", "Same-gender replies above chance", "pts"),
-    ("ref_log_parity", "Times referred to as he / she,\nper person (proposed)", "log"),
+    ("ref_log_parity", "Referred to as he / she,\nper person (new)", "log"),
 ]
 
 
@@ -59,7 +61,7 @@ def clean(ax):
 
 
 def fig1(summary, out):
-    fig, axes = plt.subplots(1, 4, figsize=(13, 3.4), sharey=True)
+    fig, axes = plt.subplots(1, len(PANELS), figsize=(10.5, 3.4), sharey=True)
     corpora = ["AMI", "MELD"]                    # drawn bottom-up, so MELD is on top
     for ax, (feat, title, unit) in zip(axes, PANELS):
         s = summary[summary.feature == feat].set_index("corpus")
@@ -82,7 +84,7 @@ def fig1(summary, out):
         ax.set_title(title, fontsize=10, loc="left")
         ax.set_xlabel("← men higher     women higher →", fontsize=8.5, color=MUTED)
         clean(ax)
-    fig.suptitle("First C3 results: women vs men, pooled per corpus, 95% CI "
+    fig.suptitle("C3 features without a parser: women vs men per corpus, 95% CI "
                  "(bootstrap over series)", x=0.01, ha="left", fontsize=11.5)
     fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(out, bbox_inches="tight")
@@ -107,7 +109,7 @@ def fig2(clips, out):
     ax.set_aspect("equal")
     ax.set_xlabel("C2: speaking time per person, log(F / M)")
     ax.set_ylabel("C3 F1: words per person, log(F / M)")
-    ax.set_title("F1 repeats what C2 already measures", loc="left", fontsize=11.5)
+    ax.set_title("F1 repeats C2, so it leaves the C3 equation", loc="left", fontsize=11.5)
     ax.legend(frameon=False, loc="upper left", fontsize=9)
     ax.annotate("line = identical", (1.75, 2.05), fontsize=8, color=MUTED, rotation=45)
     for side in ("top", "right"):
@@ -118,12 +120,11 @@ def fig2(clips, out):
 
 
 def fig3(clips, out):
-    feats = [("volume_log_parity", "Words per person (F1)"),
-             ("length_log_ratio", "Words per utterance (F3)"),
+    feats = [("length_log_ratio", "Words per utterance (F3)"),
              ("same_gender_excess_diff", "Same-gender replies"),
-             ("ref_log_parity", "References as he / she")]
+             ("ref_log_parity", "Referred to as he / she")]
     v = clips[clips.status == "valid"]
-    fig, ax = plt.subplots(figsize=(7.2, 3.3))
+    fig, ax = plt.subplots(figsize=(7.2, 2.7))
     shades = {"MELD": INK, "AMI": "#a3a3a3"}
     h = 0.34
     for i, (f, label) in enumerate(feats):

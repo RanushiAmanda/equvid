@@ -8,7 +8,7 @@ import math
 
 import pandas as pd
 
-from lexical_features import add_previous_speaker, features
+from lexical_features import FEATURES, MODEL_FEATURES, ROLE, add_previous_speaker, features
 from wordlists import pronoun_counts, tokens
 
 
@@ -72,6 +72,13 @@ def test_parity_features():
 def test_pronouns():
     t = tokens("She told him that HER brother and his wife can't come; they'll call you.")
     assert pronoun_counts(t) == {"fem3": 2, "masc3": 2, "neut3": 1, "first": 0, "second": 1}
+
+
+def test_roles():
+    # Every computed number has a stated role, and F1 is not in the equation (D1).
+    assert set(ROLE) == set(FEATURES)
+    assert "volume_log_parity" not in MODEL_FEATURES
+    assert MODEL_FEATURES == ["length_log_ratio", "same_gender_excess_diff", "ref_log_parity"]
 
 
 if __name__ == "__main__":
