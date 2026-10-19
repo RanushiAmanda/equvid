@@ -1,0 +1,11 @@
+# C3 (EuqVid-Text) - packages for the local, CPU-only part of the pipeline.
+# Installed by setup_c3.bat. The ASR (Whisper) pass runs in Colab and needs nothing here.
+
+spacy>=3.7,<4          # tokenising, lemmas, dependency parse -> subject-verb pairs for F4/F5
+vaderSentiment==3.3.2  # candidate sentiment tool for F8 (provisional until the F8 decision is made)
+imageio-ffmpeg>=0.5    # ships an ffmpeg executable, used to cut AVA minutes 15-30 audio for ASR
+pandas>=2.0            # tables in src/text (also in equvid/requirements.txt)
+matplotlib>=3.7        # charts in src/text/plot_lexical.py
+
+# English model, installed separately by setup_c3.bat:
+#   python -m spacy download en_core_web_sm

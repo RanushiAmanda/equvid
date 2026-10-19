@@ -1,0 +1,26 @@
+C3 setup check - 2026-10-11 18:11
+Python 3.13.3 at C:\Python313\python.exe
+Research Project folder: D:\SLIIT\4th Year\Y4 S1\Research Project
+
+PART 1 - INSTALL CHECKS
+  [OK] spaCy + en_core_web_sm: spaCy 3.8.16, model 3.8.0; subject-verb pairs in a test sentence: [('She', 'grab'), ('he', 'wait')]
+  [OK] VADER: compound +0.85 for a positive and -0.77 for a negative test line
+  [OK] ffmpeg (imageio-ffmpeg): ffmpeg version 7.1-essentials_build-www.gyan.dev Copyright ( | C:\Users\Asus Vivobook\AppData\Roaming\Python\Python313\site-packages\imageio_ffmpeg\binaries\ffmpeg-win-x86_64-v7.1.exe
+  [OK] Agency/power lexicon: 2148 verbs (2145 with agency, 1736 with power); checksum matches
+
+PART 2 - SMOKE TESTS ON MELD
+
+  A. Lexicon coverage on MELD (train) - spec risk R4 / deliverable D5
+     all verb tokens            12,522   agency label 89.8%   power label 81.5%
+     verbs with 'I' as subject   3,361   agency label 91.2%   power label 87.2%
+     most frequent verbs with no entry: have (701), be (158), wanna (95), suck (20), freak (12), hat (11), uhh (10), got (9), y'know (8), screw (8), wh (7), ow (7)
+     (9,989 utterances parsed in 6 s)
+
+  B. VADER vs MELD's human sentiment labels (train + dev + test) - evidence for F8
+     negative  precision 56.8%   recall 24.5%
+     neutral   precision 51.0%   recall 52.3%
+     positive  precision 28.3%   recall 48.6%
+     accuracy 43.0% (always guessing the most common label would score 47.0%); macro-F1 0.41; n = 13,708
+     Note: MELD's annotators also saw the video and heard the audio, so a text-only tool has a ceiling below 100%.
+
+RESULT: everything C3 needs on this computer is installed and working.
