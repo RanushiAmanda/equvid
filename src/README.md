@@ -29,7 +29,7 @@ src/
 │                       presence_voice_gap
 ├── text/          C3 — mean_utterance_length, agency_score_mean,
 │                       power_score_mean, same_gender_dialogue_share,
-│                       ref_log_parity, sentiment_valence_mean
+│                       ref_log_parity
 ├── audio/         C4 — mean_voice_loudness, speech_to_background_ratio,
 │                       dynamic_range, f0_std, energy_std, amplitude_std
 └── shared/        group-level, one implementation for all four
@@ -42,10 +42,16 @@ src/
     └── fusion.py         the four sub-scores into one EuqVid score
 ```
 
-C3 note (19 Oct 2026): `dialogue_volume_share` has left the C3 equation, because
-it repeats C2's speaking-time parity (r = 0.96–0.97); it is kept as a check.
-`gendered_reference_ratio` is replaced by `ref_log_parity`, which the group still has
-to confirm. See `components/C3_Text/C3_decision_log.md`.
+C3 notes:
+
+- **19 Oct 2026:** `dialogue_volume_share` has left the C3 equation, because it repeats
+  C2's speaking-time parity (r = 0.96–0.97); it is kept as a check.
+  `gendered_reference_ratio` is replaced by `ref_log_parity`, which the group still has
+  to confirm.
+- **20 Oct 2026:** `sentiment_valence_mean` is dropped. The best model tested failed a
+  gender-word swap check that was fixed in advance.
+
+Details: `components/C3_Text/C3_decision_log.md`.
 
 ## Three rules that apply to every module here
 

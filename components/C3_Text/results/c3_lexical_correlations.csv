@@ -7,10 +7,10 @@ AMI,volume_log_parity,ref_log_parity,12,-0.5447042771037763,-0.4685314685314686
 AMI,ref_log_parity,cross_ref_share_diff,11,-0.8861201530967594,-0.8636363636363636
 AMI,volume_log_parity,talked_about_log,12,-0.7392179208431622,-0.5664335664335665
 AMI,gref_share_diff,ref_log_parity,12,0.35357859314070705,0.14685314685314685
-MELD,volume_log_parity,time_log_parity,173,0.9630398118348159,0.9584575234899018
-MELD,volume_log_parity,length_log_ratio,173,0.4278545600257033,0.36066675628444683
-MELD,length_log_ratio,length_log_ratio_ge3,173,0.8532881454598958,0.8445795921772951
-MELD,volume_log_parity,same_gender_excess_diff,129,-0.20432882220952495,-0.19404069767441862
+MELD,volume_log_parity,time_log_parity,173,0.9630398118348156,0.9584575234899018
+MELD,volume_log_parity,length_log_ratio,173,0.42785456002570327,0.36066675628444683
+MELD,length_log_ratio,length_log_ratio_ge3,173,0.8532881454598966,0.8445795921772951
+MELD,volume_log_parity,same_gender_excess_diff,129,-0.20432882220952492,-0.19404069767441862
 MELD,volume_log_parity,ref_log_parity,31,0.005493814987678051,0.023686811951602698
 MELD,ref_log_parity,cross_ref_share_diff,24,-0.9242053117267427,-0.9232454478259633
 MELD,volume_log_parity,talked_about_log,31,-0.588449972077498,-0.5556451612903226

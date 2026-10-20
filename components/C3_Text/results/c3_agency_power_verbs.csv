@@ -1,0 +1,61 @@
+corpus,gender,verb,frames,share,agency_label,power_label
+AMI,F,think,1220,0.3141091658084449,agency_pos,power_equal
+AMI,F,mean,581,0.14958805355303811,agency_neg,power_equal
+AMI,F,have (not in lexicon),161,0.04145211122554068,,
+AMI,F,guess,144,0.037075180226570546,agency_neg,power_equal
+AMI,F,get,115,0.0296086508753862,agency_pos,power_agent
+AMI,F,go,108,0.027806385169927908,agency_equal,power_equal
+AMI,F,do,105,0.027033985581874358,agency_pos,power_agent
+AMI,F,know,92,0.02368692070030896,agency_neg,power_agent
+AMI,F,say,90,0.023171987641606592,agency_pos,power_equal
+AMI,F,like,85,0.02188465499485067,agency_equal,power_theme
+AMI,F,dunno (not in lexicon),85,0.02188465499485067,,
+AMI,F,see,78,0.02008238928939238,agency_neg,power_equal
+AMI,F,want,54,0.013903192584963954,agency_neg,power_theme
+AMI,F,give,37,0.00952626158599382,agency_pos,power_agent
+AMI,F,suppose,35,0.009011328527291453,agency_equal,power_equal
+AMI,M,think,1734,0.29162462159434915,agency_pos,power_equal
+AMI,M,mean,731,0.12293979145644131,agency_neg,power_equal
+AMI,M,have (not in lexicon),296,0.04978136562394887,,
+AMI,M,guess,262,0.04406323578876556,agency_neg,power_equal
+AMI,M,go,185,0.031113353514968047,agency_equal,power_equal
+AMI,M,say,174,0.029263370332996974,agency_pos,power_equal
+AMI,M,get,166,0.02791792801883619,agency_pos,power_agent
+AMI,M,see,157,0.026404305415405314,agency_neg,power_equal
+AMI,M,do,132,0.022199798183652877,agency_pos,power_agent
+AMI,M,know,130,0.02186343760511268,agency_neg,power_agent
+AMI,M,dunno (not in lexicon),121,0.020349815001681804,,
+AMI,M,like,107,0.017995290951900438,agency_equal,power_theme
+AMI,M,want,93,0.01564076690211907,agency_neg,power_theme
+AMI,M,try,91,0.015304406323578877,agency_pos,power_equal
+AMI,M,suppose,85,0.014295324587958291,agency_equal,power_equal
+MELD,F,think,141,0.09161793372319688,agency_pos,power_equal
+MELD,F,know,138,0.08966861598440545,agency_neg,power_agent
+MELD,F,go,121,0.07862248213125406,agency_equal,power_equal
+MELD,F,mean,119,0.07732293697205977,agency_neg,power_equal
+MELD,F,have (not in lexicon),98,0.06367771280051981,,
+MELD,F,get,85,0.05523066926575698,agency_pos,power_agent
+MELD,F,do,73,0.04743339831059129,agency_pos,power_agent
+MELD,F,want,46,0.029889538661468484,agency_neg,power_theme
+MELD,F,love,43,0.02794022092267706,agency_pos,power_equal
+MELD,F,tell,32,0.02079272254710851,agency_pos,power_equal
+MELD,F,say,31,0.02014294996751137,agency_pos,power_equal
+MELD,F,see,30,0.01949317738791423,agency_neg,power_equal
+MELD,F,need,26,0.016894087069525665,agency_neg,power_theme
+MELD,F,feel,26,0.016894087069525665,agency_equal,power_equal
+MELD,F,guess,20,0.01299545159194282,agency_neg,power_equal
+MELD,M,think,141,0.08211997670355271,agency_pos,power_equal
+MELD,M,get,136,0.07920792079207921,agency_pos,power_agent
+MELD,M,have (not in lexicon),133,0.07746068724519511,,
+MELD,M,mean,123,0.0716365754222481,agency_neg,power_equal
+MELD,M,go,123,0.0716365754222481,agency_equal,power_equal
+MELD,M,know,97,0.056493884682585906,agency_neg,power_agent
+MELD,M,do,81,0.04717530576587071,agency_pos,power_agent
+MELD,M,want,75,0.043680838672102505,agency_neg,power_theme
+MELD,M,see,43,0.025043680838672103,agency_neg,power_equal
+MELD,M,love,36,0.020966802562609202,agency_pos,power_equal
+MELD,M,say,35,0.0203843913803145,agency_pos,power_equal
+MELD,M,guess,31,0.0180547466511357,agency_neg,power_equal
+MELD,M,like,28,0.016307513104251603,agency_equal,power_theme
+MELD,M,tell,27,0.0157251019219569,agency_pos,power_equal
+MELD,M,make,21,0.0122306348281887,agency_pos,power_agent

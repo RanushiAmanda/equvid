@@ -4,14 +4,14 @@ Owner: Fernando R. S. R. (IT23449282). Newest first. Each entry has the decision
 evidence behind it, and who still has to agree. Features are named, not numbered: the
 F-numbers in the specification and the AVA decision note do not agree.
 
-**Feature set for the C3 equation after these decisions (6):** `mean_utterance_length`,
-`agency_score_mean`, `power_score_mean`, `same_gender_dialogue_share`, `ref_log_parity`,
-`sentiment_valence_mean` (tool not yet validated). At degree 2 that is 28 coefficients,
-the per-component cap.
+**Feature set for the C3 equation after these decisions (5):** `mean_utterance_length`,
+`agency_score_mean`, `power_score_mean`, `same_gender_dialogue_share`, `ref_log_parity`.
+At degree 2 that is 21 coefficients, under the per-component cap of 28.
+`sentiment_valence_mean` was dropped on 20 Oct 2026 (D6).
 
 ---
 
-## D6 · 20 Oct 2026 · Sentiment (F8): test a stronger model, with pass criteria fixed first
+## D6 · 20 Oct 2026 · Sentiment (F8) is dropped, after a model test with criteria fixed first
 
 **Why a test.** VADER, the first candidate, failed on MELD's human sentiment labels. Its
 accuracy was 43.0% and macro-F1 0.41, while always answering "neutral" scores 47.0%.
@@ -43,7 +43,20 @@ If any check fails, F8 is dropped and this evidence is what the log cites.
 **These thresholds are judgement calls.** They are written down before the model is run,
 so they cannot be adjusted to fit the result. Code: `sentiment_check.py`.
 
-**Status.** Criteria fixed; the result will be added here.
+**Result (20 Oct 2026, `results/C3_results_03_sentiment_check.md`).** F8 is dropped.
+
+| Check | Result | Passed |
+|---|---|---|
+| 1 Accuracy | 60.6%, macro-F1 0.58 (VADER: 43.0%, 0.41) | yes |
+| 2 Gender-word swap | the label changed on **5.9%** of 2,572 swapped lines; mean shift −0.014 (female versions score lower) | **no**: the flip limit was 3% |
+| 3 Agreement | model −0.019 against a human CI of −0.059 to +0.033 | yes |
+
+The model is far better than VADER, but its own reaction to gender words is about the
+same size as the gender difference it would be asked to measure. A bias metric cannot
+inherit that.
+
+C3 keeps five features (21 coefficients). Sentiment goes to future work, and any
+replacement tool must pass the same three checks.
 
 ## D5 · 20 Oct 2026 · How agency and power are measured (fixed before the first run)
 
@@ -86,7 +99,11 @@ any result is seen keeps it from being chosen to suit the result.
 
 **Status.** C3 method choice. The code (`frames.py`, `parse_frames.py`,
 `agency_power_features.py`) was written and tested on hand-built parses before spaCy was
-run on any corpus.
+run on any corpus. It went to GitHub in commit `3e95eb8` before the first parse.
+
+**Result (20 Oct 2026, `results/C3_results_02_agency_power.md`).** Neither feature shows a
+gender difference on MELD or AMI. The checks agree. One exploratory pattern, less agency
+for "she" than for "he" in MELD, goes to AVA as a hypothesis.
 
 ## D1 · 19 Oct 2026 · `dialogue_volume_share` (F1) leaves the C3 equation
 

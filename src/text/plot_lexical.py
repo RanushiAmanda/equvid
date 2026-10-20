@@ -22,6 +22,7 @@ from pathlib import Path
 import matplotlib
 matplotlib.use("Agg")
 import matplotlib.pyplot as plt
+from matplotlib.ticker import MaxNLocator
 import numpy as np
 import pandas as pd
 
@@ -58,7 +59,7 @@ def value_label(v, unit):
     if unit == "pts":
         txt = f"{100 * v:+.1f} pts"
     elif unit == "diff":
-        txt = f"{v:+.2f}"
+        txt = "0.00" if abs(v) < 0.005 else f"{v:+.2f}"   # no "-0.00"
     else:
         txt = f"{v:+.2f} ({100 * (np.exp(v) - 1):+.0f}%)"
     return txt.replace("-", "\u2212")          # typographic minus, as on the axis
@@ -91,6 +92,7 @@ def dot_whisker(summary, panels, suptitle, out, note):
             ax.annotate(note(r), (span, y), xytext=(0, -13),
                         textcoords="offset points", ha="right", fontsize=7.5, color=MUTED)
         ax.set_xlim(-span, span)
+        ax.xaxis.set_major_locator(MaxNLocator(nbins=4, symmetric=True))  # no crowded ticks
         ax.set_ylim(-0.6, 1.6)
         ax.set_yticks([0, 1], corpora)
         ax.set_title(title, fontsize=10, loc="left")

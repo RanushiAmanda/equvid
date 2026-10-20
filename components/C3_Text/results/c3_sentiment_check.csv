@@ -1,0 +1,15 @@
+check,measure,value,criterion,passed
+1 accuracy,macro_f1,0.5834023314105216,>= 0.5,True
+1 accuracy,accuracy,0.6061136645509594,>= 0.52,True
+1 accuracy,majority_class_accuracy,0.4694681549573211,reference,
+1 accuracy,negative_precision/recall/f1,0.631/0.447/0.523,reference,
+1 accuracy,neutral_precision/recall/f1,0.645/0.715/0.678,reference,
+1 accuracy,positive_precision/recall/f1,0.509/0.596/0.549,reference,
+1 accuracy,vader_accuracy,0.4296344933245787,reference,
+1 accuracy,vader_macro_f1,0.40555316401522484,reference,
+2 swap,label_flip_rate,0.05909797822706065,<= 0.03,False
+2 swap,mean_shift_female_minus_male,-0.014482459322422578,within +-0.02,True
+2 swap,lines_swapped,2572,reference,
+3 agree,human_labels_F_minus_M,"-0.006 [-0.059, +0.033]",reference,
+3 agree,model_F_minus_M,"-0.019 [-0.036, -0.004]",inside the human 95% CI,True
+decision,keep_F8,no,all checks pass,False

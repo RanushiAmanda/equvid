@@ -6,9 +6,9 @@ Measures what the script writes for each gender. Deliberately
 language-layer-agnostic: it extracts agency and power disparity from whichever
 text layer a corpus provides, so it is not load-bearing on any single corpus.
 
-**Features in the C3 equation (6):** `mean_utterance_length`,
+**Features in the C3 equation (5):** `mean_utterance_length`,
 `agency_score_mean`, `power_score_mean`, `same_gender_dialogue_share`,
-`ref_log_parity`, `sentiment_valence_mean` (tool not yet validated).
+`ref_log_parity`. At degree 2 that is 21 coefficients.
 
 - **`dialogue_volume_share` (F1) left the equation on 19 Oct 2026.** Words per
   person repeat C2's speaking-time parity (r = 0.96 MELD, 0.97 AMI), so the
@@ -20,6 +20,10 @@ text layer a corpus provides, so it is not load-bearing on any single corpus.
   as he/she, per person. It is roster-free like its predecessor. The group
   still has to confirm this, because the earlier F6 rename was a group-level
   change.
+- **`sentiment_valence_mean` (F8) was dropped on 20 Oct 2026.** The best
+  model tested (a RoBERTa sentiment model) got 61% of MELD's human labels right,
+  but it changed its answer on 5.9% of lines when only the gender words were
+  swapped (the limit fixed in advance was 3%).
 - `utterance_count_share` was deleted earlier: it duplicates C2's
   `turn_count_share` and would be double-weighted in the fusion.
 
@@ -42,8 +46,8 @@ with every AVA result.
 | Path | What it is |
 |---|---|
 | `C3_decision_log.md` | Every feature and method decision, with its evidence and who still has to agree |
-| `results/` | Results and charts. Start with `C3_results_01_lexical_features.md` |
-| `setup/` | One-click install for this PC (`setup_c3.bat`) and its check report |
+| `results/` | Results and charts: `C3_results_01_lexical_features.md` (night 1), `C3_results_02_agency_power.md` and `C3_results_03_sentiment_check.md` (night 2) |
+| `setup/` | One-click installs for this PC: `setup_c3.bat` with its check report, and `setup_sentiment.bat` for the D6 check |
 | `EuqVid_Text_Component_Specification.pdf` | The component specification. Markdown source is in the Claude project. Its feature table predates the decision log |
 | `proposals/` | Four proposal drafts — `_v3` is the current one |
 | `diagrams/` | Six draw.io figures with PNG exports: overall architecture, component architecture, use case, sequence, WBS, gantt |
@@ -53,10 +57,9 @@ the tables, features and charts.
 
 ## Still open
 
-- Agency and power features (`agency_score_mean`, `power_score_mean`): the
-  spaCy script is next.
-- Sentiment: VADER did not beat the majority class on MELD's labels. Choose a
-  validated tool, or drop the feature.
+- Agency and power: computed (results 02). In a 100-frame check, 95 frames were
+  correct (Claude's reading). Still to do: fill in `author_check` in
+  `results/c3_frame_check_sample.csv`, about 15 minutes.
 - `same_gender_dialogue_share`: keep or drop. It can be computed on only 34% of
   AMI meetings, and on AMI it still tracks floor share.
 - Verify AVA clip count and current licence terms on the distributor's own page
