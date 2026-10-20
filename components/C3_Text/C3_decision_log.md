@@ -11,6 +11,40 @@ the per-component cap.
 
 ---
 
+## D6 · 20 Oct 2026 · Sentiment (F8): test a stronger model, with pass criteria fixed first
+
+**Why a test.** VADER, the first candidate, failed on MELD's human sentiment labels. Its
+accuracy was 43.0% and macro-F1 0.41, while always answering "neutral" scores 47.0%.
+Only MELD has human labels, so AMI and AVA need a tool. Sentiment tools are also known to
+carry gender bias of their own, which a bias metric would then inherit. The C3 lead chose
+to test a stronger model before deciding.
+
+**The test.**
+
+- **Model:** `cardiffnlp/twitter-roberta-base-sentiment-latest`, used as it is, with no
+  fine-tuning.
+- **Score per line:** valence = P(positive) − P(negative), from −1 to +1.
+- **Feature:** the mean over lines of 3 or more words (the shared turn rule), women minus
+  men.
+
+**F8 stays only if all three checks pass:**
+
+1. **Accuracy.** On MELD's human labels, macro-F1 ≥ 0.50 and accuracy ≥ 52%.
+2. **Gender-word swap.** In MELD lines, gender words are replaced by their partners:
+   he/she, man/woman, father/mother, the six main names and so on. "her" is left out,
+   because it maps to both "him" and "his". To pass:
+   - the predicted label may change on at most 3% of swapped lines;
+   - the mean valence shift (female version minus male version) must stay within ±0.02.
+3. **Agreement.** On MELD, the model's women-minus-men difference must fall inside the
+   95% CI of the same difference computed from the human labels.
+
+If any check fails, F8 is dropped and this evidence is what the log cites.
+
+**These thresholds are judgement calls.** They are written down before the model is run,
+so they cannot be adjusted to fit the result. Code: `sentiment_check.py`.
+
+**Status.** Criteria fixed; the result will be added here.
+
 ## D5 · 20 Oct 2026 · How agency and power are measured (fixed before the first run)
 
 **Decision.** `agency_score_mean` and `power_score_mean` use the verbs whose subject is

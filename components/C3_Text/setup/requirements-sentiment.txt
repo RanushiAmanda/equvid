@@ -1,0 +1,5 @@
+# C3 decision D6 only: the sentiment check (src/text/sentiment_check.py).
+# Installed by setup_sentiment.bat. Not needed for any other C3 step.
+
+torch>=2.6           # PyTorch; the default Windows wheel from PyPI is the CPU build
+transformers>=4.44   # loads cardiffnlp/twitter-roberta-base-sentiment-latest
