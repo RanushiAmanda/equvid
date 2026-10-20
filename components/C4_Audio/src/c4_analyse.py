@@ -45,7 +45,11 @@ import sys
 FEATURES = [
     ("mean_voice_loudness_rel", "loudness (referenced)", "LU"),
     ("speech_to_background", "speech-to-background", "LU"),
-    ("dynamic_range", "dynamic range", "LU"),
+    ("dynamic_range", "dynamic range (max-min)", "LU"),
+    ("dynamic_range_iqr", "dynamic range (IQR)", "LU"),
+    ("dynamic_range_sd", "dynamic range (SD)", "LU"),
+    ("mean_turn_s", "selected turn duration", "s"),
+    ("mean_n_blocks", "blocks measured", ""),
     ("f0_std", "f0_std (hertz)", "Hz"),
     ("f0_semitone_std", "f0_std (semitones)", "st"),
     ("energy_std", "energy_std", ""),
@@ -76,7 +80,7 @@ def main():
     here = os.path.dirname(os.path.abspath(__file__))
     ap = argparse.ArgumentParser(description="Series-level aggregation of C4 AMI output.")
     ap.add_argument("--csv", default=os.path.normpath(
-        os.path.join(here, "..", "output", "c4_batch_ami_v3.csv")))
+        os.path.join(here, "..", "output", "c4_batch_ami_v4.csv")))
     ap.add_argument("--out-dir", default=os.path.normpath(os.path.join(here, "..", "output")))
     a = ap.parse_args()
 
@@ -138,7 +142,7 @@ def main():
     print("  Male minus female, averaged within series, then across series.")
     print("  Sign test is on series, two-sided, exact.\n")
 
-    hdr = (f"  {'feature':<24}{'mean':>9}{'SD':>8}{'M>F':>8}{'p':>9}"
+    hdr = (f"  {'feature':<26}{'mean':>9}{'SD':>8}{'M>F':>8}{'p':>9}"
            f"{'  without largest':>18}")
     print(hdr)
     print("  " + "-" * (len(hdr) - 2))
@@ -159,7 +163,7 @@ def main():
         drop_series = per_series[[j for j, r in enumerate(per_series)
                                   if r[key] is not None][i]]["series"]
 
-        print(f"  {label:<24}{arr.mean():>+9.2f}{arr.std(ddof=1):>8.2f}"
+        print(f"  {label:<26}{arr.mean():>+9.2f}{arr.std(ddof=1):>8.2f}"
               f"{k:>4}/{len(arr):<3}{p:>9.4f}"
               f"{loo.mean():>+12.2f} ({drop_series})")
         summary.append((label, unit, arr, k, p, loo.mean(), drop_series))
@@ -181,7 +185,7 @@ def main():
             verdict = f"significant, but halves without {ds} - fragile"
         else:
             verdict = "difference holds and survives dropping the largest series"
-        print(f"  {label:<24} {k}/{n}, p = {p:.4f}: {verdict}")
+        print(f"  {label:<26} {k}/{n}, p = {p:.4f}: {verdict}")
 
     print(f"\n  Wrote {out}")
     print()
