@@ -1,0 +1,601 @@
+clip_id,utt_id,person_id,gender,split,emotion,window_s,feature_version,status,reason,duration_s,mean_voice_loudness,rms_dbfs,dynamic_range,s2b_proxy,f0_std,f0_semitone_std,energy_std,amplitude_std,n_blocks,p90_lufs,p10_lufs,block_sd,f0_median,voiced_frac
+MELD:S03E23,MELD:dia450_utt21,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.557,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia450_utt17,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.928,-23.622248,-24.579183,7.181241,19.691382,37.178127,2.318998,0.035423,0.057216,17,-20.71103,-40.402413,7.198496,285.409708,0.373016
+MELD:S03E23,MELD:dia74_utt3,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.408,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia319_utt17,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.923,-22.887881,-23.294893,5.463054,9.606119,23.165819,2.161892,0.038974,0.066192,17,-19.415928,-29.022048,3.727239,183.999401,0.65873
+MELD:S03E23,MELD:dia450_utt10,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-19.446312,-19.781818,3.512158,6.751919,47.105931,2.749789,0.071775,0.101928,17,-17.940957,-24.692877,2.767219,285.409708,0.5
+MELD:S03E23,MELD:dia319_utt11,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia450_utt15,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-20.023837,-21.500106,4.263407,14.84787,11.402757,0.556775,0.053643,0.08407,17,-18.02864,-32.87651,7.27393,353.416094,0.555556
+MELD:S03E23,MELD:dia319_utt13,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.728,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia450_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.011,-17.635868,-18.734987,16.146626,22.571903,34.373851,2.020653,0.079121,0.115621,17,-15.223091,-37.794995,9.045654,285.409708,0.52381
+MELD:S03E23,MELD:dia319_utt7,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia100_utt0,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.877,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia100_utt2,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.109,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia100_utt3,MELD:ross,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,2.475,-15.647663,-16.471609,1.817221,16.407007,11.523655,1.101268,0.089307,0.150028,17,-14.606857,-31.013864,6.777218,188.300183,0.611111
+MELD:S03E23,MELD:dia74_utt6,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.219,-18.180504,-18.078168,5.067358,9.841322,17.75767,2.698529,0.05768,0.124723,17,-16.101802,-25.943124,4.455897,116.585778,0.571429
+MELD:S03E23,MELD:dia100_utt7,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.749,,,,,,,,,,,,,,
+MELD:S03E23,MELD:dia100_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.648,-18.882856,-18.632425,1.201857,3.733734,12.204832,1.401506,0.052823,0.117028,17,-17.102148,-20.835881,1.451115,153.83329,0.880952
+MELD:S03E23,MELD:dia450_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.309,-17.17956,-16.737288,2.763884,4.044047,21.196265,2.414698,0.060037,0.145087,17,-15.878242,-19.922289,1.860481,148.593163,0.738095
+MELD:S03E23,MELD:dia42_utt0,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.547,-35.649059,-36.702491,9.058469,14.16123,,,0.00918,0.014605,17,-33.566996,-47.728226,5.966388,,
+MELD:S03E23,MELD:dia74_utt4,MELD:joey,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,2.795,-21.61304,-21.9346,5.790967,13.126006,11.164123,1.673751,0.044442,0.079932,17,-19.687261,-32.813267,5.341811,118.621682,0.293651
+MELD:S03E23,MELD:dia74_utt0,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-15.5377,-15.518211,3.650023,5.320261,60.936524,5.565126,0.073736,0.167414,17,-13.340532,-18.660793,2.160515,170.688722,0.674603
+MELD:S03E06,MELD:dia66_utt3,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.304,-22.347306,-23.654424,4.226443,13.169344,58.405101,3.27971,0.039407,0.065443,17,-20.320884,-33.490228,5.690906,358.558145,0.666667
+MELD:S03E06,MELD:dia66_utt9,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-29.870395,-30.026438,1.784327,7.430205,47.455611,3.173308,0.018596,0.031459,17,-27.04122,-34.471425,3.391041,212.584205,0.222222
+MELD:S03E06,MELD:dia626_utt7,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,5.717,-15.222067,-17.219365,12.05982,13.215361,1.516819,0.412219,0.0795,0.137663,17,-13.389534,-26.604894,5.903918,64.492669,0.095238
+MELD:S03E06,MELD:dia1003_utt0,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.224,-28.402164,-30.607702,5.160275,9.39244,,,0.018225,0.028589,17,-24.903691,-34.29613,3.806557,,
+MELD:S03E06,MELD:dia1003_utt7,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.795,-16.965296,-17.850391,4.178934,8.782762,69.753492,3.808843,0.069443,0.127536,17,-14.690356,-23.473118,3.323603,260.214449,0.166667
+MELD:S03E06,MELD:dia66_utt10,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,6.763,-43.439394,-41.752927,1.167232,11.203194,14.307033,0.968862,0.0057,0.008124,17,-38.892492,-50.095686,4.893671,250.635115,0.142857
+MELD:S03E06,MELD:dia1003_utt5,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.755,-19.939183,-20.509972,1.913738,4.914931,22.48671,1.620676,0.050416,0.093783,17,-17.977602,-22.892533,3.299117,245.609734,0.666667
+MELD:S03E06,MELD:dia385_utt2,MELD:phoebe,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia626_utt0,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.301,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia1003_utt4,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.76,-18.17356,-19.425065,2.82224,4.984919,30.980567,2.152125,0.042385,0.106559,17,-16.355901,-21.340819,1.928943,247.032537,0.642857
+MELD:S03E06,MELD:dia153_utt4,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-18.08996,-17.661666,3.464608,7.795897,24.371785,2.071324,0.066748,0.130844,17,-16.151394,-23.947291,3.777401,191.594809,0.428571
+MELD:S03E06,MELD:dia170_utt7,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-21.047708,-21.260515,4.306975,5.6879,,,0.042778,0.086458,17,-18.893873,-24.581773,2.317517,,
+MELD:S03E06,MELD:dia585_utt0,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,5.632,-22.617188,-25.669205,27.664839,30.44454,6.96955,0.882786,0.040695,0.052064,17,-20.905583,-51.350122,14.047567,140.25327,0.388889
+MELD:S03E06,MELD:dia585_utt4,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.789,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia2_utt12,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.216,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia940_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.704,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia2_utt4,MELD:chandler,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.024,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia2_utt10,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.811,,,,,,,,,,,,,,
+MELD:S03E06,MELD:dia350_utt4,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.483,-29.188657,-29.042493,2.003373,6.529328,5.020874,0.778036,0.020418,0.035275,17,-27.316925,-33.846252,2.870535,108.150056,0.388889
+MELD:S03E06,MELD:dia585_utt10,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.221,-22.771605,-22.704217,1.851546,5.304659,55.115521,3.493617,0.047517,0.073183,17,-21.347977,-26.652636,2.790764,196.069854,0.642857
+MELD:S06E15,MELD:dia772_utt9,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia772_utt12,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.024,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia169_utt1,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.925,-20.023976,-20.886864,10.254522,12.008824,20.497481,0.9882,0.048394,0.089539,17,-16.555506,-28.56433,5.425909,354.439753,0.285714
+MELD:S06E15,MELD:dia772_utt13,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-18.185208,-23.32447,24.725137,30.573033,19.134597,0.990006,0.057756,0.067974,17,-16.533436,-47.106468,13.749761,348.35069,0.079365
+MELD:S06E15,MELD:dia528_utt0,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,12.224,-23.645922,-24.545505,5.515465,12.748948,14.027223,1.16008,0.037438,0.059091,17,-20.326448,-33.075396,5.264354,210.142467,0.246032
+MELD:S06E15,MELD:dia825_utt1,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.003,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia528_utt4,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,9.387,-12.990141,-13.73363,1.16813,2.216625,,,0.030312,0.205627,17,-12.046657,-14.263282,0.874361,,
+MELD:S06E15,MELD:dia772_utt10,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia528_utt3,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,9.024,-18.212457,-18.657632,4.877363,8.768134,10.055354,0.452491,0.054843,0.11659,17,-14.987007,-23.755141,3.346934,389.88115,0.253968
+MELD:S06E15,MELD:dia772_utt14,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.264,-19.554228,-20.695599,8.671744,17.35418,65.514929,4.777241,0.062121,0.092172,17,-15.780224,-33.134404,6.61406,196.657448,0.571429
+MELD:S06E15,MELD:dia541_utt4,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,2.645,-19.653489,-20.627566,2.084601,3.178281,42.635832,3.632937,0.036644,0.092138,17,-18.191777,-21.370058,1.479022,196.069854,0.579365
+MELD:S06E15,MELD:dia169_utt0,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia541_utt11,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,8.512,-17.902043,-19.090757,9.556479,23.058652,33.615627,2.330495,0.065832,0.110809,17,-16.062325,-39.120976,9.388548,242.788666,0.579365
+MELD:S06E15,MELD:dia411_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.429,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia825_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-18.055586,-18.211935,13.305406,16.663378,10.78094,1.750775,0.072847,0.122809,17,-16.030993,-32.694371,7.037349,105.679905,0.531746
+MELD:S06E15,MELD:dia825_utt0,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.152,,,,,,,,,,,,,,
+MELD:S06E15,MELD:dia169_utt2,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.48,-17.169409,-17.542037,1.708419,2.230424,23.321667,2.141741,0.059617,0.13235,17,-16.063937,-18.294361,0.890335,192.701492,0.452381
+MELD:S06E15,MELD:dia541_utt2,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.763,-18.511281,-18.442219,4.836221,11.963815,29.302212,2.137397,0.062304,0.119442,17,-15.349665,-27.31348,4.42118,222.004444,0.619048
+MELD:S06E15,MELD:dia541_utt12,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.88,-20.001786,-19.536844,3.098339,5.02991,34.908143,3.432165,0.049749,0.105292,17,-18.453642,-23.483552,2.074541,196.069854,0.857143
+MELD:S06E15,MELD:dia751_utt0,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia932_utt11,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.011,-18.589769,-19.417855,1.799045,3.920518,31.033193,1.719465,0.045119,0.103416,17,-17.1257,-21.046218,1.518387,288.726009,0.18254
+MELD:S09E20,MELD:dia481_utt2,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.563,-21.677316,-21.099371,6.7221,8.299146,78.201957,4.565607,0.04802,0.088078,17,-18.840542,-27.139688,3.485212,260.968152,0.84127
+MELD:S09E20,MELD:dia932_utt14,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.451,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia184_utt4,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia157_utt0,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.88,-18.566946,-18.736264,3.682623,7.187725,61.390054,6.988584,0.051901,0.114983,17,-16.21783,-23.405555,2.867386,200.081608,0.714286
+MELD:S09E20,MELD:dia481_utt14,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.685,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia862_utt0,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.643,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia184_utt11,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-17.773676,-18.86517,1.726159,2.540286,64.208141,3.728601,0.058019,0.113757,17,-16.536238,-19.076524,1.132172,351.386429,0.634921
+MELD:S09E20,MELD:dia184_utt21,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.629,-17.173753,-17.613504,1.478961,2.168351,37.337534,2.336777,0.060554,0.131122,17,-16.183358,-18.351709,0.982099,249.907086,0.761905
+MELD:S09E20,MELD:dia932_utt8,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-16.632099,-16.480157,2.829832,4.90259,52.424756,2.987422,0.054778,0.149936,17,-14.839132,-19.741721,1.967993,254.271143,0.515873
+MELD:S09E20,MELD:dia184_utt3,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.64,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia932_utt16,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-16.370055,-16.569789,3.041541,5.068331,,,0.042139,0.147564,17,-14.856918,-19.925248,2.043098,,
+MELD:S09E20,MELD:dia184_utt7,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.933,-20.183036,-19.773015,1.47158,2.281906,8.498975,1.24111,0.038683,0.102626,17,-19.023166,-21.305072,0.955768,111.319094,0.809524
+MELD:S09E20,MELD:dia184_utt14,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.856,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia157_utt1,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.395,-23.598054,-23.197178,3.47976,5.710715,20.16009,2.586365,0.038856,0.069193,17,-21.416314,-27.12703,2.474854,136.260531,0.722222
+MELD:S09E20,MELD:dia184_utt18,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.088,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia184_utt5,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia184_utt20,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.216,,,,,,,,,,,,,,
+MELD:S09E20,MELD:dia184_utt10,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.304,-18.129625,-18.635798,2.783601,5.767717,24.418216,1.528545,0.046049,0.116737,17,-16.602016,-22.369733,2.303152,267.839314,0.380952
+MELD:S09E20,MELD:dia932_utt15,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.264,-17.806994,-17.683638,3.520104,5.450624,0.891425,0.178899,0.035201,0.130393,17,-15.710024,-21.160648,2.192999,86.336015,0.468254
+MELD:S03E16,MELD:dia506_utt6,MELD:rachel,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,5.184,-22.10418,-22.941234,13.544353,18.858463,25.317961,1.722154,0.052004,0.071269,17,-19.471469,-38.329932,7.601949,248.463582,0.452381
+MELD:S03E16,MELD:dia212_utt9,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.219,-12.358773,-13.780745,1.495453,3.582588,,,0.068162,0.204575,17,-11.08258,-14.665168,1.339136,,
+MELD:S03E16,MELD:dia212_utt4,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia827_utt4,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.963,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia212_utt1,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia827_utt2,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-17.515999,-18.697686,5.218061,7.323892,26.527682,1.484613,0.062474,0.11574,17,-14.77444,-22.098333,3.051459,313.951221,0.904762
+MELD:S03E16,MELD:dia827_utt12,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia827_utt14,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.435,-20.432705,-21.589523,4.495245,8.927481,37.749239,2.088751,0.050651,0.082838,17,-16.860695,-25.788176,3.472598,325.961387,0.936508
+MELD:S03E16,MELD:dia212_utt0,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-20.264428,-20.921001,7.460062,9.226517,54.570355,3.189248,0.054386,0.089494,17,-16.853376,-26.079893,3.95283,258.715724,0.65873
+MELD:S03E16,MELD:dia212_utt7,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.179,-19.54497,-20.219685,3.674968,8.072775,46.011535,2.783953,0.055551,0.096542,17,-15.976664,-24.049439,3.249515,314.857945,0.849206
+MELD:S03E16,MELD:dia735_utt8,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.437,-24.25461,-23.715613,10.882061,14.926319,18.929304,1.701925,0.044647,0.065144,17,-21.674729,-36.601049,6.292699,200.65277,0.222222
+MELD:S03E16,MELD:dia1030_utt0,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia735_utt10,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.56,-18.768877,-18.806707,2.735746,11.734081,103.980303,7.559015,0.064206,0.114718,17,-16.653364,-28.387445,5.694528,170.688722,0.611111
+MELD:S03E16,MELD:dia506_utt1,MELD:ross,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,3.008,-26.214452,-25.873847,6.167494,7.362914,44.663037,3.212081,0.027517,0.050842,17,-24.293578,-31.656492,3.283109,165.829546,0.666667
+MELD:S03E16,MELD:dia735_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.48,-18.58932,-18.727768,3.791684,14.601305,67.014816,4.562518,0.070202,0.115705,17,-16.591227,-31.192532,5.427504,187.757919,0.285714
+MELD:S03E16,MELD:dia506_utt10,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia506_utt2,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,8.981,-22.745835,-23.280878,7.844188,9.913101,18.314071,0.841859,0.05052,0.068398,17,-19.849752,-29.762853,4.636427,378.781991,0.087302
+MELD:S03E16,MELD:dia1030_utt4,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.52,-19.785787,-19.018046,9.949596,14.623949,40.741957,3.610766,0.069059,0.111823,17,-16.211149,-30.835099,5.821308,177.731706,0.484127
+MELD:S03E16,MELD:dia1030_utt2,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.131,,,,,,,,,,,,,,
+MELD:S03E16,MELD:dia506_utt3,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,2.133,-22.946521,-23.354033,6.008568,13.738334,82.533357,5.042706,0.048964,0.067953,17,-19.99972,-33.738053,5.318656,377.70378,0.47619
+MELD:S04E19,MELD:dia126_utt5,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,9.387,-22.453623,-22.313053,5.175188,7.978959,39.062436,2.943771,0.033491,0.076576,17,-19.895546,-27.874506,3.323414,227.842109,0.230159
+MELD:S04E19,MELD:dia126_utt12,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia126_utt9,MELD:rachel,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.877,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia46_utt3,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,7.147,-19.155156,-20.407586,10.004696,23.401707,22.163874,1.462434,0.067227,0.095391,17,-16.838426,-40.240133,9.420507,255.74412,0.261905
+MELD:S04E19,MELD:dia46_utt11,MELD:monica,F,train,fear,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.896,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia46_utt0,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia46_utt9,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.728,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia46_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.664,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia126_utt7,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.883,-20.118525,-20.349032,4.349806,7.745625,45.938525,3.477193,0.05403,0.095661,17,-16.52725,-24.272876,3.08077,220.08097,0.809524
+MELD:S04E19,MELD:dia46_utt2,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-17.962551,-18.602151,2.873104,4.04871,29.762523,1.509885,0.063809,0.117112,17,-16.292824,-20.341535,1.95935,359.593698,0.896825
+MELD:S04E19,MELD:dia126_utt11,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia46_utt12,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,6.763,-17.184776,-20.819927,26.40799,29.258865,31.105735,1.49051,0.078134,0.0909,17,-15.825173,-45.084038,11.826717,337.45639,0.166667
+MELD:S04E19,MELD:dia46_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.045,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia126_utt4,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,7.019,-17.364657,-17.991804,8.544056,18.399331,6.075152,0.508917,0.074133,0.125982,17,-14.101122,-32.500453,7.427452,200.65277,0.404762
+MELD:S04E19,MELD:dia919_utt0,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.008,-16.703925,-16.342328,5.713092,12.419141,25.730822,2.270286,0.076224,0.152343,17,-14.598835,-27.017976,5.359175,185.065299,0.833333
+MELD:S04E19,MELD:dia46_utt13,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,10.155,-14.832309,-16.22392,3.916965,8.523564,85.192087,6.318737,0.077289,0.151228,17,-12.518989,-21.042553,3.978968,179.844842,0.444444
+MELD:S04E19,MELD:dia46_utt10,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.64,,,,,,,,,,,,,,
+MELD:S04E19,MELD:dia46_utt7,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,4.053,-29.405315,-31.358096,6.956838,20.942642,7.753198,0.351188,0.018363,0.025946,17,-27.6387,-48.581342,8.527381,374.431308,0.055556
+MELD:S04E19,MELD:dia46_utt1,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.179,-17.405631,-18.763419,1.47719,5.216363,12.274502,0.887213,0.067441,0.113216,17,-15.703761,-20.920125,2.581042,249.902917,0.293651
+MELD:S04E19,MELD:dia46_utt14,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia82_utt10,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.435,-18.045605,-19.006709,2.287261,5.01298,26.873603,2.176788,0.062258,0.112098,17,-16.300643,-21.313623,1.895526,226.529835,0.777778
+MELD:S07E22,MELD:dia281_utt5,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia283_utt6,MELD:phoebe,F,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,3.52,-19.482419,-20.799489,8.479164,15.350269,12.645523,2.060092,0.052093,0.091045,17,-17.549508,-32.899776,6.388237,123.516268,0.492063
+MELD:S07E22,MELD:dia179_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.619,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia179_utt18,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.64,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia281_utt3,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia376_utt1,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia179_utt0,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.088,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia179_utt2,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.664,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia179_utt8,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.064,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia224_utt4,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.669,-22.777402,-23.929729,6.340621,16.266674,23.738453,2.216903,0.038805,0.063473,17,-20.095291,-36.361964,6.450077,175.690284,0.261905
+MELD:S07E22,MELD:dia725_utt2,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,9.152,-11.581537,-12.499966,0.320507,0.648336,,,0.030302,0.237107,17,-11.320226,-11.968562,0.319539,,
+MELD:S07E22,MELD:dia283_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.555,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia179_utt19,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.901,-14.554019,-15.225329,2.147304,3.716876,18.629113,0.89067,0.063668,0.172939,17,-12.779605,-16.496481,1.525498,362.72439,0.349206
+MELD:S07E22,MELD:dia1014_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.677,-20.698114,-21.106326,6.212739,12.283546,73.502502,4.9202,0.046294,0.087956,17,-17.763565,-30.047112,4.93732,257.225631,0.246032
+MELD:S07E22,MELD:dia725_utt6,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.941,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia281_utt4,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,5.973,-23.269237,-26.550164,12.555064,21.060145,71.90013,6.289336,0.032178,0.046771,17,-20.161266,-41.221411,8.095522,162.041994,0.373016
+MELD:S07E22,MELD:dia281_utt8,MELD:joey,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.045,,,,,,,,,,,,,,
+MELD:S07E22,MELD:dia283_utt2,MELD:joey,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,3.883,-19.269416,-19.577664,2.085998,3.356245,11.679111,0.523132,0.048322,0.104818,17,-17.660221,-21.016466,1.518275,394.43767,0.047619
+MELD:S07E22,MELD:dia600_utt1,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.304,-22.11929,-21.535695,3.407475,9.283486,21.959537,2.540289,0.045493,0.083759,17,-19.29096,-28.574446,3.87513,147.73733,0.468254
+MELD:S06E12,MELD:dia834_utt4,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.392,-15.157337,-16.104608,0.55718,1.531472,26.09648,1.584539,0.060185,0.156484,17,-14.355271,-15.886743,0.582065,295.474659,0.960317
+MELD:S06E12,MELD:dia766_utt5,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.725,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia834_utt8,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.059,-17.511639,-19.170303,9.02916,16.617828,56.98394,3.17175,0.064364,0.109958,17,-15.391018,-32.008846,7.217207,349.356764,0.357143
+MELD:S06E12,MELD:dia834_utt0,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,5.675,-15.203952,-16.062119,2.99366,6.089268,,,0.044399,0.157242,17,-13.222084,-19.311352,2.344906,,
+MELD:S06E12,MELD:dia933_utt10,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia834_utt1,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.392,-16.887007,-17.565071,0.779748,1.218632,46.721409,2.936528,0.051387,0.131713,17,-16.321828,-17.540459,0.512366,235.876944,0.515873
+MELD:S06E12,MELD:dia933_utt16,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.984,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia766_utt0,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.88,-15.261376,-16.374177,1.408152,2.834135,29.668566,1.589155,0.048389,0.151738,17,-13.857425,-16.69156,1.057743,318.516418,0.547619
+MELD:S06E12,MELD:dia834_utt15,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.011,-13.272641,-14.572338,2.669042,8.432989,5.656601,0.54191,0.07516,0.186702,17,-11.597758,-20.030747,3.996762,186.137371,0.047619
+MELD:S06E12,MELD:dia933_utt6,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.619,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia404_utt4,MELD:joey,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.648,-17.352701,-17.289009,1.713563,3.666218,8.748843,1.376976,0.050952,0.136617,17,-15.646612,-19.31283,1.434884,110.040485,0.785714
+MELD:S06E12,MELD:dia404_utt0,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.648,-16.857567,-17.545773,3.002159,7.440863,52.798866,4.026951,0.06239,0.131543,17,-14.896153,-22.337016,3.157604,222.638188,0.547619
+MELD:S06E12,MELD:dia933_utt4,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.557,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia933_utt15,MELD:joey,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.648,-15.307342,-15.317489,1.049856,1.386393,18.534656,2.156635,0.058564,0.171265,17,-14.571167,-15.95756,0.648535,139.44547,0.785714
+MELD:S06E12,MELD:dia404_utt12,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.493,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia933_utt17,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.768,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia404_utt9,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.963,,,,,,,,,,,,,,
+MELD:S06E12,MELD:dia404_utt15,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.051,-17.510812,-17.833063,1.918805,4.49074,11.789468,1.75553,0.060238,0.127969,17,-16.091542,-20.582282,2.264698,115.912359,0.436508
+MELD:S06E12,MELD:dia404_utt14,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.048,-17.824733,-17.872563,3.730985,6.783986,28.758611,4.762158,0.05991,0.127439,17,-15.844651,-22.628637,2.953204,134.697693,0.825397
+MELD:S06E12,MELD:dia404_utt6,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.981,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia1001_utt10,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia606_utt0,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-17.199054,-17.78397,3.181003,8.029069,51.378215,3.030081,0.065545,0.128969,17,-14.864471,-22.89354,3.702123,302.381052,0.68254
+MELD:S02E05,MELD:dia360_utt5,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-12.40096,-13.195083,1.234711,3.330878,75.901484,4.562377,0.076838,0.218647,17,-11.262104,-14.592982,1.338976,270.955977,0.47619
+MELD:S02E05,MELD:dia1001_utt2,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-18.401517,-18.991499,1.85176,3.476022,35.909083,2.482549,0.04749,0.11198,17,-16.99345,-20.469471,1.849002,220.08097,0.944444
+MELD:S02E05,MELD:dia1001_utt3,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-16.606116,-17.245046,3.559075,5.843792,43.153811,2.653625,0.079684,0.137222,17,-14.570393,-20.414184,2.497186,264.762917,0.880952
+MELD:S02E05,MELD:dia1001_utt5,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.133,-17.994661,-18.613015,4.193346,14.532228,32.448221,2.201434,0.07497,0.117189,17,-16.263034,-30.795262,6.477946,251.350589,0.420635
+MELD:S02E05,MELD:dia606_utt3,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia1001_utt0,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.088,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia303_utt1,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.669,-16.029266,-17.645391,9.736673,21.324231,79.717563,7.721926,0.09213,0.131085,17,-13.9665,-35.290731,8.52568,126.043515,0.539683
+MELD:S02E05,MELD:dia360_utt0,MELD:monica,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-20.743308,-19.991661,9.72744,11.924611,33.680681,2.513684,0.054941,0.100075,17,-17.394413,-29.319024,5.110294,245.609734,0.452381
+MELD:S02E05,MELD:dia1001_utt9,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.128,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia9_utt11,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.971,-16.925607,-17.207961,1.78294,3.648251,32.1627,3.241638,0.057053,0.137855,17,-15.252627,-18.900878,1.405966,149.453955,0.81746
+MELD:S02E05,MELD:dia360_utt4,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.837,-13.593796,-13.640492,0.817708,1.485511,20.699521,0.974582,0.055502,0.207695,17,-13.103837,-14.589348,0.675817,363.771976,0.119048
+MELD:S02E05,MELD:dia360_utt2,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia360_utt3,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-12.928761,-12.955813,1.293706,1.991305,26.730477,1.836903,0.071926,0.224588,17,-12.046282,-14.037587,0.83249,271.73626,0.428571
+MELD:S02E05,MELD:dia9_utt7,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.229,-14.142128,-14.391683,1.524635,3.540348,24.954455,1.9663,0.089532,0.19072,17,-12.828579,-16.368927,1.438806,226.529835,0.880952
+MELD:S02E05,MELD:dia9_utt3,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.224,-17.404983,-18.428975,24.143274,25.402151,59.258707,8.792439,0.083631,0.119822,17,-15.788281,-41.190432,11.334774,162.980693,0.722222
+MELD:S02E05,MELD:dia360_utt1,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.307,-19.571386,-19.341572,2.354124,5.595668,85.880587,6.294943,0.051711,0.107822,17,-16.972918,-22.568585,2.163224,164.874438,0.595238
+MELD:S02E05,MELD:dia9_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.685,,,,,,,,,,,,,,
+MELD:S02E05,MELD:dia9_utt5,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.64,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia81_utt3,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia775_utt13,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.429,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia775_utt8,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.176,-21.983344,-24.302096,11.918223,17.563101,10.481092,0.934861,0.042284,0.060795,17,-19.605993,-37.169093,7.117329,196.069854,0.34127
+MELD:S01E07,MELD:dia81_utt6,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia81_utt8,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.053,-19.657203,-20.630619,2.820353,5.56036,25.387516,1.76641,0.047083,0.092959,17,-17.360085,-22.920445,2.24725,230.489507,0.730159
+MELD:S01E07,MELD:dia81_utt15,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.051,-20.124218,-21.253483,1.36789,3.115231,30.132672,1.636233,0.037788,0.086482,17,-18.612925,-21.728155,1.44183,334.546578,0.857143
+MELD:S01E07,MELD:dia81_utt14,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.629,-20.359683,-21.144634,4.763266,8.039097,23.455028,1.159484,0.042743,0.087609,17,-18.377108,-26.416205,4.123401,346.344338,0.52381
+MELD:S01E07,MELD:dia81_utt5,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.832,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia608_utt0,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.789,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia171_utt0,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.792,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia775_utt11,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia81_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.128,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia56_utt4,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.395,-24.303946,-23.979551,8.616746,15.121244,15.374802,1.236503,0.036412,0.063239,17,-21.793825,-36.915069,6.112015,212.584205,0.206349
+MELD:S01E07,MELD:dia608_utt9,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.269,-25.153133,-24.539378,10.10257,24.351396,28.914888,5.666089,0.041051,0.059253,17,-23.289458,-47.640854,9.261712,105.375569,0.650794
+MELD:S01E07,MELD:dia608_utt6,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.304,-21.130626,-21.427446,2.575218,6.4583,60.47127,5.542777,0.054218,0.084845,17,-18.843277,-25.301577,4.066988,240.036035,0.285714
+MELD:S01E07,MELD:dia608_utt8,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.917,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia681_utt1,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-21.758441,-22.149491,2.326543,6.45031,12.179191,1.589745,0.033854,0.078009,17,-19.138183,-25.588492,2.367466,134.695446,0.484127
+MELD:S01E07,MELD:dia65_utt2,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia81_utt4,MELD:joey,M,train,fear,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S01E07,MELD:dia775_utt4,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,8.597,-26.227066,-26.160592,4.088461,5.918927,18.969412,2.421987,0.021488,0.049189,17,-24.284441,-30.203368,2.461898,113.264918,0.960317
+MELD:S07E16,MELD:dia1029_utt1,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,14.315,-18.624257,-20.021313,10.885313,28.477756,17.01284,1.342703,0.063704,0.099631,17,-16.806316,-45.284071,10.879054,204.160119,0.619048
+MELD:S07E16,MELD:dia634_utt2,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,5.76,-18.382032,-19.047031,0.898631,6.17406,38.578959,3.00681,0.062907,0.111389,17,-16.745494,-22.919553,3.187579,239.308851,0.777778
+MELD:S07E16,MELD:dia867_utt2,MELD:rachel,F,train,fear,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.728,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia64_utt9,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-18.070219,-18.897837,3.137185,4.541454,53.531916,2.885516,0.043553,0.113475,17,-16.558915,-21.100369,1.920393,300.639465,0.555556
+MELD:S07E16,MELD:dia64_utt5,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia560_utt0,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia560_utt6,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-13.492826,-13.598476,2.769544,3.856548,13.403464,0.602376,0.083992,0.208872,17,-11.923067,-15.779614,1.721836,378.78831,0.063492
+MELD:S07E16,MELD:dia867_utt4,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia893_utt11,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.133,-17.338768,-18.172948,1.970392,2.559414,70.295281,4.605319,0.055656,0.12293,17,-16.063678,-18.623092,1.260625,215.054314,0.452381
+MELD:S07E16,MELD:dia1029_utt14,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.688,-18.739398,-19.67969,1.135494,3.023653,33.673604,2.942852,0.042858,0.103404,17,-17.649244,-20.672897,1.249843,192.701492,0.412698
+MELD:S07E16,MELD:dia893_utt0,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.432,-19.922601,-19.850811,1.458363,4.174305,32.047891,4.896021,0.037191,0.101713,17,-18.645813,-22.820118,2.22287,132.381459,0.769841
+MELD:S07E16,MELD:dia64_utt12,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.483,-23.239588,-23.169046,2.702228,5.192031,70.845914,6.603191,0.034302,0.06941,17,-21.469228,-26.661259,2.09923,129.357862,0.674603
+MELD:S07E16,MELD:dia878_utt0,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.832,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia560_utt3,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.728,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia893_utt1,MELD:chandler,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,6.464,-19.940518,-20.537486,5.609425,11.401398,,,0.046017,0.093979,17,-17.821039,-29.222437,4.700749,,
+MELD:S07E16,MELD:dia878_utt3,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,14.571,-19.193198,-20.306049,5.388376,10.41191,86.389797,6.265869,0.061438,0.09648,17,-15.243722,-25.655632,4.003033,169.705627,0.626984
+MELD:S07E16,MELD:dia634_utt0,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,7.595,-24.602115,-24.010839,1.503085,4.235347,8.22581,1.213566,0.025812,0.062978,17,-22.471993,-26.70734,1.859185,115.912359,0.904762
+MELD:S07E16,MELD:dia893_utt12,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,5.845,-20.47383,-20.814583,3.317554,4.221079,69.286242,5.405885,0.043622,0.088716,17,-18.599604,-22.820682,2.042027,198.922586,0.492063
+MELD:S07E16,MELD:dia893_utt6,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.128,,,,,,,,,,,,,,
+MELD:S07E16,MELD:dia64_utt0,MELD:chandler,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.885,-19.939457,-20.331869,1.585328,3.337963,14.474322,1.863097,0.034546,0.096146,17,-18.655168,-21.99313,1.387054,141.882934,0.801587
+MELD:S07E06,MELD:dia646_utt17,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.301,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia646_utt16,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.643,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia646_utt15,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.712,-24.875595,-25.357036,4.326463,7.342245,61.3614,3.938213,0.031852,0.053873,17,-22.203276,-29.545521,2.978134,216.933856,0.507937
+MELD:S07E06,MELD:dia242_utt3,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.048,-25.375293,-26.143866,5.896981,14.029232,11.338576,0.738783,0.03069,0.049207,17,-23.007575,-37.036807,5.929218,264.000456,0.206349
+MELD:S07E06,MELD:dia646_utt6,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.971,-24.801152,-24.722466,2.979296,4.281799,48.399536,2.948043,0.021796,0.057362,17,-23.379279,-27.661078,1.852358,249.902917,0.825397
+MELD:S07E06,MELD:dia646_utt8,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia646_utt12,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.72,-23.349475,-24.227557,2.056149,3.389479,39.040686,2.935626,0.030468,0.061163,17,-21.983768,-25.373248,1.979542,247.032537,0.833333
+MELD:S07E06,MELD:dia646_utt0,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.76,-29.15184,-28.844879,2.098667,5.133813,69.531725,10.209808,0.017044,0.035886,17,-27.159408,-32.29322,2.559809,66.575279,0.555556
+MELD:S07E06,MELD:dia646_utt10,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia646_utt18,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.056,-24.358587,-25.195611,1.999737,5.963733,69.988876,4.258163,0.028187,0.054627,17,-22.440459,-28.404192,3.076279,252.806649,0.603175
+MELD:S07E06,MELD:dia795_utt6,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.28,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia930_utt9,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-21.694077,-22.278279,3.864637,5.384472,45.077351,3.667103,0.028938,0.076691,17,-19.473338,-24.85781,2.326266,204.160119,0.912698
+MELD:S07E06,MELD:dia930_utt12,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-24.371286,-26.167451,4.276706,11.398073,59.855869,9.318864,0.031544,0.049031,17,-21.909249,-33.307322,5.964524,176.708047,0.31746
+MELD:S07E06,MELD:dia795_utt1,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.195,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia395_utt8,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-21.209313,-21.294423,2.908742,4.550285,46.324408,2.490192,0.045078,0.086088,17,-19.668055,-24.21834,2.298531,331.659091,0.214286
+MELD:S07E06,MELD:dia930_utt6,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.053,-22.981895,-24.643745,2.29766,10.204167,11.141427,1.447931,0.033688,0.058049,17,-21.882209,-32.086376,6.03235,131.621193,0.190476
+MELD:S07E06,MELD:dia397_utt0,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.755,-47.234204,-46.132499,4.579493,8.703618,3.540618,0.946114,0.00242,0.004918,17,-43.851008,-52.554626,3.396589,62.837647,0.436508
+MELD:S07E06,MELD:dia795_utt2,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.88,-21.716956,-23.003815,12.721118,17.896409,52.29432,4.420933,0.041887,0.070571,17,-20.44674,-38.343148,7.552842,248.463582,0.515873
+MELD:S07E06,MELD:dia930_utt3,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S07E06,MELD:dia930_utt8,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.941,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia536_utt2,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.008,-24.637129,-25.081886,4.715228,9.290414,32.324496,2.212095,0.032898,0.055345,17,-21.102936,-30.39335,3.457312,248.463582,0.730159
+MELD:S04E02,MELD:dia188_utt4,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.181,-19.051414,-20.00054,7.713724,16.231396,49.599921,2.690706,0.059252,0.099908,17,-17.281157,-33.512553,7.015005,356.493002,0.31746
+MELD:S04E02,MELD:dia689_utt13,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,4.629,-21.247217,-22.267913,2.868916,7.917721,50.607669,3.216475,0.048897,0.076943,17,-18.750018,-26.667739,2.954593,251.350589,0.5
+MELD:S04E02,MELD:dia718_utt5,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia389_utt10,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-21.092654,-22.472428,6.21231,11.139692,35.557559,2.449102,0.047988,0.07502,17,-17.394594,-28.534286,4.638446,270.951457,0.404762
+MELD:S04E02,MELD:dia188_utt6,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.813,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia536_utt4,MELD:monica,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,4.16,-23.458749,-24.289349,4.239869,20.363778,36.805073,2.101365,0.036535,0.060989,17,-22.253494,-42.617272,8.579622,264.762917,0.674603
+MELD:S04E02,MELD:dia897_utt7,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.219,-24.172955,-24.284414,6.396652,14.734163,27.39838,2.035461,0.037631,0.060987,17,-21.53714,-36.271303,5.97103,230.489507,0.531746
+MELD:S04E02,MELD:dia536_utt9,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.603,-21.047968,-20.959821,2.221054,5.462537,38.801818,2.262586,0.04424,0.089103,17,-19.205294,-24.66783,2.399092,287.063069,0.912698
+MELD:S04E02,MELD:dia536_utt12,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.411,-18.874543,-20.149043,9.243411,13.734952,26.044514,1.658744,0.049475,0.098272,17,-16.901993,-30.636945,5.54107,266.296673,0.492063
+MELD:S04E02,MELD:dia689_utt14,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia389_utt7,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.888,-44.462735,-45.739826,1.439488,2.528948,3.494536,0.927035,0.001171,0.005061,17,-43.120166,-45.649115,1.012023,61.048782,0.261905
+MELD:S04E02,MELD:dia412_utt11,MELD:chandler,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.813,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia70_utt8,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.6,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia412_utt6,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.232,-41.025287,-40.497636,7.217872,9.436619,,,0.004868,0.009419,17,-37.956735,-47.393354,3.701382,,
+MELD:S04E02,MELD:dia412_utt2,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.755,-19.710643,-19.520827,1.583873,5.127844,16.013659,1.607952,0.055534,0.105644,17,-17.44655,-22.574393,1.773081,171.677512,0.746032
+MELD:S04E02,MELD:dia897_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-18.820372,-18.395454,3.688029,6.040784,53.639448,4.079886,0.064906,0.120163,17,-16.302981,-22.343765,2.305275,223.927918,0.761905
+MELD:S04E02,MELD:dia897_utt8,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.267,-24.161908,-24.318383,10.765953,17.119073,24.769743,1.957983,0.042017,0.060803,17,-21.239649,-38.358721,6.535662,221.997037,0.52381
+MELD:S04E02,MELD:dia897_utt10,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.557,,,,,,,,,,,,,,
+MELD:S04E02,MELD:dia389_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia860_utt15,MELD:phoebe,F,train,disgust,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.429,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia860_utt1,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia108_utt6,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,11.221,-17.857327,-22.3857,27.728926,33.66538,9.015151,0.778098,0.065298,0.075978,17,-16.853043,-50.518423,14.725306,201.818506,0.222222
+MELD:S08E17,MELD:dia860_utt13,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.832,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia108_utt4,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-20.563238,-20.601892,3.540658,5.005178,76.599246,4.55327,0.045426,0.09326,17,-18.907398,-23.912576,2.367535,305.894551,0.81746
+MELD:S08E17,MELD:dia108_utt2,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-18.968288,-20.222337,1.685913,4.214901,51.517992,2.645821,0.058106,0.097219,17,-16.677359,-20.89226,2.806271,389.88115,0.214286
+MELD:S08E17,MELD:dia384_utt0,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-21.706533,-22.217918,5.123601,11.919521,5.442974,0.33238,0.054164,0.077394,17,-19.340752,-31.260273,4.706514,280.50654,0.166667
+MELD:S08E17,MELD:dia860_utt3,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.589,-24.514792,-24.9641,13.865662,22.070018,6.597833,0.668072,0.043701,0.05614,17,-22.968808,-45.038826,9.161918,173.675206,0.174603
+MELD:S08E17,MELD:dia860_utt7,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.152,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia384_utt4,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.8,-27.62578,-24.941545,7.870531,8.39254,,,0.042826,0.056508,17,-25.837609,-34.230149,4.663338,,
+MELD:S08E17,MELD:dia449_utt6,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.768,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia441_utt0,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.477,-18.196018,-18.039944,1.272557,1.760057,27.714518,2.721656,0.042185,0.125144,17,-17.452517,-19.212573,0.78742,192.701492,0.928571
+MELD:S08E17,MELD:dia108_utt5,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.608,-19.263951,-21.172436,6.646377,30.490993,27.310871,1.49623,0.066872,0.087283,17,-17.50957,-48.000563,11.341664,315.769922,0.349206
+MELD:S08E17,MELD:dia449_utt11,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia449_utt4,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.28,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia449_utt2,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-19.76067,-19.757023,2.083093,3.758701,20.238794,2.351332,0.047955,0.102312,17,-18.520138,-22.278839,1.836033,160.180783,0.587302
+MELD:S08E17,MELD:dia449_utt0,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.933,-21.060245,-21.827694,10.065443,23.901375,95.190423,6.304227,0.057167,0.08101,17,-17.959043,-41.860418,10.016786,175.184333,0.47619
+MELD:S08E17,MELD:dia449_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.709,-22.715723,-22.97425,6.513259,18.467447,18.829087,2.369321,0.047036,0.07094,17,-20.935907,-39.403354,7.649989,120.703207,0.460317
+MELD:S08E17,MELD:dia449_utt13,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S08E17,MELD:dia108_utt0,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.424,-19.893345,-20.270618,3.529803,12.376695,51.701478,7.305893,0.058232,0.096726,17,-17.058799,-29.435494,5.869662,180.838402,0.698413
+MELD:S06E17,MELD:dia654_utt8,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.197,-16.745727,-17.203497,3.985584,8.428303,16.323434,0.887355,0.063219,0.137934,17,-14.452025,-22.880328,3.523602,298.047118,0.47619
+MELD:S06E17,MELD:dia495_utt2,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.843,-19.646091,-21.268799,17.573257,19.575477,23.99187,2.258438,0.061196,0.086391,17,-17.655595,-37.231072,8.575576,180.838402,0.34127
+MELD:S06E17,MELD:dia573_utt0,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.64,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia573_utt3,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.917,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia78_utt5,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,4.843,-18.92066,-19.989943,2.143025,5.06616,42.100688,2.087627,0.055711,0.099701,17,-17.614508,-22.680668,4.049781,358.558145,0.380952
+MELD:S06E17,MELD:dia78_utt1,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-20.49576,-21.651356,2.217505,7.084543,55.151032,3.130891,0.051091,0.081741,17,-17.393771,-24.478314,3.186016,327.849662,0.34127
+MELD:S06E17,MELD:dia654_utt5,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.405,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia573_utt5,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,15.019,-17.042586,-17.86032,2.10324,3.398638,,,0.036253,0.127888,17,-15.379062,-18.7777,1.518284,,
+MELD:S06E17,MELD:dia573_utt7,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.216,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia573_utt2,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.981,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia264_utt14,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.221,-19.676795,-19.306524,2.153478,5.201766,40.6108,3.512792,0.047273,0.108282,17,-17.182531,-22.384297,1.967702,150.319733,0.928571
+MELD:S06E17,MELD:dia549_utt4,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.557,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia815_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.429,,,,,,,,,,,,,,
+MELD:S06E17,MELD:dia573_utt8,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-15.741014,-16.146501,1.640527,3.033964,33.717293,1.913624,0.05518,0.15579,17,-14.402605,-17.436569,1.273767,314.857945,0.777778
+MELD:S06E17,MELD:dia78_utt0,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-20.873914,-21.952339,11.432357,14.251776,12.627526,0.860958,0.043558,0.079828,17,-19.39359,-33.645366,6.025473,263.237995,0.460317
+MELD:S06E17,MELD:dia887_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.677,-18.775899,-18.982773,3.909234,11.1177,20.326377,2.113722,0.061347,0.112391,17,-16.922865,-28.040564,4.918284,153.83329,0.460317
+MELD:S06E17,MELD:dia549_utt0,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,5.44,-17.987081,-17.317601,1.550475,2.401639,16.786726,2.542494,0.044488,0.135928,17,-16.792814,-19.194452,1.122687,110.677943,0.730159
+MELD:S06E17,MELD:dia654_utt2,MELD:chandler,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,7.595,-19.52172,-20.203573,5.596519,13.423711,52.663788,3.993455,0.056145,0.097635,17,-17.767761,-31.191472,7.221106,221.355886,0.690476
+MELD:S06E17,MELD:dia264_utt6,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.112,-22.971663,-22.834295,2.963329,7.981237,29.205752,3.133434,0.044922,0.072146,17,-20.975469,-28.956706,4.024153,156.522248,0.460317
+MELD:S06E17,MELD:dia264_utt5,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.661,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia955_utt2,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,7.104,-18.306715,-19.017487,3.946165,7.855932,33.742662,2.424722,0.059577,0.111354,17,-16.161361,-24.017293,3.357652,225.225119,0.47619
+MELD:S05E07,MELD:dia1005_utt7,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.219,-17.944651,-18.686601,1.265983,3.159605,31.914995,2.550549,0.064141,0.11574,17,-16.942896,-20.102501,2.708342,211.35981,0.579365
+MELD:S05E07,MELD:dia226_utt5,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.643,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia666_utt8,MELD:rachel,F,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-20.230115,-20.687582,3.496026,7.673493,48.007425,2.918218,0.052294,0.091871,17,-17.970154,-25.643647,3.071842,329.748875,0.65873
+MELD:S05E07,MELD:dia666_utt11,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.301,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia1005_utt19,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.811,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia226_utt21,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia955_utt3,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia666_utt16,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,12.032,-16.130505,-16.035069,0.956486,1.977161,,,0.027124,0.157445,17,-14.965892,-16.943053,0.800173,,
+MELD:S05E07,MELD:dia226_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.973,-25.58741,-25.083016,0.53606,8.518396,,,0.028,0.055683,17,-20.780625,-29.299021,3.328934,,
+MELD:S05E07,MELD:dia591_utt0,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.928,-19.095543,-19.095739,3.531363,5.97993,38.81182,3.544196,0.060746,0.110887,17,-17.102638,-23.082569,2.442863,202.987629,0.666667
+MELD:S05E07,MELD:dia591_utt1,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.088,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia720_utt2,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,6.805,-20.231388,-21.461916,5.652926,7.237306,,,0.035366,0.084083,17,-17.280543,-24.517849,2.937078,,
+MELD:S05E07,MELD:dia666_utt6,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia720_utt9,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-18.142385,-18.653033,2.749994,4.394982,27.150841,1.84334,0.038316,0.116482,17,-16.405415,-20.800397,1.761245,244.195126,0.452381
+MELD:S05E07,MELD:dia720_utt4,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.013,-17.848417,-17.742059,5.879393,7.387569,28.262215,2.563883,0.074372,0.129521,17,-15.978217,-23.365786,3.738792,204.751462,0.333333
+MELD:S05E07,MELD:dia720_utt5,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.643,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia666_utt0,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.576,,,,,,,,,,,,,,
+MELD:S05E07,MELD:dia720_utt8,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.264,-20.149937,-19.789655,3.492141,5.556281,29.072405,2.535739,0.057942,0.102432,17,-17.831367,-23.387649,2.790104,169.705627,0.753968
+MELD:S05E07,MELD:dia720_utt10,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-18.781039,-24.154181,26.997018,31.907364,10.874591,1.605556,0.049494,0.061698,17,-16.455149,-48.362513,13.122602,111.963959,0.119048
+MELD:S04E18,MELD:dia871_utt9,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.797,-21.059556,-23.148024,15.502759,21.778348,32.324031,2.479848,0.047834,0.069522,17,-18.510613,-40.288961,8.486711,199.497095,0.539683
+MELD:S04E18,MELD:dia918_utt8,MELD:phoebe,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S04E18,MELD:dia338_utt11,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.56,-19.950273,-20.981513,7.173393,13.207059,44.737378,2.699469,0.056436,0.089305,17,-16.530479,-29.737538,5.489578,285.409708,0.507937
+MELD:S04E18,MELD:dia918_utt7,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.899,,,,,,,,,,,,,,
+MELD:S04E18,MELD:dia338_utt6,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,12.693,-20.245491,-21.331742,3.021632,9.783833,25.798208,1.772214,0.050733,0.084831,17,-18.554727,-28.33856,4.235616,249.183249,0.809524
+MELD:S04E18,MELD:dia338_utt4,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.885,-20.100163,-20.53667,0.728297,2.339162,33.426523,1.708496,0.053395,0.093341,17,-19.008464,-21.347625,1.428138,324.083987,0.65873
+MELD:S04E18,MELD:dia338_utt8,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.811,,,,,,,,,,,,,,
+MELD:S04E18,MELD:dia338_utt1,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.925,-20.823754,-21.826638,7.088631,12.873671,18.831343,0.968398,0.044278,0.080984,17,-17.332058,-30.205729,4.960498,335.512784,0.134921
+MELD:S04E18,MELD:dia221_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-32.401506,-33.776554,11.320812,16.14198,152.232952,15.378738,0.013267,0.020154,17,-29.300421,-45.442401,6.364709,62.476771,0.68254
+MELD:S04E18,MELD:dia338_utt13,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.888,-19.697947,-20.524509,3.518947,7.154611,53.046204,3.102399,0.058417,0.094039,17,-16.982302,-24.136913,2.872135,333.580373,0.801587
+MELD:S04E18,MELD:dia918_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.803,-35.176798,-33.186349,3.864209,12.572233,2.014721,0.556092,0.018526,0.021881,17,-34.164703,-46.736936,6.08747,61.402434,0.119048
+MELD:S04E18,MELD:dia871_utt4,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.267,-21.703359,-22.606305,5.577928,15.802141,20.131638,2.156491,0.052649,0.074073,17,-19.807375,-35.609516,7.722713,157.884961,0.396825
+MELD:S04E18,MELD:dia125_utt7,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S04E18,MELD:dia45_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.645,-17.87536,-20.199542,11.518663,15.606863,43.609684,3.027075,0.063318,0.097476,17,-14.894808,-30.501671,6.738056,241.390306,0.388889
+MELD:S04E18,MELD:dia918_utt5,MELD:chandler,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-17.61229,-17.625704,2.611047,4.005643,24.209505,2.64664,0.063093,0.131424,17,-15.971724,-19.977367,1.749651,156.522248,0.785714
+MELD:S04E18,MELD:dia871_utt0,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.883,-15.626652,-16.32062,2.055101,3.952837,25.99375,2.209102,0.0634,0.152698,17,-14.304978,-18.257815,1.698711,189.390995,0.793651
+MELD:S04E18,MELD:dia45_utt0,MELD:joey,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-17.776369,-18.446506,2.329493,6.330415,8.308367,1.130547,0.051617,0.117468,17,-15.698322,-22.028738,2.502462,127.135571,0.753968
+MELD:S04E18,MELD:dia871_utt5,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.061,-15.996573,-17.708776,6.928844,25.139757,,,0.072817,0.130149,17,-14.013477,-39.153234,10.285004,,
+MELD:S04E18,MELD:dia125_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-19.767405,-19.746274,3.397074,6.081345,65.453628,4.928801,0.052263,0.102761,17,-17.1601,-23.241444,2.38222,192.146552,0.571429
+MELD:S04E18,MELD:dia871_utt7,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.792,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia152_utt0,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-15.834325,-15.976702,2.560066,3.4681,13.994405,1.289278,0.06,0.158826,17,-14.41431,-17.882409,1.435039,189.390995,0.246032
+MELD:S01E01,MELD:dia19_utt1,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.128,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia467_utt0,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.576,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia152_utt6,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.6,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia152_utt8,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.877,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia880_utt0,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.131,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia152_utt11,MELD:rachel,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,10.112,-18.896921,-18.801766,3.979653,11.572371,28.236694,1.444166,0.059126,0.11463,17,-16.549918,-28.122289,4.785261,336.484587,0.761905
+MELD:S01E01,MELD:dia164_utt1,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia164_utt3,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.789,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia152_utt10,MELD:rachel,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.664,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia164_utt5,MELD:ross,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,11.477,-21.894895,-21.746764,3.468107,6.030657,28.617194,5.227016,0.032334,0.081765,17,-19.857538,-25.888195,2.397886,117.938472,0.452381
+MELD:S01E01,MELD:dia164_utt9,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,11.349,-48.763408,-47.749124,1.11327,1.816087,,,0.00086,0.004075,17,-47.938373,-49.75446,0.731422,,
+MELD:S01E01,MELD:dia164_utt4,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.237,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia769_utt0,MELD:ross,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.179,-21.488209,-21.442593,6.715142,10.859233,54.862214,4.77033,0.040407,0.084656,17,-19.262186,-30.12142,4.53347,222.638188,0.579365
+MELD:S01E01,MELD:dia164_utt6,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.709,-23.451517,-23.316996,2.648492,8.952655,21.86721,2.3192,0.035245,0.068212,17,-21.657001,-30.609655,3.749351,161.1087,0.674603
+MELD:S01E01,MELD:dia75_utt0,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.344,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia559_utt7,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.139,-19.262053,-21.469472,6.834085,17.021599,49.27167,4.445493,0.053607,0.083872,17,-17.847376,-34.868975,7.16736,239.308851,0.396825
+MELD:S01E01,MELD:dia164_utt0,MELD:ross,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,5.589,-26.163327,-27.193617,7.449689,25.325893,8.941894,1.153811,0.029936,0.043619,17,-23.895891,-49.221784,9.371867,125.675295,0.5
+MELD:S01E01,MELD:dia559_utt3,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.661,,,,,,,,,,,,,,
+MELD:S01E01,MELD:dia559_utt2,MELD:chandler,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,4.096,-20.608178,-20.815197,1.079175,6.03914,41.326904,3.904762,0.04735,0.09095,17,-19.453977,-25.493117,2.927951,180.838402,0.722222
+MELD:S07E24,MELD:dia983_utt2,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-22.300902,-22.151597,2.517511,6.923933,67.436154,4.037721,0.045518,0.077653,17,-20.180516,-27.104449,3.095483,254.271143,0.714286
+MELD:S07E24,MELD:dia633_utt4,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.048,-22.902902,-23.285907,4.912732,8.598412,25.403536,1.473487,0.039055,0.0682,17,-20.379145,-28.977557,3.607557,295.474659,0.547619
+MELD:S07E24,MELD:dia633_utt8,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.451,,,,,,,,,,,,,,
+MELD:S07E24,MELD:dia633_utt0,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.507,-16.733923,-17.953,6.795475,14.838119,,,0.06024,0.126558,17,-15.186319,-30.024438,6.09317,,
+MELD:S07E24,MELD:dia983_utt0,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.579,,,,,,,,,,,,,,
+MELD:S07E24,MELD:dia633_utt5,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.792,,,,,,,,,,,,,,
+MELD:S07E24,MELD:dia633_utt6,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.789,,,,,,,,,,,,,,
+MELD:S07E24,MELD:dia983_utt4,MELD:rachel,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.605,-22.089735,-22.719623,11.61891,26.047835,22.864006,1.101437,0.047846,0.073072,17,-20.459178,-46.507013,10.596796,355.516784,0.269841
+MELD:S07E24,MELD:dia983_utt6,MELD:rachel,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S07E24,MELD:dia633_utt3,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.603,-19.038986,-19.045539,3.257337,5.100034,23.44621,1.211103,0.043741,0.111566,17,-17.253852,-22.353886,2.313326,309.448874,0.611111
+MELD:S07E24,MELD:dia811_utt0,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.563,-24.3051,-23.730985,5.642748,7.354394,0.734158,0.171211,0.033775,0.065009,17,-21.431554,-28.785948,3.597628,73.443213,0.357143
+MELD:S07E24,MELD:dia983_utt1,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.003,,,,,,,,,,,,,,
+MELD:S07E24,MELD:dia811_utt3,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.76,-20.653905,-20.95933,1.919344,5.495219,17.95034,1.820888,0.045823,0.089309,17,-19.166309,-24.661529,2.106211,156.97561,0.31746
+MELD:S07E24,MELD:dia811_utt5,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.411,-23.161154,-22.869569,3.325194,6.212003,3.579202,0.827154,0.042388,0.071805,17,-20.800335,-27.012337,2.313915,74.519238,0.142857
+MELD:S07E24,MELD:dia983_utt3,MELD:joey,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,5.312,-20.315532,-23.151491,22.537995,24.487448,2.975522,0.804052,0.046654,0.068509,17,-18.44066,-42.928107,10.776282,64.307481,0.126984
+MELD:S07E24,MELD:dia811_utt7,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.133,-19.45758,-20.233347,1.060502,3.480125,1.726683,0.261127,0.047307,0.097255,17,-18.189567,-21.669692,1.515447,113.264918,0.150794
+MELD:S07E24,MELD:dia633_utt9,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-20.199961,-22.494139,11.089917,21.283749,,,0.049096,0.074561,17,-17.195726,-38.479475,8.09391,,
+MELD:S07E24,MELD:dia811_utt9,MELD:joey,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,4.011,-19.068364,-19.153407,4.985025,13.288501,48.575302,3.301383,0.062906,0.11022,17,-17.75739,-31.045891,5.359268,263.237995,0.373016
+MELD:S07E24,MELD:dia983_utt5,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,6.976,-21.22919,-20.96587,3.637006,5.195742,17.114873,1.589265,0.05205,0.089455,17,-19.185854,-24.381596,2.365217,174.690038,0.15873
+MELD:S07E24,MELD:dia983_utt7,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.669,-17.949837,-18.70835,5.105809,23.049435,100.401055,6.20007,0.068418,0.116015,17,-16.892851,-39.942286,8.944664,365.879286,0.18254
+MELD:S03E21,MELD:dia52_utt3,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.877,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia604_utt9,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.547,-22.696139,-26.32349,14.760475,20.394928,14.860317,1.307292,0.035064,0.045379,17,-21.328926,-41.723853,8.528968,207.728775,0.18254
+MELD:S03E21,MELD:dia542_utt0,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.008,-19.788195,-21.372828,3.116007,4.556492,54.660731,3.1747,0.033973,0.084701,17,-18.006438,-22.56293,2.063477,316.681899,0.674603
+MELD:S03E21,MELD:dia604_utt1,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,8.64,-13.994465,-16.889752,11.379314,13.206013,,,0.065713,0.1327,17,-10.41005,-23.616063,5.751788,,
+MELD:S03E21,MELD:dia52_utt7,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia251_utt1,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.221,-17.859755,-18.642139,2.569534,4.194751,80.05392,5.133146,0.06515,0.115795,17,-15.857169,-20.05192,1.854459,188.300183,0.388889
+MELD:S03E21,MELD:dia542_utt1,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.051,-21.299413,-21.945337,3.823295,9.203869,6.445301,0.341402,0.04311,0.078842,17,-17.620636,-26.824505,3.229434,332.619732,0.079365
+MELD:S03E21,MELD:dia604_utt13,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.795,-20.390238,-21.159681,3.593718,5.475494,34.646512,2.466755,0.047947,0.087028,17,-18.600942,-24.076436,2.556852,210.142467,0.587302
+MELD:S03E21,MELD:dia604_utt2,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.691,-20.167387,-20.946403,9.246401,12.597035,37.442167,2.36447,0.053296,0.089282,17,-16.983672,-29.580707,5.992359,234.518392,0.753968
+MELD:S03E21,MELD:dia52_utt11,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia73_utt1,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-18.434093,-18.638659,4.799874,8.852907,17.989896,2.262029,0.057079,0.116913,17,-14.639987,-23.492895,3.817009,159.719496,0.333333
+MELD:S03E21,MELD:dia251_utt2,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.645,-21.202577,-21.039507,3.981272,6.086546,87.335888,5.988772,0.045673,0.088677,17,-18.989642,-25.076188,2.609864,200.65277,0.214286
+MELD:S03E21,MELD:dia73_utt6,MELD:chandler,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.939,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia73_utt11,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia73_utt9,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-19.407683,-19.805052,0.771872,1.160446,8.860356,1.273605,0.03796,0.101771,17,-18.769569,-19.930014,0.498414,119.654425,0.746032
+MELD:S03E21,MELD:dia73_utt0,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.048,-19.689504,-20.027129,3.965841,6.647603,23.498998,2.812104,0.055031,0.099414,17,-17.276253,-23.923856,2.681621,136.260531,0.674603
+MELD:S03E21,MELD:dia542_utt8,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.427,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia73_utt2,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-19.03998,-19.42081,2.915972,5.332468,12.871174,1.541306,0.048793,0.106848,17,-17.082942,-22.41541,2.163042,153.83329,0.261905
+MELD:S03E21,MELD:dia251_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.789,,,,,,,,,,,,,,
+MELD:S03E21,MELD:dia73_utt8,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,13.611,-25.128768,-26.066725,8.817556,17.833764,3.276527,0.157249,0.041202,0.049714,17,-26.279399,-44.113162,7.670597,359.593698,0.087302
+MELD:S03E12,MELD:dia941_utt6,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.219,-20.019921,-19.376364,3.79864,8.373359,28.036118,1.797135,0.048674,0.107423,17,-17.591683,-25.965042,3.268547,246.321135,0.539683
+MELD:S03E12,MELD:dia941_utt12,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.643,,,,,,,,,,,,,,
+MELD:S03E12,MELD:dia941_utt4,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.923,-25.042057,-26.472392,13.134031,18.397679,53.029517,3.051642,0.034712,0.047423,17,-21.705096,-40.102776,7.56465,261.721856,0.261905
+MELD:S03E12,MELD:dia977_utt6,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.304,-18.886083,-21.923435,7.406124,13.469881,20.97309,1.675373,0.053952,0.079252,17,-15.52734,-28.997221,5.437857,220.08097,0.261905
+MELD:S03E12,MELD:dia237_utt3,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.099,-20.146057,-20.38996,4.967481,18.249581,48.744453,2.868954,0.071647,0.095164,17,-16.031273,-34.280855,7.015405,310.345184,0.222222
+MELD:S03E12,MELD:dia3_utt8,MELD:phoebe,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-29.510959,-30.254648,1.336215,4.897668,21.571225,1.346802,0.017083,0.030483,17,-27.604891,-32.50256,2.934512,285.409708,0.484127
+MELD:S03E12,MELD:dia237_utt5,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.149,,,,,,,,,,,,,,
+MELD:S03E12,MELD:dia977_utt13,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.051,-18.842481,-18.929027,2.450981,7.38959,12.961159,1.08436,0.076006,0.113071,17,-17.169773,-24.559362,5.754912,199.497095,0.492063
+MELD:S03E12,MELD:dia237_utt0,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-18.239875,-18.053657,5.781704,12.290719,117.644906,13.59395,0.071749,0.124907,17,-15.415752,-27.706471,4.60459,242.788666,0.650794
+MELD:S03E12,MELD:dia627_utt0,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-19.475249,-19.964808,2.360078,3.967061,60.001406,3.743591,0.044822,0.09973,17,-18.04856,-22.015621,1.676973,255.74412,0.928571
+MELD:S03E12,MELD:dia154_utt6,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.565,-16.400442,-16.069302,1.842885,2.671588,50.128673,2.878975,0.078563,0.15687,17,-15.216344,-17.887932,1.08207,319.438992,0.809524
+MELD:S03E12,MELD:dia977_utt9,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.301,,,,,,,,,,,,,,
+MELD:S03E12,MELD:dia869_utt1,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.861,-21.719997,-21.053747,7.610243,9.492548,5.747437,0.377964,0.045325,0.088491,17,-19.255148,-28.747695,4.10705,263.237995,0.119048
+MELD:S03E12,MELD:dia154_utt2,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.048,-15.21412,-15.520388,1.511196,4.0277,38.429952,2.108279,0.092883,0.167444,17,-13.768771,-17.79647,1.500845,354.439753,0.412698
+MELD:S03E12,MELD:dia977_utt11,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S03E12,MELD:dia977_utt12,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.259,,,,,,,,,,,,,,
+MELD:S03E12,MELD:dia869_utt8,MELD:ross,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,2.645,-22.424345,-22.820258,4.185186,9.388301,20.238462,2.24106,0.04267,0.072205,17,-19.430366,-28.818668,3.915635,174.678382,0.587302
+MELD:S03E12,MELD:dia869_utt11,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-18.938608,-19.567038,8.852062,15.482007,25.453221,2.956259,0.075548,0.105078,17,-15.035146,-30.517153,7.409497,133.919657,0.642857
+MELD:S03E12,MELD:dia869_utt12,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.837,-20.125344,-20.018754,2.822795,8.113395,13.338828,1.98844,0.047588,0.099763,17,-18.398632,-26.512028,4.214081,117.598834,0.619048
+MELD:S03E12,MELD:dia869_utt15,MELD:joey,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,10.603,-18.315901,-18.640237,3.557981,7.149267,,,0.053611,0.116909,17,-15.377952,-22.52722,3.361044,,
+MELD:S09E01,MELD:dia632_utt5,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.6,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia632_utt1,MELD:rachel,F,train,fear,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.557,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia632_utt15,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.096,-19.021929,-20.432429,10.990916,21.551394,46.541542,2.423505,0.067089,0.095129,17,-16.357393,-37.908788,9.271885,327.849662,0.325397
+MELD:S09E01,MELD:dia632_utt2,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.363,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia939_utt10,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,9.472,-18.403923,-18.961445,2.176813,5.086684,37.85346,1.98871,0.058197,0.112607,17,-16.583198,-21.669882,1.931677,337.45639,0.547619
+MELD:S09E01,MELD:dia632_utt7,MELD:monica,F,train,disgust,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.237,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia632_utt4,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.899,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia939_utt12,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.648,-17.930218,-18.143593,1.704819,2.766412,38.18491,2.020714,0.056739,0.123524,17,-16.628696,-19.395107,1.576753,343.355024,0.515873
+MELD:S09E01,MELD:dia939_utt2,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.309,-21.819545,-23.557148,22.581358,27.473012,36.852259,1.96063,0.052822,0.066337,17,-19.180445,-46.653458,11.14435,263.237995,0.404762
+MELD:S09E01,MELD:dia939_utt4,MELD:phoebe,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.856,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia158_utt1,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-16.164396,-16.355153,1.970004,7.990862,82.969021,5.134173,0.067749,0.15205,17,-13.390133,-21.380996,3.387063,213.349346,0.428571
+MELD:S09E01,MELD:dia285_utt0,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-28.834704,-29.523399,3.849029,12.490925,12.118619,1.96693,0.019419,0.033326,17,-27.291118,-39.782043,5.090282,111.319094,0.611111
+MELD:S09E01,MELD:dia285_utt11,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-20.873194,-21.420619,6.133855,11.680995,7.972055,1.199248,0.05279,0.084897,17,-17.984492,-29.665487,4.681058,106.292102,0.373016
+MELD:S09E01,MELD:dia285_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.264,-24.293557,-24.268578,2.160642,3.932477,4.795423,0.853256,0.03359,0.060757,17,-22.931407,-26.863884,1.84685,98.602838,0.619048
+MELD:S09E01,MELD:dia158_utt3,MELD:ross,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.896,,,,,,,,,,,,,,
+MELD:S09E01,MELD:dia939_utt16,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,7.36,-24.893197,-25.449261,6.393258,11.7716,,,0.026883,0.053348,17,-21.928901,-33.700501,4.668676,,
+MELD:S09E01,MELD:dia786_utt1,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.837,-16.622511,-17.366628,4.379362,10.81479,11.003686,0.994293,0.075976,0.135379,17,-14.747525,-25.562315,5.33816,202.984243,0.293651
+MELD:S09E01,MELD:dia285_utt16,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.475,-18.131504,-17.889319,1.694572,4.637735,28.504412,3.562891,0.056272,0.127491,17,-16.415379,-21.053114,2.59517,157.428973,0.642857
+MELD:S09E01,MELD:dia285_utt7,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.048,-17.168077,-17.879447,6.055092,9.750012,22.368179,1.295505,0.070452,0.127609,17,-13.845005,-23.595016,4.591218,316.681899,0.166667
+MELD:S09E01,MELD:dia285_utt9,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.176,-18.528427,-19.345152,3.60589,17.713294,,,0.072548,0.107801,17,-14.588151,-32.301445,6.297195,,
+MELD:S09E17,MELD:dia254_utt2,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.707,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia254_utt0,MELD:monica,F,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,2.389,-20.362698,-21.309071,17.697719,22.695162,27.453228,1.367021,0.061609,0.085914,17,-19.131139,-41.826301,9.703169,383.189618,0.238095
+MELD:S09E17,MELD:dia254_utt7,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.216,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia254_utt3,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.128,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia254_utt8,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.707,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia254_utt4,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-18.876385,-22.933212,24.517201,26.617989,1.519104,0.083333,0.05599,0.071264,17,-17.582718,-44.200707,12.258686,316.681899,0.071429
+MELD:S09E17,MELD:dia254_utt6,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.811,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia254_utt1,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.605,-16.954385,-18.654709,3.03055,5.929131,5.862251,0.258199,0.065129,0.116186,17,-14.62801,-20.557142,2.341105,398.99419,0.055556
+MELD:S09E17,MELD:dia254_utt5,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia254_utt9,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-19.197654,-19.989719,2.76711,6.169141,36.629705,2.021483,0.057472,0.100075,17,-17.549978,-23.719119,3.228516,301.510259,0.714286
+MELD:S09E17,MELD:dia123_utt4,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.453,-16.590695,-17.561321,1.637297,4.49279,8.758278,0.430507,0.062094,0.132027,17,-15.310442,-19.803232,1.744923,347.344617,0.18254
+MELD:S09E17,MELD:dia123_utt9,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.853,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia123_utt2,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.213,,,,,,,,,,,,,,
+MELD:S09E17,MELD:dia123_utt3,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-16.728889,-17.860504,0.851363,1.59898,42.877782,3.00857,0.043098,0.126302,17,-16.119317,-17.718297,0.696087,243.50002,0.793651
+MELD:S09E17,MELD:dia123_utt1,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.645,-17.607079,-18.343898,0.938078,2.086407,38.720401,2.717956,0.047228,0.120111,17,-16.655316,-18.741723,0.810327,242.788666,0.746032
+MELD:S09E17,MELD:dia123_utt6,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-18.76065,-18.890831,0.938732,2.116075,41.989589,2.899803,0.043317,0.113603,17,-17.903772,-20.019847,0.867242,242.788666,0.642857
+MELD:S09E17,MELD:dia123_utt5,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.517,-18.856085,-19.052518,4.627032,7.765381,21.771016,1.818752,0.055858,0.110918,17,-16.560667,-24.326049,3.481499,202.987629,0.301587
+MELD:S09E17,MELD:dia123_utt8,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-19.964504,-19.6314,1.322104,1.854821,32.954833,2.883681,0.04182,0.104248,17,-19.167446,-21.022267,0.832681,198.922586,0.873016
+MELD:S09E17,MELD:dia123_utt0,MELD:chandler,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.688,-18.289601,-18.174125,1.310137,2.945881,17.179413,1.423828,0.045694,0.123177,17,-17.10958,-20.055461,1.425571,212.584205,0.309524
+MELD:S09E17,MELD:dia123_utt7,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.645,-19.631147,-19.794822,1.321697,3.531659,55.184082,3.544087,0.039282,0.102052,17,-18.284635,-21.816294,1.488722,260.994274,0.412698
+MELD:S04E10,MELD:dia420_utt6,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.232,-18.91932,-19.294254,3.094163,8.095691,50.460317,2.74718,0.050681,0.108311,17,-16.690232,-24.785923,3.399458,389.88115,0.357143
+MELD:S04E10,MELD:dia420_utt7,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-17.854461,-19.314644,5.143079,12.509106,50.975994,3.179056,0.06178,0.107413,17,-15.663485,-28.172591,6.076079,248.463582,0.563492
+MELD:S04E10,MELD:dia558_utt0,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.435,-21.726466,-21.60951,3.41054,5.676886,33.399532,1.758676,0.044351,0.082199,17,-19.431004,-25.10789,2.255096,332.686321,0.142857
+MELD:S04E10,MELD:dia832_utt4,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S04E10,MELD:dia424_utt15,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-19.121912,-20.240634,1.481218,3.744732,79.967265,4.857772,0.054577,0.096121,17,-17.161301,-20.906033,2.637465,365.879286,0.642857
+MELD:S04E10,MELD:dia558_utt2,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.629,-20.183853,-21.894921,3.008381,8.884443,46.577921,2.672979,0.046471,0.078424,17,-17.097945,-25.982388,4.197706,340.39435,0.222222
+MELD:S04E10,MELD:dia832_utt2,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.688,-22.332247,-23.169838,4.05608,7.063698,27.716955,2.23265,0.037084,0.069206,17,-18.65762,-25.721318,2.796336,193.8178,0.515873
+MELD:S04E10,MELD:dia558_utt4,MELD:rachel,F,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,8.427,-33.975706,-34.330401,4.270506,8.011711,,,0.007279,0.019174,17,-31.23922,-39.250931,3.074094,,
+MELD:S04E10,MELD:dia832_utt8,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S04E10,MELD:dia424_utt8,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.315,-24.032427,-23.570718,6.411404,8.99102,23.759771,1.183465,0.027093,0.066239,17,-21.235568,-30.226588,3.643328,324.083987,0.134921
+MELD:S04E10,MELD:dia420_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,9.152,-16.550455,-15.997543,3.960798,10.891576,10.801508,1.480313,0.088594,0.158516,17,-14.445884,-25.337459,5.669895,126.403324,0.785714
+MELD:S04E10,MELD:dia424_utt1,MELD:chandler,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.131,,,,,,,,,,,,,,
+MELD:S04E10,MELD:dia424_utt11,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.509,-17.259471,-17.527515,3.468229,5.654791,16.464475,1.578936,0.066435,0.132518,17,-15.532365,-21.187157,2.303048,186.137371,0.444444
+MELD:S04E10,MELD:dia57_utt1,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.155,-19.156683,-20.625381,3.753794,20.795051,31.797923,2.020001,0.060406,0.092916,17,-17.096794,-37.891846,9.611361,251.350589,0.492063
+MELD:S04E10,MELD:dia57_utt2,MELD:chandler,M,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,7.509,-18.559989,-18.353787,3.152166,5.411571,11.694794,1.55591,0.054148,0.120843,17,-16.47299,-21.884561,2.509869,130.107224,0.531746
+MELD:S04E10,MELD:dia424_utt12,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.843,-21.071562,-21.005052,4.542405,5.898192,25.109784,2.763604,0.047659,0.088566,17,-18.647344,-24.545536,2.383103,139.043897,0.746032
+MELD:S04E10,MELD:dia558_utt1,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.133,-16.672291,-17.725061,10.499877,15.100523,41.271016,4.257793,0.078465,0.129796,17,-14.722248,-29.822771,6.417321,165.829546,0.436508
+MELD:S04E10,MELD:dia832_utt11,MELD:chandler,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,3.307,-17.86907,-17.801103,2.777985,6.528549,47.053058,4.527372,0.066731,0.128762,17,-15.206105,-21.734653,2.574869,169.705627,0.928571
+MELD:S04E10,MELD:dia942_utt7,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,8.725,-20.308087,-20.787673,4.818662,12.911725,46.414251,4.332794,0.058839,0.091203,17,-17.401286,-30.31301,5.183452,225.225119,0.357143
+MELD:S04E10,MELD:dia942_utt1,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia326_utt6,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.435,-28.47175,-31.462893,27.230962,29.323496,61.913763,3.633499,0.021238,0.02669,17,-27.044782,-56.368277,13.89773,266.296673,0.293651
+MELD:S08E01,MELD:dia326_utt1,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.301,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia326_utt5,MELD:monica,F,train,fear,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.515,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia889_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.176,-23.880082,-24.021883,1.508204,2.349646,67.580642,4.922743,0.028361,0.062921,17,-22.802701,-25.152347,0.998457,215.054314,0.785714
+MELD:S08E01,MELD:dia326_utt2,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,4.715,-22.624206,-23.431855,3.695277,6.227368,,,0.026815,0.067339,17,-20.723032,-26.950401,2.945489,,
+MELD:S08E01,MELD:dia748_utt0,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,16.064,-25.274599,-25.343903,10.567981,12.845275,26.209508,1.864288,0.033166,0.054023,17,-21.440342,-34.285617,5.654909,234.518392,0.166667
+MELD:S08E01,MELD:dia889_utt1,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.427,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia889_utt2,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.112,-24.264736,-23.756368,1.645996,2.697036,49.45149,3.271039,0.025958,0.064834,17,-23.219115,-25.916151,1.311759,208.932135,0.738095
+MELD:S08E01,MELD:dia326_utt7,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.427,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia326_utt4,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.944,-25.334487,-26.21101,6.143391,9.247485,72.618859,4.240102,0.028203,0.048872,17,-22.501015,-31.7485,4.112533,327.849662,0.563492
+MELD:S08E01,MELD:dia332_utt1,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.064,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia332_utt2,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia332_utt6,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.429,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia332_utt14,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.883,-20.81968,-22.017749,1.00106,3.34122,11.290749,0.651763,0.032824,0.078961,17,-19.718479,-23.059699,1.255817,311.241493,0.150794
+MELD:S08E01,MELD:dia332_utt10,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.301,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia332_utt8,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.224,-21.48413,-21.7451,1.405099,2.603489,2.483019,0.669333,0.027116,0.081371,17,-20.279628,-22.883118,1.11592,63.021757,0.142857
+MELD:S08E01,MELD:dia332_utt3,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-22.059561,-21.841342,1.648436,3.718391,59.930856,7.866458,0.027102,0.080782,17,-20.583091,-24.301481,1.435162,152.066364,0.484127
+MELD:S08E01,MELD:dia332_utt15,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia332_utt4,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.917,,,,,,,,,,,,,,
+MELD:S08E01,MELD:dia332_utt13,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.877,,,,,,,,,,,,,,
+MELD:S06E05,MELD:dia202_utt1,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.512,,,,,,,,,,,,,,
+MELD:S06E05,MELD:dia596_utt10,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,5.013,-19.811621,-20.908717,2.031432,6.134185,38.0281,2.478024,0.049582,0.089854,17,-18.200608,-24.334793,2.842656,223.283053,0.650794
+MELD:S06E05,MELD:dia202_utt3,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.051,-18.199137,-18.902797,3.217255,5.468845,46.405546,2.59276,0.054866,0.11338,17,-16.011029,-21.479873,2.190608,314.857945,0.801587
+MELD:S06E05,MELD:dia596_utt8,MELD:phoebe,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.669,-17.973726,-19.121202,2.099872,5.358157,71.237595,4.022079,0.052622,0.11062,17,-16.691256,-22.049413,2.214202,387.6356,0.436508
+MELD:S06E05,MELD:dia202_utt13,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.795,-21.615843,-24.048534,21.585378,26.05006,22.919692,1.772794,0.046095,0.062714,17,-19.661827,-45.711887,11.268525,219.454506,0.428571
+MELD:S06E05,MELD:dia596_utt2,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.221,-18.756426,-19.264751,1.915654,2.837165,45.983379,3.026521,0.053925,0.10844,17,-17.713334,-20.550499,1.356667,213.815692,0.642857
+MELD:S06E05,MELD:dia596_utt14,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.941,,,,,,,,,,,,,,
+MELD:S06E05,MELD:dia202_utt15,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S06E05,MELD:dia1033_utt3,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.517,-20.078948,-19.70033,0.879271,2.838732,20.647438,1.621831,0.042606,0.103503,17,-18.851642,-21.690373,1.086117,202.984243,0.952381
+MELD:S06E05,MELD:dia596_utt19,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.392,-17.48472,-19.399662,6.055621,12.737696,18.443166,1.341045,0.071689,0.106349,17,-15.274767,-28.012463,5.542768,236.560154,0.238095
+MELD:S06E05,MELD:dia596_utt21,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.136,-15.46121,-18.186852,16.839402,19.478895,12.888541,0.580261,0.080526,0.122704,17,-12.988559,-32.467455,8.104305,392.146251,0.111111
+MELD:S06E05,MELD:dia596_utt3,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.36,-18.007073,-18.118934,3.828255,5.765972,22.01075,2.32992,0.039678,0.124132,17,-16.095304,-21.861276,2.464069,169.716952,0.15873
+MELD:S06E05,MELD:dia1033_utt2,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,4.523,-22.476416,-23.869908,20.282764,23.36083,35.60904,6.191636,0.043041,0.063958,17,-21.064553,-44.425382,10.084358,112.61256,0.634921
+MELD:S06E05,MELD:dia596_utt0,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.563,-17.664614,-18.13552,0.826857,2.473673,7.315419,1.005461,0.043682,0.123783,17,-16.640678,-19.114351,1.006643,126.405433,0.507937
+MELD:S06E05,MELD:dia719_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.224,-20.298183,-21.234898,6.00009,14.393322,8.022157,1.444967,0.050646,0.08669,17,-18.72356,-33.116882,5.700503,103.864387,0.547619
+MELD:S06E05,MELD:dia202_utt0,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S06E05,MELD:dia202_utt12,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.797,-21.557765,-21.52969,2.672113,4.035198,19.957591,2.26592,0.043484,0.083825,17,-19.606143,-23.641341,1.681649,149.453955,0.873016
+MELD:S06E05,MELD:dia628_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S06E05,MELD:dia596_utt20,MELD:ross,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,7.189,-18.482964,-22.341835,15.943454,18.214727,12.763279,0.806408,0.05525,0.07587,17,-17.661638,-35.876366,8.558604,285.409708,0.134921
+MELD:S06E05,MELD:dia719_utt1,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.219,-23.872855,-24.280868,5.337168,7.378175,,,0.031529,0.060824,17,-21.388087,-28.766262,3.155276,,
+MELD:S06E13,MELD:dia288_utt8,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.728,,,,,,,,,,,,,,
+MELD:S06E13,MELD:dia788_utt0,MELD:monica,F,train,fear,2.0,c4-meld-0.2-fixedwindow,valid,,5.056,-19.006749,-18.953822,1.011404,1.756363,41.162526,3.030109,0.061571,0.112643,17,-18.211593,-19.967956,1.135457,207.728775,0.626984
+MELD:S06E13,MELD:dia554_utt9,MELD:monica,F,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-18.425004,-18.793039,2.388473,4.973923,52.567531,2.996845,0.057258,0.114349,17,-16.806815,-21.780738,1.84203,348.35069,0.444444
+MELD:S06E13,MELD:dia554_utt8,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.011,-21.291995,-22.97056,4.22997,7.368394,16.596471,0.86814,0.045846,0.069881,17,-19.406372,-26.774766,3.414774,337.478909,0.047619
+MELD:S06E13,MELD:dia554_utt2,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.093,-16.76951,-19.934664,8.33825,28.902587,17.382996,0.802725,0.074827,0.100723,17,-14.53511,-43.437697,10.890377,382.092487,0.333333
+MELD:S06E13,MELD:dia554_utt6,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.795,-22.83943,-22.762987,4.989338,6.721129,32.959157,2.1041,0.042788,0.072745,17,-20.42419,-27.145319,2.768289,263.237995,0.563492
+MELD:S06E13,MELD:dia288_utt16,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.56,-19.485206,-19.914294,1.539724,3.23596,53.005094,3.961314,0.039478,0.100763,17,-18.144964,-21.380924,1.390639,208.932135,0.452381
+MELD:S06E13,MELD:dia554_utt0,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.688,-18.179747,-18.13626,3.987141,5.034011,45.545088,2.476016,0.063065,0.123432,17,-16.003552,-21.037563,2.215037,311.241493,0.52381
+MELD:S06E13,MELD:dia554_utt7,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,7.061,-24.248225,-24.881328,6.465938,8.421622,,,0.022139,0.056961,17,-21.676575,-30.098197,3.453027,,
+MELD:S06E13,MELD:dia554_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,7.36,-19.755093,-24.012923,26.31855,29.355896,16.83958,0.88429,0.050322,0.062992,17,-17.467126,-46.823022,13.150635,321.289483,0.285714
+MELD:S06E13,MELD:dia788_utt2,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,5.141,-16.965785,-17.727582,1.780881,4.288076,,,0.044343,0.129714,17,-15.421214,-19.70929,2.074546,,
+MELD:S06E13,MELD:dia288_utt11,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.875,,,,,,,,,,,,,,
+MELD:S06E13,MELD:dia288_utt6,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S06E13,MELD:dia288_utt4,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S06E13,MELD:dia288_utt13,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.272,-18.816116,-18.317256,1.533171,8.994176,63.223006,4.494649,0.057024,0.12137,17,-16.180064,-25.17424,4.35562,179.796849,0.753968
+MELD:S06E13,MELD:dia288_utt9,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.261,-19.564471,-20.038859,1.978274,4.132401,45.758859,3.532591,0.037666,0.099324,17,-17.65019,-21.782591,1.454253,221.355886,0.563492
+MELD:S06E13,MELD:dia554_utt3,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.963,,,,,,,,,,,,,,
+MELD:S06E13,MELD:dia288_utt19,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.965,-17.152685,-17.031634,1.074983,1.794477,29.426989,2.656637,0.054931,0.14072,17,-16.171844,-17.966321,1.457994,183.999401,0.785714
+MELD:S06E13,MELD:dia288_utt7,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.307,-24.386047,-25.191729,11.520457,16.226498,0.0,0.0,0.036695,0.054994,17,-22.000691,-38.227189,6.748801,60.0,0.063492
+MELD:S06E13,MELD:dia288_utt2,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-15.995846,-16.755514,2.223241,9.486173,34.167623,2.231429,0.08583,0.145242,17,-14.120023,-23.606196,4.052569,261.721856,0.277778
+MELD:S01E09,MELD:dia545_utt13,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.731,-20.480893,-21.358207,2.243272,6.407803,12.185604,0.556318,0.040472,0.085504,17,-18.021908,-24.42971,3.159099,385.402983,0.396825
+MELD:S01E09,MELD:dia175_utt5,MELD:rachel,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,2.603,-26.270249,-26.658888,10.013031,17.337877,54.321353,3.772965,0.027477,0.046439,17,-23.826213,-41.16409,6.730674,218.817048,0.333333
+MELD:S01E09,MELD:dia793_utt0,MELD:phoebe,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,11.52,-36.65745,-35.418778,6.358323,8.498552,,,0.008694,0.016941,17,-33.591085,-42.089637,3.765026,,
+MELD:S01E09,MELD:dia545_utt2,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S01E09,MELD:dia175_utt1,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.432,-23.934068,-23.626775,3.168357,5.66604,29.668792,2.233062,0.029891,0.065842,17,-21.278656,-26.944696,2.432186,224.576519,0.31746
+MELD:S01E09,MELD:dia175_utt2,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.517,-19.722264,-19.992362,3.856709,8.126656,28.114448,1.573294,0.053935,0.099922,17,-16.998748,-25.125405,3.224669,318.516418,0.698413
+MELD:S01E09,MELD:dia175_utt10,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.387,,,,,,,,,,,,,,
+MELD:S01E09,MELD:dia545_utt12,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.64,,,,,,,,,,,,,,
+MELD:S01E09,MELD:dia545_utt0,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.843,-23.71412,-25.671654,15.679449,23.456607,44.133606,2.280369,0.039366,0.05204,17,-20.72291,-44.179516,9.035509,339.411255,0.309524
+MELD:S01E09,MELD:dia545_utt4,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.755,-19.6169,-20.080423,2.083437,4.989449,54.713161,3.087445,0.046105,0.099064,17,-17.40403,-22.393478,2.142693,298.912896,0.412698
+MELD:S01E09,MELD:dia793_utt3,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.475,-20.251855,-20.044989,6.419167,10.182363,29.816822,2.135622,0.050647,0.099328,17,-16.764317,-26.94668,3.912756,237.930533,0.888889
+MELD:S01E09,MELD:dia175_utt11,MELD:chandler,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,4.437,-27.446339,-27.214369,2.149754,4.788316,8.00852,1.12719,0.021475,0.043428,17,-25.90385,-30.692166,2.128073,122.804867,0.769841
+MELD:S01E09,MELD:dia545_utt8,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,9.813,-18.992768,-19.00745,2.967387,5.680006,40.005612,3.269869,0.047618,0.112065,17,-17.13157,-22.811576,2.341384,190.488126,0.261905
+MELD:S01E09,MELD:dia175_utt8,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S01E09,MELD:dia793_utt2,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.603,-15.8947,-16.271217,1.752274,2.763283,23.216588,1.479234,0.035903,0.153587,17,-14.583877,-17.347159,1.102367,247.032537,0.515873
+MELD:S01E09,MELD:dia793_utt10,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,2.304,-14.105486,-14.826288,2.140123,3.753688,3.710721,0.25317,0.037173,0.181264,17,-13.100587,-16.854275,1.574275,255.74412,0.119048
+MELD:S01E09,MELD:dia545_utt7,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.648,-24.223145,-25.330677,7.091574,21.356289,22.289315,2.538909,0.038311,0.054125,17,-21.259389,-42.615678,8.138941,149.453955,0.34127
+MELD:S01E09,MELD:dia175_utt9,MELD:chandler,M,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,4.096,-24.697526,-23.694116,2.333832,8.798175,24.722193,3.475304,0.040529,0.065355,17,-21.882716,-30.680891,4.197354,138.642324,0.753968
+MELD:S01E09,MELD:dia793_utt6,MELD:chandler,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,7.723,-24.726937,-24.564687,3.556398,11.920091,26.429235,3.385234,0.040778,0.05912,17,-20.235636,-32.155727,4.980726,116.921515,0.650794
+MELD:S01E09,MELD:dia793_utt1,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-14.651682,-15.980759,12.512091,14.512567,9.560394,1.576256,0.09148,0.158826,17,-12.047648,-26.560215,6.386803,108.150056,0.388889
+MELD:S04E11,MELD:dia218_utt12,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.008,-25.729339,-25.988296,4.193835,7.029637,29.525283,1.781926,0.029614,0.049882,17,-23.978879,-31.008516,2.956265,264.762917,0.626984
+MELD:S04E11,MELD:dia727_utt4,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.712,-16.516653,-18.397528,14.394219,30.107338,23.153105,1.157785,0.083288,0.120138,17,-15.196644,-45.303982,12.489116,367.998803,0.515873
+MELD:S04E11,MELD:dia563_utt0,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia563_utt3,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.176,-27.460657,-29.262552,5.367353,13.560229,65.959765,3.755058,0.018695,0.033472,17,-23.895978,-37.456207,5.330923,293.77285,0.5
+MELD:S04E11,MELD:dia727_utt9,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,3.264,-20.792171,-21.370353,5.571556,12.44217,46.601798,2.599186,0.050296,0.085301,17,-18.799677,-31.241847,7.121967,355.463413,0.611111
+MELD:S04E11,MELD:dia727_utt6,MELD:monica,F,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,4.885,-23.058655,-23.182723,2.135276,5.224769,16.913239,1.056597,0.033902,0.069274,17,-22.161539,-27.386308,3.59942,274.099761,0.134921
+MELD:S04E11,MELD:dia563_utt5,MELD:rachel,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.6,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia563_utt7,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia563_utt2,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.131,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia218_utt4,MELD:monica,F,train,sadness,2.0,c4-meld-0.2-fixedwindow,valid,,4.352,-25.250555,-25.381095,9.3652,13.761496,15.706664,1.467522,0.035706,0.053576,17,-22.438619,-36.200116,6.010403,189.390995,0.81746
+MELD:S04E11,MELD:dia844_utt15,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.792,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia218_utt10,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.347,-21.820045,-21.779267,7.273925,8.839375,5.413384,0.787665,0.045326,0.08108,17,-19.097656,-27.937031,3.924106,118.621682,0.388889
+MELD:S04E11,MELD:dia844_utt3,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.005,-20.007518,-19.335616,2.937298,5.449891,,,0.063805,0.106736,17,-17.707982,-23.157873,2.598381,,
+MELD:S04E11,MELD:dia727_utt7,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.771,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia844_utt8,MELD:ross,M,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.088,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia218_utt8,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.299,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia218_utt3,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.517,-19.403285,-19.799141,2.900464,6.809251,26.325361,2.165284,0.056926,0.101738,17,-17.331983,-24.141234,2.93813,190.488126,0.444444
+MELD:S04E11,MELD:dia844_utt13,MELD:joey,M,train,anger,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S04E11,MELD:dia218_utt5,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.059,-19.330883,-19.417163,1.796909,5.950865,25.794061,3.467054,0.062076,0.106789,17,-17.826327,-23.777192,7.620808,115.244753,0.626984
+MELD:S04E11,MELD:dia218_utt7,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.152,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia764_utt0,MELD:monica,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.92,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia354_utt10,MELD:rachel,F,train,joy,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.173,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia1038_utt8,MELD:monica,F,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,4.267,-22.263669,-22.585877,1.762036,3.304563,44.986702,2.86232,0.032563,0.073228,17,-20.743863,-24.048427,1.286199,238.617702,0.896825
+MELD:S02E03,MELD:dia354_utt11,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.472,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia1038_utt2,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.003,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia354_utt6,MELD:phoebe,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,4.224,-21.186103,-21.875566,7.16532,19.164116,29.697628,1.695542,0.058631,0.08048,17,-16.303247,-35.467363,8.000679,283.765869,0.420635
+MELD:S02E03,MELD:dia354_utt12,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.432,-19.167456,-21.399906,12.402778,17.179118,46.274287,2.938044,0.060086,0.084868,17,-17.340013,-34.519131,7.519228,261.726222,0.222222
+MELD:S02E03,MELD:dia1000_utt0,MELD:monica,F,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,4.011,-16.291946,-16.893418,4.761622,19.286673,32.489549,2.215416,0.077206,0.142156,17,-15.291113,-34.577786,7.917301,274.099761,0.198413
+MELD:S02E03,MELD:dia354_utt1,MELD:monica,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,6.187,-21.182094,-23.312723,25.688523,27.856224,16.855333,2.200975,0.055808,0.068264,17,-19.632242,-47.488466,12.629498,147.311877,0.126984
+MELD:S02E03,MELD:dia1038_utt6,MELD:rachel,F,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.835,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia1038_utt0,MELD:chandler,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,0.533,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia354_utt8,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,8.064,-16.548915,-16.927219,3.542444,5.045248,6.5395,0.291548,0.040293,0.142356,17,-14.511342,-19.556589,2.081487,392.139709,0.063492
+MELD:S02E03,MELD:dia1038_utt17,MELD:joey,M,train,joy,2.0,c4-meld-0.2-fixedwindow,valid,,3.691,-20.800052,-20.424186,1.960723,4.404533,42.500263,4.54365,0.045528,0.095221,17,-19.024993,-23.429526,1.888391,127.503816,0.904762
+MELD:S02E03,MELD:dia1038_utt10,MELD:joey,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.091,-24.462138,-25.637991,13.003259,16.653798,44.888533,6.717885,0.030568,0.052225,17,-23.145158,-39.798956,7.089258,152.947275,0.579365
+MELD:S02E03,MELD:dia1038_utt7,MELD:chandler,M,train,disgust,2.0,c4-meld-0.2-fixedwindow,valid,,3.264,-20.297494,-20.71114,2.099069,5.177014,36.737906,2.562071,0.046466,0.091882,17,-18.044663,-23.221677,2.066554,237.930533,0.761905
+MELD:S02E03,MELD:dia354_utt16,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,NA,shorter than the 2.00s window,1.984,,,,,,,,,,,,,,
+MELD:S02E03,MELD:dia354_utt5,MELD:ross,M,train,neutral,2.0,c4-meld-0.2-fixedwindow,valid,,2.88,-19.604502,-20.017408,2.250714,3.538448,21.342124,2.065484,0.042436,0.099763,17,-17.968355,-21.506803,1.40318,191.591613,0.746032
+MELD:S02E03,MELD:dia1038_utt15,MELD:joey,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,3.008,-20.055211,-19.781282,2.938305,4.631319,12.496519,1.860282,0.045943,0.102542,17,-18.220918,-22.852237,1.83999,115.912359,0.769841
+MELD:S02E03,MELD:dia1038_utt4,MELD:ross,M,train,surprise,2.0,c4-meld-0.2-fixedwindow,valid,,2.752,-22.670363,-22.338576,3.544032,6.670815,32.856458,3.474143,0.041088,0.076364,17,-19.997386,-26.6682,2.950008,177.731706,0.793651
+MELD:S02E03,MELD:dia1000_utt2,MELD:chandler,M,train,anger,2.0,c4-meld-0.2-fixedwindow,valid,,3.605,-20.538352,-20.929154,8.748366,11.566726,36.200442,4.2634,0.049441,0.089658,17,-18.576929,-30.143655,5.180661,187.215654,0.674603
