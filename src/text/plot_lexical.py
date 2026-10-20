@@ -5,11 +5,14 @@
 
 Reads   derived/c3/c3_lexical_features.csv
         equvid/components/C3_Text/results/c3_lexical_corpus_summary.csv
+        equvid/components/C3_Text/results/c3_agency_power_summary.csv (if present)
 Writes  equvid/components/C3_Text/results/
           fig1_corpus_parity.png     the C3 equation features: pooled value and 95% CI
           fig2_words_vs_time.png     F1 against C2's speaking-time parity, per clip:
                                      the evidence for dropping F1 from the equation
           fig3_clip_coverage.png     share of clips where each feature can be computed
+          fig4_agency_power.png      agency and power: pooled value and 95% CI
+                                     (only once agency_power_features.py has run)
 
 Every number drawn here is also in the CSVs, which are the table view.
 """
@@ -45,9 +48,17 @@ PANELS = [  # feature, title, unit of the value label -- the C3 equation feature
 ]
 
 
+AP_PANELS = [  # agency_power_features.py: the two equation features
+    ("agency", "Agency of the speaker's own verbs\n(\"I decided\" +1, \"I waited\" \u22121)", "diff"),
+    ("power", "Power of the speaker's own verbs\n(\"I ordered\" +1, \"I obeyed\" \u22121)", "diff"),
+]
+
+
 def value_label(v, unit):
     if unit == "pts":
         txt = f"{100 * v:+.1f} pts"
+    elif unit == "diff":
+        txt = f"{v:+.2f}"
     else:
         txt = f"{v:+.2f} ({100 * (np.exp(v) - 1):+.0f}%)"
     return txt.replace("-", "\u2212")          # typographic minus, as on the axis
@@ -60,10 +71,11 @@ def clean(ax):
     ax.set_axisbelow(True)
 
 
-def fig1(summary, out):
-    fig, axes = plt.subplots(1, len(PANELS), figsize=(10.5, 3.4), sharey=True)
+def dot_whisker(summary, panels, suptitle, out, note):
+    """One panel per feature: pooled value and 95% CI for each corpus."""
+    fig, axes = plt.subplots(1, len(panels), figsize=(3.5 * len(panels), 3.4), sharey=True)
     corpora = ["AMI", "MELD"]                    # drawn bottom-up, so MELD is on top
-    for ax, (feat, title, unit) in zip(axes, PANELS):
+    for ax, (feat, title, unit) in zip(axes, panels):
         s = summary[summary.feature == feat].set_index("corpus")
         span = np.nanmax(np.abs(s[["ci_low", "ci_high"]].to_numpy())) * 1.25
         ax.axvline(0, color=INK, linewidth=1.0, zorder=1)
@@ -76,7 +88,7 @@ def fig1(summary, out):
                         xytext=(0, 9), textcoords="offset points",
                         ha="center", fontsize=8.5, color=INK, zorder=4,
                         bbox=dict(fc="white", ec="none", pad=0.6))
-            ax.annotate(f"n = {int(r.n_clips)} clips", (span, y), xytext=(0, -13),
+            ax.annotate(note(r), (span, y), xytext=(0, -13),
                         textcoords="offset points", ha="right", fontsize=7.5, color=MUTED)
         ax.set_xlim(-span, span)
         ax.set_ylim(-0.6, 1.6)
@@ -84,11 +96,22 @@ def fig1(summary, out):
         ax.set_title(title, fontsize=10, loc="left")
         ax.set_xlabel("← men higher     women higher →", fontsize=8.5, color=MUTED)
         clean(ax)
-    fig.suptitle("C3 features without a parser: women vs men per corpus, 95% CI "
-                 "(bootstrap over series)", x=0.01, ha="left", fontsize=11.5)
+    fig.suptitle(suptitle, x=0.01, ha="left", fontsize=11.5)
     fig.tight_layout(rect=(0, 0, 1, 0.94))
     fig.savefig(out, bbox_inches="tight")
     plt.close(fig)
+
+
+def fig1(summary, out):
+    dot_whisker(summary, PANELS,
+                "C3 features without a parser: women vs men per corpus, 95% CI "
+                "(bootstrap over series)", out, lambda r: f"n = {int(r.n_clips)} clips")
+
+
+def fig4(summary, out):
+    dot_whisker(summary[summary.role == "equation"], AP_PANELS,
+                "Agency and power (Sap et al. lexicon): women minus men per corpus, 95% CI",
+                out, lambda r: f"verbs: F {int(r.frames_F):,} / M {int(r.frames_M):,}")
 
 
 def fig2(clips, out):
@@ -160,7 +183,10 @@ def main():
     fig1(summary, res / "fig1_corpus_parity.png")
     fig2(clips, res / "fig2_words_vs_time.png")
     fig3(clips, res / "fig3_clip_coverage.png")
-    print("wrote 3 figures to", res)
+    ap_summary = res / "c3_agency_power_summary.csv"
+    if ap_summary.exists():                      # written by agency_power_features.py
+        fig4(pd.read_csv(ap_summary), res / "fig4_agency_power.png")
+    print("wrote the figures to", res)
 
 
 if __name__ == "__main__":

@@ -8,7 +8,10 @@ import math
 
 import pandas as pd
 
+from agency_power_features import score_frames, variant_stats
+from frames import frames_from_doc
 from lexical_features import FEATURES, MODEL_FEATURES, ROLE, add_previous_speaker, features
+from lexicon import lookup
 from wordlists import pronoun_counts, tokens
 
 
@@ -79,6 +82,98 @@ def test_roles():
     assert set(ROLE) == set(FEATURES)
     assert "volume_log_parity" not in MODEL_FEATURES
     assert MODEL_FEATURES == ["length_log_ratio", "same_gender_excess_diff", "ref_log_parity"]
+
+
+class Tok:
+    """A hand-built stand-in for a spaCy token: just the attributes frames.py reads."""
+
+    def __init__(self, text, lemma, pos, dep):
+        self.text, self.lemma_, self.pos_, self.dep_ = text, lemma, pos, dep
+        self.lower_ = text.lower()
+
+    @property
+    def children(self):
+        return [t for t in self.doc if t.head is self and t is not self]
+
+
+def parsed(*spec):
+    """spec: (text, lemma, pos, dep, index of head) per token, as a parser would give."""
+    toks = [Tok(*s[:4]) for s in spec]
+    for t, s in zip(toks, spec):
+        t.head, t.doc = toks[s[4]], toks
+    return toks
+
+
+def test_frame_rules():
+    def summary(doc):
+        return [(f["role"], f["who"], f["lemma"], f["particles"], f["negated"])
+                for f in frames_from_doc(doc)]
+
+    # "She didn't call him": she is the agent, him the theme, and both are negated.
+    doc = parsed(("She", "she", "PRON", "nsubj", 3), ("did", "do", "AUX", "aux", 3),
+                 ("n't", "not", "PART", "neg", 3), ("call", "call", "VERB", "ROOT", 3),
+                 ("him", "he", "PRON", "dobj", 3))
+    assert summary(doc) == [("ref_agent", "F", "call", "", 1), ("ref_theme", "M", "call", "", 1)]
+
+    # "I was fired": a passive subject is the theme, not the agent.
+    doc = parsed(("I", "I", "PRON", "nsubjpass", 2), ("was", "be", "AUX", "auxpass", 2),
+                 ("fired", "fire", "VERB", "ROOT", 2))
+    assert summary(doc) == [("self_theme", "speaker", "fire", "", 0)]
+
+    # "I came and saw her car": "saw" borrows "I" from "came"; possessive "her" is no object.
+    doc = parsed(("I", "I", "PRON", "nsubj", 1), ("came", "come", "VERB", "ROOT", 1),
+                 ("and", "and", "CCONJ", "cc", 1), ("saw", "see", "VERB", "conj", 1),
+                 ("her", "her", "PRON", "poss", 5), ("car", "car", "NOUN", "dobj", 3))
+    assert summary(doc) == [("self_agent", "speaker", "come", "", 0),
+                            ("self_agent", "speaker", "see", "", 0)]
+
+    # "I freaked out": the particle is kept for the multi-word lexicon entry.
+    doc = parsed(("I", "I", "PRON", "nsubj", 1), ("freaked", "freak", "VERB", "ROOT", 1),
+                 ("out", "out", "ADP", "prt", 1))
+    assert summary(doc) == [("self_agent", "speaker", "freak", "out", 0)]
+
+    # "I am happy": a copula is AUX, not a verb, so there is no frame.
+    doc = parsed(("I", "I", "PRON", "nsubj", 1), ("am", "be", "AUX", "ROOT", 1),
+                 ("happy", "happy", "ADJ", "acomp", 1))
+    assert summary(doc) == []
+
+
+def test_lexicon_lookup():
+    lex = {"freak out": {}, "freak": {}, "want": {}, "go": {}}
+    assert lookup(lex, "freak", "out") == "freak out"     # multi-word entry wins
+    assert lookup(lex, "freak", "") == "freak"
+    assert lookup(lex, "wanna") == "want"                  # informal form mapped
+    assert lookup(lex, "have") == ""                       # not in the lexicon
+
+
+def test_agency_power_scoring():
+    # Five frames by a woman, three by a man, worked out by hand:
+    #   woman: I decided (+1 agency, +1 power), I waited (-1, -1),
+    #          I didn't decide (negated), she decided [said by the man; about a woman]
+    #   man:   I decided (+1, +1), I mean (-1 agency, 0 power; a marker),
+    #          he fired me (the man is the theme of an agent-power verb: -1)
+    lex = {"decide": {"agency": "agency_pos", "power": "power_agent"},
+           "wait": {"agency": "agency_neg", "power": "power_theme"},
+           "mean": {"agency": "agency_neg", "power": "power_equal"},
+           "fire": {"agency": "agency_pos", "power": "power_agent"}}
+    rows = [("F", "F", "self_agent", "decide", 0), ("F", "F", "self_agent", "wait", 0),
+            ("F", "F", "self_agent", "decide", 1), ("M", "F", "ref_agent", "decide", 0),
+            ("M", "M", "self_agent", "decide", 0), ("M", "M", "self_agent", "mean", 0),
+            ("M", "M", "self_theme", "fire", 0)]
+    frames = pd.DataFrame(rows, columns=["speaker_gender", "character_gender", "role",
+                                         "lemma", "negated"])
+    frames["clip_id"], frames["particles"] = "T:1", ""
+    st = variant_stats(score_frames(frames, lex)).set_index(["variant", "gender"])
+
+    def mean(v, g):
+        return st.loc[(v, g), "sum"] / st.loc[(v, g), "n"]
+
+    assert mean("agency", "F") == 0 and mean("agency", "M") == 0      # (+1 -1)/2, (+1 -1)/2
+    assert mean("power", "F") == 0 and mean("power", "M") == 0.5      # (+1 -1)/2, (+1 +0)/2
+    assert math.isclose(mean("agency_with_negation", "F"), 1 / 3)     # the negated +1 counts
+    assert mean("agency_no_markers", "M") == 1                        # "I mean" removed
+    assert mean("ref_agency", "F") == 1                               # "she decided"
+    assert mean("theme_power", "M") == -1                             # "he fired me"
 
 
 if __name__ == "__main__":

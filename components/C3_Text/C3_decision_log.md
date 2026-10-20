@@ -11,6 +11,49 @@ the per-component cap.
 
 ---
 
+## D5 · 20 Oct 2026 · How agency and power are measured (fixed before the first run)
+
+**Decision.** `agency_score_mean` and `power_score_mean` use the verbs whose subject is
+the speaker, which is the specification's wording: "verbs whose syntactic subject is the
+speaking character".
+
+- **Which verbs:** main verbs (spaCy part of speech VERB) with "I" as their active
+  subject, in lines spoken by each gender. Auxiliaries and copulas ("I am", "I can") are
+  not main verbs.
+- **Scores:** the Sap et al. (2017) lexicon, mapped exactly as Riveter maps it.
+  - Agency: +1, 0 or −1.
+  - Power as the agent: +1, −1 or 0.
+- **Feature:** the women's mean minus the men's mean, pooled over the scorable clips of a
+  corpus, with a bootstrap over series.
+- **Left out:**
+  - negated verbs ("I didn't quit"), because the event is not asserted;
+  - verbs not in the lexicon. Coverage is reported per gender, which is deliverable D5 of
+    the specification.
+- **Lookup rules:**
+  - Multi-word entries are tried first ("freak out").
+  - Informal forms are mapped: wanna → want, gonna → go, got → get.
+  - A verb joined by "and" borrows the subject ("I came and saw").
+  - A verb after "want to" does not borrow it: it is wanted, not done.
+
+**Pre-declared checks.** These are reported but never enter the equation.
+
+1. The same features with negated verbs kept.
+2. The same features without seven verbs that after "I" are mostly discourse markers:
+   *think, mean, guess, know, suppose, see, bet*.
+3. Verbs whose subject is "she" or "he": how each gender is described by others
+   (exploratory).
+4. Power when the character is the object ("he fired me", "they fired her").
+
+**Why check 2 is declared now.** In this lexicon *know, mean, guess* and *see* are
+agency_neg and *think* is agency_pos, and all five are very common after "I" in
+conversation. If one gender says "I mean" more often and the other "I think", the feature
+would measure discourse habits, not how the script writes them. Fixing the check before
+any result is seen keeps it from being chosen to suit the result.
+
+**Status.** C3 method choice. The code (`frames.py`, `parse_frames.py`,
+`agency_power_features.py`) was written and tested on hand-built parses before spaCy was
+run on any corpus.
+
 ## D1 · 19 Oct 2026 · `dialogue_volume_share` (F1) leaves the C3 equation
 
 **Decision.** F1 is still computed and reported, as `volume_log_parity`, but only as a
