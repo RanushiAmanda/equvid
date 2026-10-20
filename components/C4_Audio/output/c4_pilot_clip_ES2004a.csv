@@ -1,0 +1,2 @@
+clip_id,corpus,status,reason,feature_version,n_seg_F,n_seg_M,dialogue_ref_lufs,mean_voice_loudness_rel_F,speech_to_background_F,dynamic_range_F,f0_std_F,energy_std_F,amplitude_std_F,mean_voice_loudness_rel_M,speech_to_background_M,dynamic_range_M,f0_std_M,energy_std_M,amplitude_std_M
+AMI:ES2004a,AMI,valid,,c4-pilot-0.1,5,5,-38.81,-1.583,13.688,37.514,52.1,0.011,0.013,1.583,16.854,37.564,41.922,0.012,0.014
