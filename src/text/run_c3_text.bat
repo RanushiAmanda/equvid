@@ -3,8 +3,9 @@ setlocal
 rem ======================================================================
 rem  C3 (EuqVid-Text): rebuild the text tables, features and charts.
 rem  First run: a few minutes, because step 3 parses the lines with spaCy.
-rem  Later runs: about a minute; step 3 is skipped when its inputs have not
-rem  changed. Inputs are only read; every output is overwritten.
+rem  Later runs: two or three minutes; step 3 is skipped when its inputs have
+rem  not changed, and step 5 (the equation, 1,000 bootstrap refits) takes about
+rem  a minute. Inputs are only read; every output is overwritten.
 rem    tables  -> Research Project\derived\c3\
 rem    results -> equvid\components\C3_Text\results\
 rem ======================================================================
@@ -20,32 +21,36 @@ if not defined PY (
   pause
   exit /b 1
 )
-%PY% -c "import pandas, matplotlib, spacy" >nul 2>nul || goto missing
+%PY% -c "import pandas, matplotlib, scipy, spacy" >nul 2>nul || goto missing
 
-echo [1/6] Utterance tables for MELD and AMI ...
+echo [1/7] Utterance tables for MELD and AMI ...
 %PY% -u build_utterances.py || goto failed
 echo.
-echo [2/6] Lexical features and confidence intervals ...
+echo [2/7] Lexical features and confidence intervals ...
 %PY% -u lexical_features.py || goto failed
 echo.
-echo [3/6] Parsing the lines with spaCy (a few minutes the first time) ...
+echo [3/7] Parsing the lines with spaCy (a few minutes the first time) ...
 %PY% -u parse_frames.py || goto failed
 echo.
-echo [4/6] Agency and power features ...
+echo [4/7] Agency and power features ...
 %PY% -u agency_power_features.py || goto failed
 echo.
-echo [5/6] Charts ...
+echo [5/7] The C3 equation: fit, freeze, normalise, tiers, 1,000 bootstrap refits ...
+%PY% -u c3_equation.py || goto failed
+echo.
+echo [6/7] Charts ...
 %PY% -u plot_lexical.py || goto failed
 echo.
-echo [6/6] Hand-worked tests ...
+echo [7/7] Hand-worked tests ...
 %PY% -u test_text_features.py || goto failed
+%PY% -u test_c3_equation.py || goto failed
 echo.
 echo All done. Results are in equvid\components\C3_Text\results
 pause
 exit /b 0
 
 :missing
-echo pandas, matplotlib or spaCy is missing for this Python.
+echo pandas, matplotlib, scipy or spaCy is missing for this Python.
 echo Run equvid\components\C3_Text\setup\setup_c3.bat once, then run this again.
 pause
 exit /b 1

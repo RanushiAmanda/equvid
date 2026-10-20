@@ -6,6 +6,8 @@ vaderSentiment==3.3.2  # candidate sentiment tool for F8 (provisional until the 
 imageio-ffmpeg>=0.5    # ships an ffmpeg executable, used to cut AVA minutes 15-30 audio for ASR
 pandas>=2.0            # tables in src/text (also in equvid/requirements.txt)
 matplotlib>=3.7        # charts in src/text/plot_lexical.py
+scipy>=1.10            # Spearman, chi-square and normality tests in src/text (already
+                       # needed by pandas' Spearman correlation since night 1)
 
 # English model, installed separately by setup_c3.bat:
 #   python -m spacy download en_core_web_sm

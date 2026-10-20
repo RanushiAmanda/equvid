@@ -50,6 +50,9 @@ C3 notes:
   to confirm.
 - **20 Oct 2026:** `sentiment_valence_mean` is dropped. The best model tested failed a
   gender-word swap check that was fixed in advance.
+- **21 Oct 2026:** the C3 equation (`text/c3_equation.py`, decision D7). C3 builds its
+  own provisional shards inside each corpus until the group fixes `clip_to_shard.csv`;
+  everything is computed from per-clip counts, so the shared shards can replace them.
 
 Details: `components/C3_Text/C3_decision_log.md`.
 

@@ -9,7 +9,129 @@ F-numbers in the specification and the AVA decision note do not agree.
 At degree 2 that is 21 coefficients, under the per-component cap of 28.
 `sentiment_valence_mean` was dropped on 20 Oct 2026 (D6).
 
+**The C3 equation** is built as D7 describes: fitted, frozen, normalised to −10…+10 and
+tiered. Code: `src/text/c3_equation.py`.
+
 ---
+
+## D7 · 21 Oct 2026 · How the C3 equation is fitted, frozen, normalised and tiered (fixed before the first fit)
+
+**Decision.** The C3 equation is built in nine steps.
+
+- **Code:** `src/text/c3_equation.py`; tests: `src/text/test_c3_equation.py`.
+- **Pushed before the first fit.** Before the push, the code ran on MELD and AMI only in
+  a dry-run mode that checks the pipeline and prints no result.
+
+**1. Rows are shards.** 100 shards per corpus, each of 30 scorable episodes or meetings
+(173 MELD, 82 AMI), drawn without repeats inside a shard; seed 0. Features come from the
+pooled counts: a ratio of sums, never a mean of ratios.
+
+*Deviation from M2's proposal.* M2 draws shards from MELD and AMI pooled together. C3
+draws them within each corpus, because a shard that mixes the two corpora cannot be held
+out when one corpus is left out. Provisional until the group fixes `clip_to_shard.csv`.
+
+**2. Operators.** Each operator replaces a fraction *l* of one gender's material by the
+least favourable form it can take: a group mean *m* becomes (1 − *l*)·*m* + *l*·min. When
+the minimum is 0, this is EuqAud's own rule ("multiply by 0.95, 0.90, …").
+
+| Operator | Feature it moves | A fraction *l* of the target gender's material becomes |
+|---|---|---|
+| O_len | `mean_utterance_length` | a line → a one-word reaction |
+| O_same | `same_gender_dialogue_share` | a reply from her own gender → a reply from the other gender |
+| O_ref | `ref_log_parity` | a reference to her (she / her) → removed |
+| O_agency | `agency_score_mean` | her verb → a verb scoring −1 |
+| O_power | `power_score_mean` | the same, for power |
+| O_all | all five | all of the above together, as EuqAud reduced all its features together |
+
+- **Levels:** 5% to 50% in EuqAud's 5% steps, for each gender. That gives 20 signed
+  levels; positive modifies women (M2's convention).
+- **Why 50%:** at 100%, a shard with no references to one gender has an infinite
+  `ref_log_parity`.
+- **No random draw:** the operators act on the counts in expectation.
+- **Why single-feature operators:** this is M2's lesson 1. If every operator moved all
+  five features together, the model could not tell their weights apart.
+
+**3. Labels, on EuqAud's scale.** The label is 10 × the fraction, negative when women's
+material is modified, because a positive score means women higher.
+
+- O_all at 50%: −5.
+- A single-feature operator carries a fifth of that: −1 at 50%.
+- **This is a stated convention, not a finding:** a fraction *l* of any one kind of
+  material counts the same for each of the five features.
+
+**4. Fit.** Polynomial Ridge regression of the label on the change the operator made to
+the five features, with **no intercept**.
+
+- **Why no intercept:** a dataset at parity (all five features 0) then scores exactly 0,
+  and the corpora's own disparities never enter the fit. Zero means parity, not "the
+  corpus as it is".
+- **Inputs:** divided by their root mean square, not centred.
+- **Penalty:** mean squared error + α·|b|² per row. scikit-learn's α equals this α × the
+  number of rows.
+- **Grid:** degree 1 or 2 (5 or 20 terms, under the cap of 28), × α ∈ {0.001, 0.01, 0.1,
+  1, 10}, which is EuqAud's grid.
+
+**5. Choice.** Leave one corpus out: fit on MELD and predict AMI, then the reverse. The
+lowest mean held-out RMSE wins. Anything within 2% of it is a tie, and ties go to degree 1,
+then to the larger α.
+
+**6. Freeze.** The chosen model is refitted on both corpora and written out in raw feature
+units. The closed form must reproduce the fitted model to within 10⁻⁹. Output:
+`results/c3_equation.json`.
+
+**7. Normalise, with EuqAud's sign-specific min-max.**
+
+- Parity maps to 0.
+- The median raw value of the O_all shards at ±50% maps to ±5.
+- Beyond ±5 the score extrapolates past the trained range, and it is cut at ±10.
+
+**8. Tiers, derived rather than inherited.**
+
+- **Neutral** is below the noise floor: the 95th percentile of how far an unmodified
+  30-clip shard scores from its corpus median. It is divided by √((N − 30)/(N − 1)),
+  because shards drawn without replacement look more alike than independent datasets.
+  The result is rounded up to the next 0.5.
+- **Strong** starts at 5: a disparity as large as half of one gender's material in every
+  C3 feature.
+- **Moderate** lies between.
+- EuqAud's 2 and 6 are shown for comparison only.
+
+**9. Bootstrap, 1,000 draws (seed 1).**
+
+- **Each draw:** resample whole series with replacement (9 MELD seasons, 28 AMI meeting
+  series), redraw the shards, re-augment, and refit the chosen degree and α.
+- **Reported:** coefficient CIs and sign agreement, and the MELD and AMI score CIs in two
+  forms: with the frozen equation (data uncertainty only) and with the refit (total
+  uncertainty).
+
+**Acceptance checks for the machinery (pass/fail, fixed now).** They test that the
+pipeline works, not that the metric is valid.
+
+1. On each held-out corpus, R² ≥ 0.90 for O_all (normalised score against label).
+2. On each held-out corpus, the median score falls at every level step, for all six
+   operators.
+3. Each of the five linear coefficients is positive in at least 95% of the bootstrap
+   refits. A negative weight would mean "more of this for women counts as less for
+   women", the failure that reversed M2's sign on DOME.
+
+If a check fails, the equation is still frozen as designed and the failure is reported.
+Any change, such as dropping a feature, is a new decision, marked exploratory.
+
+**Reported without pass/fail:**
+
+- **MELD and AMI scores, tiers and per-feature contributions.** The feature values were
+  seen on nights 1–2, so these readings are exploratory (as in D2).
+- **The detection limit of each feature in a 30-clip dataset.**
+- **EuqAud's assumption checks:** VIF, Durbin–Watson, Breusch–Pagan and residual
+  normality. Violations are expected, as in EuqAud, so uncertainty comes from the
+  bootstrap, never from OLS standard errors.
+
+**What this cannot show.** A good fit on augmented rows only shows that the equation
+inverts the operators (M2's lesson 2). Validity needs ground truth of its own: AVA (film,
+not yet seen), M4's human study, and downstream F1 disparity.
+
+**Status.** C3 method choice. If the group adopts different shards, levels, label scale or
+tiers from M2's proposal, the equation is refitted under the group's choice.
 
 ## D6 · 20 Oct 2026 · Sentiment (F8) is dropped, after a model test with criteria fixed first
 

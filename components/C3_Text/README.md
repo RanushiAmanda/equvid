@@ -53,7 +53,13 @@ with every AVA result.
 | `diagrams/` | Six draw.io figures with PNG exports: overall architecture, component architecture, use case, sequence, WBS, gantt |
 
 The code is in `src/text/`. Double-click `run_c3_text.bat` there to rebuild
-the tables, features and charts.
+the tables, features, the equation and the charts.
+
+**The C3 equation** (`src/text/c3_equation.py`, decision D7): five features,
+polynomial Ridge without intercept, fitted on shards biased on purpose by known
+amounts. It is frozen in `results/c3_equation.json` and normalised to −10…+10;
+the tiers are derived from the noise floor. The design was pushed before the
+first fit.
 
 ## Still open
 
