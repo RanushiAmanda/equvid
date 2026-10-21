@@ -76,7 +76,6 @@ To set up on a new machine, see **[data/README.md](data/README.md)**. Every corp
 | AVA / AVA-ActiveSpeaker | Primary fusion corpus — feature film, 160 videos, supports all four components |
 | MELD | Negative control — balanced ensemble, speaking-time M:F = 1.094 |
 | AMI | Structural contrast corpus — non-narrative |
-| LSMDC | Bonus if MPII approval lands; deliberately not load-bearing |
 
 ---
 
