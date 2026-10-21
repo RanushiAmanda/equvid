@@ -1,0 +1,28 @@
+{
+ "feature_version": "m2_v0.4",
+ "anchor_ratio": 4.0,
+ "scales": {
+  "scale_f4": 0.051561135371179054,
+  "scale_gap": 0.10471051284793134,
+  "scale_sd": 0.1758629052728115
+ },
+ "nulls": {
+  "P": {
+   "mean": 0.24884902441049353,
+   "sd": 0.8605724774352642,
+   "n": 5000
+  },
+  "N": {
+   "mean": -0.008221831037210801,
+   "sd": 1.391586109498285,
+   "n": 16800
+  }
+ },
+ "tiers_abs_z": [
+  1.96,
+  3,
+  5
+ ],
+ "sign": "+ = women favoured, - = men favoured",
+ "score": "mean of speaking-time, turns/turn-length, interruptions lines (equal weights)"
+}
