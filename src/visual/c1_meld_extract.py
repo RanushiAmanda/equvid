@@ -5,15 +5,19 @@ WHY NO FACE RECOGNITION IS NEEDED
 ---------------------------------
 MELD's CSVs give the SPEAKER of each utterance, not who is on screen, so
 at first sight C1 needs to recognise which of the six main characters each
-detected face belongs to.  It does not, because of how the corpus is cut:
+detected face belongs to.  It does not need to, if one assumption holds:
 one clip is one utterance by one speaker, averaging 3.6 s, and in a
-multi-camera sitcom the shot almost always shows the person talking.
+multi-camera sitcom the shot usually shows the person talking.
 
-So this script keeps only the clips where exactly ONE face is on screen
-throughout.  In those, the visible face is the speaker, and the speaker's
-gender is already known from a hand-written map of six characters.  No
-face recognition model, no gender classifier, no new dependency -- and,
-unlike AVA, no predicted labels anywhere in the chain.
+So this script keeps only the clips where exactly ONE face is on screen in
+at least 80% of the sampled frames (SINGLE_FACE_MIN).  In those, the
+visible face is TAKEN to be the speaker -- an assumption that has not been
+spot-checked -- and the speaker's gender is already known from a
+hand-written map of six characters.  No face recognition model, no gender
+classifier, and no predicted gender labels, unlike AVA.  A face DETECTOR
+(MTCNN, else YuNet) is still used to find the face, so its misses decide
+which clips count as single-face; its error by gender has not been
+audited.
 
 WHAT THAT COSTS, STATED PLAINLY
 -------------------------------
@@ -21,7 +25,7 @@ Single-face clips are not a random sample of MELD: they are the clips shot
 in close coverage.  So these numbers describe "how the two genders are
 framed when shown alone", not all of MELD.  Headcount and solo-framing
 cannot be measured this way at all.  Face scale and centrality can, and
-those are two of the three dimensions AVA left standing.
+those are two of the four dimensions reported on AVA.
 
 The multi-face clips are still counted and reported, so the share excluded
 is visible rather than hidden.
@@ -30,6 +34,15 @@ RESUMABLE
 ---------
 Results are appended per clip and already-processed clips are skipped, so
 the run can be stopped and restarted, or left overnight.
+
+VERSION
+-------
+FRAME_STEP = 5, and detection runs on the full-resolution frame.  This is
+the version that produced the dev and train results in RESULTS.md
+(Addenda 6 and 8): on 7 dev clips checked, the frames_sampled column in
+meld_clips.csv equals ceil(frames / 5).  An earlier copy of this file in
+the repository sampled every 8th frame on a frame resized to 640 px wide;
+it could not have produced those numbers, and this file replaces it.
 
 Usage:
   python c1_meld_extract.py <MELD.Raw dir> <out.csv> [max_clips]
@@ -41,7 +54,6 @@ import csv
 import math
 import os
 import sys
-import time
 
 import cv2
 
@@ -52,14 +64,13 @@ GENDER = {
     "Chandler": "M", "Joey": "M", "Ross": "M",
 }
 
-FRAME_STEP = 8        # sample every 8th frame; clips average 3.6 s
-DETECT_WIDTH = 640    # downscale before detection. Every feature here is a
-                      # RATIO (area as a fraction of the frame, centre
-                      # distance as a fraction of the half-diagonal), so
-                      # resizing changes nothing in the output while making
-                      # MTCNN several times faster on CPU.
+FRAME_STEP = 5        # sample every 5th frame; clips are short
 CONF = 0.90           # detector confidence floor, as in the proposal
-CLOSEUP_AREA = 0.08   # same threshold as the AVA run, so the two compare
+CLOSEUP_AREA = 0.08   # same threshold as the AVA run.  On MELD it finds
+                      # almost no face that large (closeup_rate is 0 for
+                      # every single-face dev clip), so the MELD close-up
+                      # figures use a corpus-relative cut that
+                      # c1_meld_replicate.py computes afterwards.
 SINGLE_FACE_MIN = 0.80  # a clip counts as single-face when at least this
                         # share of its sampled frames hold exactly one face
 
@@ -136,21 +147,14 @@ def process(path, run):
             break
         if idx % FRAME_STEP == 0:
             sampled += 1
-            if W > DETECT_WIDTH:
-                sc = DETECT_WIDTH / W
-                small = cv2.resize(frame, (int(W * sc), int(H * sc)),
-                                   interpolation=cv2.INTER_AREA)
-            else:
-                small = frame
-            fh_, fw_ = small.shape[:2]
-            faces = run(small)
+            faces = run(frame)
             if faces:
                 with_face += 1
             if len(faces) == 1:
                 single += 1
                 x, y, w, h = faces[0]
-                a = (w * h) / float(fw_ * fh_)
-                cx, cy = (x + w / 2.0) / fw_, (y + h / 2.0) / fh_
+                a = (w * h) / (W * H)
+                cx, cy = (x + w / 2.0) / W, (y + h / 2.0) / H
                 areas.append(a)
                 dists.append(math.hypot(cx - 0.5, cy - 0.5) / half_diag)
                 closeups.append(1 if a >= CLOSEUP_AREA else 0)
@@ -192,7 +196,6 @@ def main(root, out_path, max_clips=0):
         wtr.writeheader()
 
     n = skipped_speaker = missing = 0
-    t0 = time.time()
     # dev first: it is the smallest split, so problems surface in minutes
     # rather than after an hour of train.
     for split in ("dev", "train", "test"):
@@ -236,11 +239,9 @@ def main(root, out_path, max_clips=0):
                                  else "multi_or_no_face")
             wtr.writerow(row)
             n += 1
-            if n % 10 == 0:
+            if n % 25 == 0:
                 fh.flush()
-                el = time.time() - t0
-                print("  %d clips | %.1f s/clip | %.0f s elapsed"
-                      % (n, el / n, el), flush=True)
+                print("  %d clips done" % n, flush=True)
             if max_clips and n >= max_clips:
                 print("reached max_clips=%d" % max_clips)
                 fh.close()

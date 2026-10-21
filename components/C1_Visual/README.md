@@ -12,7 +12,7 @@ diagrams, and the running results record. Code is in `src/visual/`.
 | Corpus | Status |
 |---|---|
 | AVA-ActiveSpeaker | done — 87 videos, 819 mixed-gender windows |
-| MELD | dev split done (65 episodes); train split extracting |
+| MELD | dev and train done (371 + 3,033 single-face clips; test split not used). A presence control, not a finding |
 | AMI | not started — contrast corpus, needs seat-based identity matching |
 
 ## Six features were specified; measurement reduced them to four dimensions
@@ -33,7 +33,11 @@ score_d = 10 · clip( parity_d ÷ div_d , −1, +1 )
 Tiers: |score| < 2 Neutral, 2–6 Moderate, > 6 Strong. Constants, anchors and
 their sources are in [`results/FROZEN_EQUATION.md`](results/FROZEN_EQUATION.md).
 The proposal's polynomial Ridge equation is not frozen; it stays in the plan as
-the comparison v1 has to beat.
+the comparison.
+
+Sign: positive means women ahead. That is Temporal's proposal; EuqAud's
+convention is the opposite (positive = male-dominant bias), and the group has
+not decided which to use.
 
 AVA, window-mean (positive = women higher; 95% CI bootstrapped over videos):
 
@@ -54,12 +58,17 @@ Addendum 7). Tiers do not change under the three rules tested; magnitudes do.
   `AMI:<meeting>`) with status, reason and `feature_version`, as the shared
   conventions propose. Not yet delivered.
 - **AVA gender labels** are predicted by a face model, not annotated by hand.
-  29.1% of entities have no usable label. A blind check of 167 faces gave 89.0%
-  accuracy (95% CI 80.9–93.9%), with errors concentrated on the female label.
+  29.1% of entities have no usable label. A blind check of 167 faces (160
+  usable, from 20 of the 88 videos, one annotator, no inter-rater agreement)
+  gave 89.0% accuracy where model and human both decided (95% CI 80.9–93.9%,
+  treating faces as independent), with errors concentrated on the female label.
   See RESULTS.md, Finding 1 and Addendum 2.
+- **AVA face boxes** are the dataset authors' (automatic detector and tracker),
+  so C1 adds no detector of its own but inherits theirs. Detector recall by
+  gender is unmeasured.
 
 ## Layout
 
-- `results/RESULTS.md` — running record, Findings 1–4 and Addenda 1–7
+- `results/RESULTS.md` — running record, Findings 1–4 and Addenda 1–9
 - `results/FROZEN_EQUATION.md` — the equation, its constants and sources
 - `results/submetric.csv` — the four dimensions on AVA

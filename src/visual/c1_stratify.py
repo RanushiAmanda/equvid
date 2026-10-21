@@ -20,13 +20,17 @@ This is stratification on the confounder — the standard way to answer this
 question, and much cheaper than re-labelling.
 
 A second check uses only mixed-gender windows, so the comparison is always
-between people filmed in the same scene, not across different films.
+between people filmed in the same scene, not across different films.  Its
+interval is printed twice: a normal approximation that treats the windows
+as independent, and a bootstrap that resamples whole videos (windows inside
+one film share cast, director and lighting, so they are not independent).
 
 Usage: python3 -I c1_stratify.py <entities.csv>
 """
 
 import csv
 import math
+import random
 import statistics as st
 import sys
 from collections import defaultdict
@@ -115,7 +119,8 @@ def main(path):
         byw[(r["video"], r["window"])][r["gender"]].append(r)
 
     diffs, wdiffs = [], []
-    for _, g in byw.items():
+    by_video = defaultdict(list)       # video -> its windows' gaps
+    for (vid, _), g in byw.items():
         if not g["F"] or not g["M"]:
             continue
         # Frame-weighted mean inside the window, so a person on screen
@@ -125,6 +130,7 @@ def main(path):
             return sum(e["mean_centre_dist"] * e["n_frames"] for e in es) / n
         dF, dM = wmean(g["F"]), wmean(g["M"])
         diffs.append(dF - dM)
+        by_video[vid].append(dF - dM)
         wdiffs.append((dF - dM, sum(e["n_frames"] for e in g["F"] + g["M"])))
 
     if diffs:
@@ -140,6 +146,22 @@ def main(path):
         m = st.fmean(diffs)
         print("  95%% CI on the mean        : [%+.4f, %+.4f]"
               % (m - 1.96 * se, m + 1.96 * se))
+
+        # Added in the follow-up commit.  The interval above treats the
+        # windows as independent.  Resample VIDEOS instead, keeping each
+        # video's windows together, as c1_submetric.py does.
+        rng = random.Random(0)
+        vids = list(by_video)
+        boots = []
+        for _ in range(2000):
+            pool = []
+            for _ in vids:
+                pool.extend(by_video[rng.choice(vids)])
+            boots.append(st.fmean(pool))
+        boots.sort()
+        print("  95%% CI, resampling %d videos: [%+.4f, %+.4f]  (2000 draws, seed 0)"
+              % (len(vids), boots[int(0.025 * len(boots))],
+                 boots[int(0.975 * len(boots))]))
         print()
         print("  A CI that excludes 0 means the within-scene gap is larger")
         print("  than sampling noise. It does NOT prove the labels are sound.")

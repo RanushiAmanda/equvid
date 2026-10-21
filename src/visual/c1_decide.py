@@ -1,19 +1,30 @@
 """
-C1 step 7 — the decisive test: recompute the centrality gap from the
-MANUAL labels alone, with no face model anywhere in the chain.
+C1 step 7 — the strongest available test: recompute the centrality gap
+from HUMAN gender labels instead of the face model's.
 
-WHY THIS IS THE TEST THAT COUNTS
---------------------------------
+WHY THIS TEST MATTERS
+---------------------
 Everything so far rests on predicted labels.  Stratifying on face size
 ruled out the size pathway.  It could not rule out the pathway where the
 model mistakes central men for women, because that error lives inside the
 labels themselves.
 
-The validation sample now carries a human label for 167 entities, and the
-centre distance of each one is already measured.  So the gap can be
-computed directly from human labels and compared with the gap computed
-from model labels.  If they agree, the finding survives.  If the human
-version shrinks to nothing, the finding was the model's error all along.
+The validation sample now carries a human label for 167 entities (160
+usable), and the centre distance of each one is already measured.  So the
+gap can be computed directly from human labels and compared with the gap
+computed from model labels.  If they agree, the finding survives.  If the
+human version shrinks to nothing, the finding was the model's error all
+along.
+
+WHAT IT DOES NOT SETTLE
+-----------------------
+The gender VALUES compared are human, but the model is not entirely out of
+the chain: the population weights below use the model's predicted group
+(and face size) as strata, and the face boxes are the dataset's own.  The
+160 labels come from 20 of the 88 videos and one annotator, and the
+interval resamples entities within cells, not videos, so it is narrower
+than a video-level interval would be.  Read the result as evidence on the
+DIRECTION of the label bias, not as a population estimate.
 
 WEIGHTING
 ---------

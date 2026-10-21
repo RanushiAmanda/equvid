@@ -2,6 +2,11 @@
 
 Run date: 19 Oct 2026 · Hasangani WRA (IT23224384)
 
+*Running record, oldest first. Later addenda correct earlier ones, and each
+correction is also noted where it applies. Addenda 8 (MELD train and checks)
+and 9 (close-up cut sweep) were added on 20 Oct. The scripts are in
+`src/visual/`.*
+
 ## What was run
 
 | | |
@@ -10,8 +15,17 @@ Run date: 19 Oct 2026 · Hasangani WRA (IT23224384)
 | Annotation rows read | 1,983,456 |
 | Entities (one person inside one 60 s window) | 21,930 |
 | Windows | 1,310 |
-| Video decoded | **none** — AVA ships `entity_box`, so no face detector is used |
+| Video decoded | **none** — AVA ships `entity_box`, so C1 runs no face detector of its own (see the note below) |
 | Runtime | ~11 s |
+
+**The AVA boxes are not detector-free.** AVA-ActiveSpeaker's face boxes were
+produced by the dataset authors' automatic face detector and tracker, with
+annotators discarding false-positive tracks (Roth et al., arXiv 1901.01342). C1
+adds no detector of its own but inherits that one: a face it missed was never
+annotated, and the paper describes no step that adds misses. Detector recall by
+gender on AVA is unmeasured, which matters most for the presence dimension. The
+check still to run is a hand count of visible against annotated faces, by
+gender, on a sample of frames.
 
 `entity_id` encodes the 60-second window (`<video>_<start>_<end>:<n>`), so the
 same person in two consecutive windows carries two different ids. Per-person
@@ -102,9 +116,9 @@ in AVA.
 
 | File | Contents |
 |---|---|
-| `src/c1_extract_ava.py` | Parses annotations, joins labels, writes per-entity and per-window geometry |
-| `src/c1_audit.py` | Label-coverage and confound audit (Finding 1) |
-| `src/c1_score.py` | Log-parity features and the robustness sweep (Findings 2–3) |
+| `src/visual/c1_extract_ava.py` | Parses annotations, joins labels, writes per-entity and per-window geometry |
+| `src/visual/c1_audit.py` | Label-coverage and confound audit (Finding 1) |
+| `src/visual/c1_score.py` | Log-parity features and the robustness sweep (Findings 2–3) |
 | `out/entities.csv` | 21,930 rows — one per person-window |
 | `out/windows.csv` | 1,310 rows — raw per-gender quantities per window |
 | `out/window_scores.csv` | 1,310 rows — parities, with NA rows kept and a reason given |
@@ -112,12 +126,16 @@ in AVA.
 ## Reproduce
 
 ```
-python3 -I src/c1_extract_ava.py <ava_ann_dir> entity_gender.csv out
-python3 -I src/c1_audit.py out/entities.csv
-python3 -I src/c1_score.py out/entities.csv out
+python3 -I src/visual/c1_extract_ava.py <ava_ann_dir> entity_gender.csv out
+python3 -I src/visual/c1_audit.py out/entities.csv
+python3 -I src/visual/c1_score.py out/entities.csv out
 ```
 
 ## Not yet done
+
+*(As of the first run, 19 Oct. Since then the manual validation subset was
+done (Addendum 2), the sub-metric was built (Addenda 4 and 5), and MELD dev and
+train were extracted (Addenda 6 and 8). AMI and the regression are still open.)*
 
 - MELD extraction (needs MTCNN; `pilot_meld.py` is the working single-clip pilot)
 - AMI extraction (needs the manual annotation download and M2's `gender_map.csv`)
@@ -153,6 +171,12 @@ moment, which removes film, genre and era as explanations:
 - 819 windows
 - mean (F dist − M dist) = **−0.0329**, 95% CI **[−0.0411, −0.0247]**
 - women more central in 506 of 819 windows (62%)
+
+That interval is a normal approximation that treats the 819 windows as
+independent. Windows from one film share cast, director and lighting, so the
+level at which observations are exchangeable is the video. Resampling the 87
+videos instead (2,000 draws, seed 0; `c1_stratify.py` now prints it) gives
+**[−0.0438, −0.0218]**. It is wider, as it should be, and still excludes zero.
 
 ## What this does and does not establish
 
@@ -192,15 +216,18 @@ Spearman −0.28 against DOME while their simple time-parity measure scored
 +0.465. Fitting a richer model to weaker features is the known way to lose.
 
 Recommended: build the simple anchored score first, report the regression
-as a comparison it has to beat rather than as the deliverable. That is a
-change from the submitted proposal and needs supervisor sign-off.
+as a comparison rather than as the deliverable. That is a change from the
+submitted proposal and needs supervisor sign-off.
 
 ---
 
 # Addendum 2 — manual validation (19 Oct, 167 blind labels)
 
 A blind, size-stratified sample of 167 entities was hand-labelled by the
-researcher. The predicted label was hidden and the order shuffled.
+researcher. The predicted label was hidden and the order shuffled. There was
+one annotator, so no inter-rater agreement (no κ) was measured, and the crops
+come from 20 of the 88 videos. Every interval below treats faces as
+independent, so each is narrower than a video-clustered interval would be.
 
 ## Q1 — how good is the face model?
 
@@ -211,10 +238,11 @@ researcher. The predicted label was hidden and the order shuffled.
 | unknown | 19 | 24 | 5 | 48 |
 | missing | 6 | 20 | 1 | 27 |
 
-Accuracy where both decided: **81/91 = 89.0%** (95% CI 80.9–93.9%).
+Accuracy where both decided: **81/91 = 89.0%** (95% CI 80.9–93.9%, Wilson).
 
 The error is **asymmetric**: when the model says female it is wrong 18.2%
-of the time; when it says male, 4.3%. It over-calls female. Accuracy by
+of the time (8 of 44); when it says male, 4.3% (2 of 47). It over-calls
+female. Accuracy by
 size band (82.6 / 95.5 / 91.7 / 86.4%) shows no clear size trend among the
 faces it is willing to label.
 
@@ -233,19 +261,24 @@ the headcount disparity is overstated by the model but remains large:
 - model labels only: 2.90 men per woman (log parity −1.063)
 - corrected for refusals: **2.60 men per woman** (log parity −0.954)
 
-## Q3 — the decisive test: the gap with no model in the chain
+## Q3 — the strongest test available: the gap from human labels
 
-Centre distance computed from human labels only, weighted back to the
-population by (predicted group × size band) cell:
+Centre distance computed from the human gender labels, weighted back to the
+population by (predicted group × size band) cell. The gender values compared
+are human, but the weights still use the model's predicted group as strata and
+the boxes are AVA's, so the model is not entirely out of the chain:
 
 | label source | F | M | gap |
 |---|---|---|---|
 | model, all 15,545 entities | 0.3141 | 0.3443 | −0.0302 |
 | **manual, population-weighted** | **0.3246** | **0.3760** | **−0.0514** |
 
-95% CI on the weighted gap: **[−0.0981, −0.0084]**, excluding zero. The gap
-is **larger** with human labels, not smaller — the model's errors were
-attenuating the effect, not creating it.
+95% CI on the weighted gap: **[−0.0981, −0.0084]**, excluding zero
+(`c1_decide.py`; entities are resampled within cells, not videos, and the 160
+labels come from 20 videos, so a video-level interval would be wider). The gap
+does not shrink with human labels: the point estimate is larger, though the
+interval is wide enough to include the model-label value (−0.0302). The model's
+errors did not create the effect.
 
 ## Feature verdict on the best available evidence
 
@@ -260,6 +293,15 @@ cells:
 | face area | 0.1101 | 0.0940 | +0.0161 | [−0.016, +0.049] | not supported |
 | solo framing | 0.6145 | 0.5694 | +0.0452 | [−0.116, +0.198] | not supported |
 | identity (headcount) | — | — | 2.60 men per woman | — | supported, large |
+
+Reproducibility of this table. The point estimates reproduce exactly when the
+`c1_decide.py` weighting is applied to each column (join `sample_key.csv` to
+`entities.csv`), but only the centrality row is computed by a committed script.
+The intervals above came from a different random seed: re-run with seed 0 they
+move in the second or third decimal (centrality [−0.0981, −0.0084], close-up
+[+0.065, +0.313], face area [−0.016, +0.049], solo [−0.113, +0.205]), and the
+screen-time interval becomes [−0.37, +52.8], which includes zero and fits its
+"weak" verdict.
 
 **Correction to Addendum 1.** Close-up rate was reported there as collapsing
 under the size filter and therefore an artefact. That conclusion was drawn
@@ -361,7 +403,8 @@ Same underlying quantity, different statistical power. Not a contradiction.
 
    screen time per person carries no signal; solo framing is not
    supported; mean area is the weaker estimator of a dimension already
-   covered.
+   covered. (Superseded in part: Addendum 4 brings solo framing back, as a
+   difference of proportions, so four dimensions are reported.)
 
 A three-dimension feature set derived from measurement is a far better
 basis for the sub-metric than six assumed ones, and the reduction is
@@ -427,7 +470,7 @@ All four intervals exclude zero. 819 mixed-gender windows, 87 videos.
 
 Anchors are declared conventions, not measurements: 4:1 headcount, 1.5:1
 centre distance, and a 25-point gap in either rate, each saturating the
-±10 scale.
+±10 scale. (The 4:1 headcount anchor was derived afterwards: Addendum 5.)
 
 ## The dimensions are reported separately, not averaged
 
@@ -436,16 +479,18 @@ positive. Averaging would return roughly +1 and call this corpus neutral,
 which would be false in both directions at once.
 
 **What the corpus actually shows:** women are outnumbered on screen by
-about 2.6 to 1, and the women who are on screen are framed more
+about 2.6 to 1 (counting every labelled person; inside scenes that hold both
+genders the typical ratio is 1.89 to 1, which is what the −4.58 above reads
+back as: see Addendum 5), and the women who are on screen are framed more
 prominently than the men — closer to centre, more often in close-up, more
 often alone in shot. A disparity of presence, not of framing, and
 conditioning on presence reverses the direction the proposal assumed.
 
 ## Not yet done
 
-- MELD extraction (running; single-face clips, no predicted labels anywhere)
+- MELD extraction (since done: Addenda 6 and 8; single-face clips, no predicted gender labels)
 - AMI
-- Augmentation operators and the regression that has to beat this baseline
+- Augmentation operators and the regression, to be compared with this baseline
 
 ---
 
@@ -453,7 +498,10 @@ conditioning on presence reverses the direction the proposal assumed.
 
 The co-supervisor's objection: the anchor cannot be picked, it has to be
 proved from published research. That is correct, and it is the component's
-stated novelty — *derived* rather than inherited thresholds.
+stated novelty — *derived* rather than inherited thresholds. To be exact about
+what is derived here: the presence anchor, and through it where the tier
+cut-points fall on the presence scale. The cut-points themselves (2 and 6) are
+EuqAud's and are used unchanged; the other three anchors are conventions.
 
 ## The two sources
 
@@ -486,19 +534,37 @@ Reading the tier boundaries back out at anchor 4.0:
 | Moderate / Strong (|score| = 6) | 2.297 : 1 | 0.435 |
 
 So **Strong begins where a corpus is more unequal than the measured
-industry average**, and **Neutral ends at 0.758** — marginally stricter
-than the legal 0.80 adverse-impact line. Both boundaries are citable.
+industry average**, and **Neutral ends at 0.758** — marginally more lenient
+than the legal 0.80 adverse-impact line: a selection rate of 0.78 (1.28 : 1)
+is flagged by the four-fifths rule and is Neutral here. Both boundaries sit
+beside a published figure. *(An earlier version of this paragraph said
+"stricter". That was wrong: 0.758 is below 0.80.)*
 
-Placed on that scale: AVA scores −4.58 on presence at 2.60 : 1. Against
-the raw uncorrected labels (2.90 : 1) it would have read −6.89, i.e.
-Strong. The label correction moved it a full tier.
+Placed on that scale, the −4.58 above is the window-mean parity over the 819
+windows that hold both a woman and a man. It reads back as 1 woman : 1.89 men
+inside such a scene (pooled over those windows, 1.81 : 1, which is −4.27 and is
+rule B of Addendum 7). The corpus-wide ratios used elsewhere in this record,
+2.90 : 1 on the model's labels and 2.60 : 1 corrected for its refusals, are a
+different quantity: they count every labelled person, including the 491 windows
+that lack a labelled woman or a labelled man (254 women and 4,804 men between
+them). On this scale those two ratios would read −7.68 and −6.89, both Strong.
+*(An earlier version of this paragraph equated −4.58 with 2.60 : 1 and said the
+label correction moved the score a full tier. Both statements were wrong: the
+two ratios are different quantities, and on the corpus-wide one the correction
+moves the reading from −7.68 to −6.89, inside the same tier.)*
 
-## Why this is better than what EuqAud did
+## How this differs from EuqAud's scaling
 
-EuqAud set the range by min–max normalisation over the corpora it held, so
-adding one corpus rescales every score already published. An anchor fixed
-against external figures does not move: a score stays attached to the
-corpus it describes.
+EuqAud (Section III-E) scales its raw output to ±10 by min–max scaling, with
+bounds built from extreme feature settings: for a positive raw score the
+maximum comes from minimising the female features and the minimum from setting
+male equal to female, and the reverse for a negative score. The paper does not
+say whether those bounds are recomputed for each dataset, so it does not support
+the claim that adding a corpus rescales earlier scores. *(An earlier version of
+this section made that claim.)* What can be said is how this component differs:
+the anchor is fixed against external figures and nothing in the equation is
+estimated from the corpus being scored, so a score cannot move when a corpus is
+added. Whether EuqAud's bounds move is a question for the supervisor.
 
 ## Declared limits
 
@@ -522,12 +588,19 @@ Sources:
 
 # Addendum 6 — MELD, the second corpus (dev split complete, 19 Oct)
 
-MELD gender labels are a hand-written map of six characters. **No model
-anywhere in the chain**, unlike AVA. 952 clips of the main cast; 371
-(39%) have a single face throughout, so the visible face is the speaker.
-175 female against 196 male, across 65 episodes.
+MELD gender labels are a hand-written map of six characters, so **no gender
+model** is involved, unlike AVA. A face detector (MTCNN if installed, else
+YuNet; the output file does not record which ran) still finds the face. 952
+clips of the main cast; 371 (39%) have exactly one face in at least 80% of
+their sampled frames, and the visible face is taken to be the speaker (an
+assumption; not spot-checked). 175 female against 196 male, across 65
+episodes.
 
-## The negative control passes
+*Status: the dev numbers below are as first reported. Addendum 8 repeats them
+with a fixed seed, adds the train split, and supersedes the reading of the
+framing results.*
+
+## The presence control passes
 
 | | |
 |---|---|
@@ -535,11 +608,19 @@ anywhere in the chain**, unlike AVA. 952 clips of the main cast; 371
 | single-face clips | 175 F, 196 M — parity −0.113 |
 | **presence score** | **−0.82 → Neutral** |
 
-A metric that scored a 3F/3M ensemble as biased would be producing false
-positives. It does not. This is the false-positive check the proposal
-promised, and it is now evidenced.
+A metric that scored a 3F/3M ensemble as biased on counting alone would be
+producing false positives. It does not. This checks the counting arithmetic and
+nothing else: the cast is balanced by construction, so a score near zero is the
+expected result, and it says nothing about framing. It is a control, not a
+finding. *(An earlier version called this "the negative control" and "the
+false-positive check the proposal promised", which claimed more than a presence
+count can show.)*
 
-## The framing results point the other way from AVA
+## The framing results point the other way from AVA — on dev only
+
+*Superseded by Addendum 8: on the train split the close-up gap shrinks from
+−0.128 to −0.029 and its interval includes zero, so "point the other way from
+AVA" should not be read as a finding.*
 
 Bootstrap clustered by episode, 2,000 draws:
 
@@ -570,10 +651,13 @@ is the work the single-face shortcut deliberately avoided.
 
 ## A portability defect the second corpus exposed
 
-MELD faces are about a quarter the size of AVA's (median relative area
-0.0285 against roughly 0.11). The close-up threshold of 0.08, tuned on
-film, returns **zero for every MELD clip** — the feature dies on contact
-with a second corpus.
+MELD faces are smaller than AVA's: mean relative area 0.027 on the 3,404
+single-face clips (dev and train) against 0.111 on AVA's labelled people, about
+a quarter; median 0.027 against 0.059, about a half. The close-up threshold of
+0.08, tuned on film, finds a close-up in **none of the 371 single-face dev
+clips** (and in 16 of the 3,033 train clips) — the feature dies on contact with
+a second corpus. *(An earlier version compared a MELD median, 0.0285, with an
+AVA mean, roughly 0.11, which is not like for like.)*
 
 For the numbers above the threshold was set at MELD's own upper quartile
 (0.0338). That fixes the feature but changes its meaning, from "a face
@@ -586,8 +670,7 @@ frozen.
 
 ## Status
 
-dev split complete. The train split is still extracting and will add
-several thousand more clips; nothing above depends on it.
+dev split complete. The train split has since been extracted: see Addendum 8.
 
 ---
 
@@ -617,7 +700,7 @@ says nothing is final until the group confirms it.
 ## The pooling rule moves the score
 
 One set of per-window counts, three rules, one shared set of video
-bootstrap resamples (2,000 draws, `src/c1_agg_check.py`). Rule A
+bootstrap resamples (2,000 draws, `src/visual/c1_agg_check.py`). Rule A
 reproduces `submetric.csv` exactly.
 
 - **A** window-mean — mean of per-window parity (reported so far)
@@ -667,10 +750,10 @@ As of M2's note (6 / 15 Oct):
 | corpus | C1 | C2 |
 |---|---|---|
 | AVA  | done — 87 videos | **NA** (Decision 6) |
-| MELD | dev done (65 episodes); train extracting | done — 165 episodes |
+| MELD | dev done (65 episodes); train done since, Addendum 8 | done — 165 episodes |
 | AMI  | not started | done — 82 meetings |
 
-Today a C1 + C2 row exists only on MELD, the negative control. M2 gives
+Today a C1 + C2 row exists only on MELD, the presence control. M2 gives
 three reasons for NA on AVA: no gender column, speaker ids only inside
 60-second windows, only on-screen speakers annotated. C1's labels answer
 the first only. Unless that changes, the fused score cannot be evaluated
@@ -684,3 +767,172 @@ on the corpus where bias is expected.
    summed counts per gender, status, reason, `feature_version`.
 3. Can C2's allocation score be computed on AVA windows once C1 supplies
    per-person labels (`gender_source = predicted`, with confidence)?
+
+---
+
+# Addendum 8 — MELD train, the frozen cut, and three checks (20 Oct)
+
+Addendum 6 reported the dev split. The train split has since been extracted by
+the same script (`c1_meld_extract.py`), and both splits are analysed by
+`c1_meld_replicate.py`, which applies one fixed procedure to each and is
+committed so that the numbers can be re-derived. MELD is a presence control and
+an exploratory look at framing, **not a finding**; the limits are at the end.
+
+## What was extracted
+
+| | dev | train | both |
+|---|---|---|---|
+| main-cast clips (the six leads) | 952 | 8,306 | 9,258 |
+| single-face clips | 371 | 3,033 | 3,404 |
+| of which women / men | 175 / 196 | 1,456 / 1,577 | 1,631 / 1,773 |
+| episodes with a single-face clip | 65 | 176 | 180 |
+
+A clip is single-face when at least 80% of its sampled frames (every 5th) hold
+exactly one face. One train clip could not be read (`MELD:train:d125_u3`). The
+test split was not run. Guest speakers are excluded by construction: only the
+six leads are mapped to a gender. Single-face clips are the close-coverage
+clips, 37% of the main-cast clips, not a sample of MELD.
+
+Dev and train are **not** episode-disjoint: 80 of dev's 81 episodes also have
+train clips.
+
+## The procedure, fixed before train was looked at
+
+1. Unit: one single-face clip. The visible face is taken to be the speaker, and
+   the speaker's gender (a hand-written map of six characters) labels it. That
+   assumption has not been spot-checked; a reaction shot would break it.
+2. Gap = mean(women) − mean(men). Negative means women smaller, or fewer
+   close-ups.
+3. Close-up: the clip's `mean_rel_area` is at or above **0.033815**, the 75th
+   percentile of dev single-face `mean_rel_area`, frozen on dev before train was
+   run. (The AVA cut of 0.08 finds a close-up in 0 of 371 dev single-face
+   clips and 16 of 3,033 train ones.) The share of single-face clips at or
+   above the cut is 25.1% on dev and 22.7% on train.
+4. Interval: 95% percentile bootstrap that resamples whole episodes, 2,000
+   draws, seed 20261020. Clips from one episode share a set, a director and a
+   camera plan, so they are not independent.
+5. Presence score: 10 · clip( ln(nF / nM) ÷ ln 4.00 , −1, +1 ), the frozen
+   presence form applied to the single-face counts.
+
+## Results
+
+| women vs men | dev | train | train, episodes not in dev | dev + train |
+|---|---|---|---|---|
+| single-face clips, F / M | 175 / 196 | 1,456 / 1,577 | 871 / 849 | 1,631 / 1,773 |
+| presence score | −0.82 [−3.3, +1.6] | −0.58 [−1.7, +0.5] | +0.18 [−1.2, +1.7] | −0.60 [−1.6, +0.4] |
+| face-area gap | −0.0034 [−0.0065, −0.0006] | −0.0013 [−0.0026, −0.0002] | −0.0014 [−0.0029, +0.0001] | −0.0016 [−0.0026, −0.0004] |
+| close-up gap (top-quarter cut) | −0.1284 [−0.2460, −0.0078] | −0.0294 [−0.0766, +0.0185] | −0.0316 [−0.0880, +0.0284] | −0.0403 [−0.0868, +0.0066] |
+| close-up share, women / men | 18.3% / 31.1% | 21.2% / 24.1% | 21.8% / 25.0% | 20.8% / 24.9% |
+| centre-distance gap | +0.0107 [−0.0074, +0.0296] | +0.0001 [−0.0081, +0.0084] | −0.0009 [−0.0106, +0.0087] | +0.0013 [−0.0063, +0.0084] |
+
+The dev point estimates equal those in Addendum 6. The intervals differ slightly
+from it, because the Addendum 6 bootstrap was run ad hoc and this script fixes
+the seed. The "episodes not in dev" column is check A below.
+
+Reading it:
+
+- **Presence control.** Both splits score Neutral as point estimates
+  (−0.82, −0.58); the intervals are wide and straddle zero. This tests counting
+  only.
+- **Close-up.** The dev gap (−0.128; 18% of women's clips against 31% of men's) is
+  −0.029 on train (21% against 24%), and the interval now includes zero. Scored
+  by the close-up rule with the same cut, the dev gap alone would read about
+  −5.1 (Moderate) on a balanced cast and train −1.2 (Neutral). The sentence in
+  Addendum 6 that the framing results "point the other way from AVA" is
+  superseded.
+- **Face area** keeps its direction (women's single-face boxes are smaller): the
+  gap falls from −0.0034 to −0.0013; on train women's mean is about 5% below men's.
+- **Centre distance** shows nothing in either split (+0.0107 on dev, +0.0001 on train;
+  both intervals include zero).
+
+## Three checks, run after the plan above
+
+**A. Train restricted to episodes that do not appear in dev** (the third column above): 871 women and 849 men in 100 episodes. Face area −0.0014 [−0.0029, +0.0001], close-up −0.0316 [−0.0880, +0.0284], centre distance −0.0009 [−0.0106, +0.0087], presence score +0.18 [−1.2, +1.7]. Nothing reaches significance, and the direction of face area and close-up is unchanged.
+
+**B. Within-episode gap (post hoc).** Women and men are compared inside the same episode, then averaged with weight nF·nM/(nF+nM), over episodes that have both genders. This removes season and director from the comparison.
+
+| | face area | close-up | centre distance | episodes |
+|---|---|---|---|---|
+| dev | −0.0028 [−0.0056, −0.0004] | −0.1105 [−0.2326, −0.0023] | +0.0126 [−0.0086, +0.0312] | 33 |
+| train | −0.0020 [−0.0031, −0.0008] | −0.0481 [−0.0949, −0.0000] | +0.0039 [−0.0039, +0.0113] | 150 |
+| dev + train | −0.0021 [−0.0031, −0.0011] | −0.0559 [−0.0995, −0.0139] | +0.0048 [−0.0020, +0.0119] | 157 |
+
+Inside an episode the female-smaller direction persists, and on dev + train the close-up and face-area intervals exclude zero. This is post hoc, and it does not answer check C.
+
+**C. Character permutation.** MELD has three women and three men. Relabelling which three of the six characters are "F" in all C(6,3) = 20 ways, and asking how unusual the real labelling is, gives a two-sided p that cannot go below 2/20 = 0.10. Rank 1 means the most negative of the 20 labellings:
+
+| | face area | close-up | centre distance |
+|---|---|---|---|
+| dev | −0.0034 · p = 0.10 · rank 1 of 20 | −0.1284 · p = 0.20 · rank 2 of 20 | +0.0107 · p = 0.50 · rank 16 of 20 |
+| train | −0.0013 · p = 0.30 · rank 3 of 20 | −0.0294 · p = 0.60 · rank 6 of 20 | +0.0001 · p = 1.00 · rank 11 of 20 |
+
+The spread between characters is several times the gap between the genders: on train the close-up share runs from 0.151 (Monica) to 0.304 (Phoebe), both women, against 0.209 (Chandler), 0.218 (Joey) and 0.292 (Ross) for the men. That is a spread of 0.153 against a gender gap of 0.029. With three women and three men, no gap can be told apart from six characters being framed differently.
+
+## Limits
+
+1. Dev and train share episodes, so train is a replication on other dialogues,
+   not on other episodes. Check A restricts to episodes not in dev.
+2. Three women and three men: no gender gap is separable from character
+   (check C).
+3. The single face is assumed to be the speaker. Not spot-checked.
+4. The detector's error by gender has not been audited. The detector is MTCNN
+   if installed, otherwise YuNet; the output file does not record which one ran.
+5. Single-face clips are the close-coverage clips and are not matched for scene.
+6. The test split was not used.
+
+## Reproduce
+
+```
+python  src/visual/c1_meld_extract.py <MELD.Raw dir> out/meld_clips.csv
+python3 -I src/visual/c1_meld_replicate.py out/meld_clips.csv out/meld_replication.csv
+```
+
+`out/meld_replication.csv` holds the estimates and intervals above. (The
+extractor needs MELD.Raw and a face detector; the second script needs neither.)
+
+---
+
+# Addendum 9 — how much the close-up score depends on the cut (20 Oct)
+
+The close-up dimension counts a face as a close-up when its box covers at least
+`CLOSEUP_AREA` of the frame. The value 0.08 is a convention (Addendum 4), and
+Addendum 6 showed that it does not travel to MELD. This addendum asks how far
+the AVA close-up score moves with it.
+
+**Method.** The unchanged chain (`c1_extract_ava.py`, `c1_features6.py`,
+`c1_submetric.py`) was run 13 times on the same annotations and labels, editing
+only `CLOSEUP_AREA`. The cut enters the close-up dimension alone: the presence,
+centrality and solo rows are identical, to every printed digit, at all 13 cuts.
+Bootstrap and seed are as in Addendum 4 (2,000 draws, seed 0, resampling
+videos). The 0.08 row equals `submetric.csv`.
+
+| cut | parity | 95% CI (by video) | score | score 95% CI | tier |
+|---|---|---|---|---|---|
+| 0.02 | +0.0658 | [+0.0431, +0.0885] | +2.63 | [+1.72, +3.54] | Moderate |
+| 0.03 | +0.0968 | [+0.0696, +0.1239] | +3.87 | [+2.78, +4.96] | Moderate |
+| 0.04 | +0.1095 | [+0.0810, +0.1393] | +4.38 | [+3.24, +5.57] | Moderate |
+| 0.05 | +0.0972 | [+0.0664, +0.1286] | +3.89 | [+2.66, +5.14] | Moderate |
+| 0.06 | +0.0915 | [+0.0608, +0.1237] | +3.66 | [+2.43, +4.95] | Moderate |
+| 0.07 | +0.0918 | [+0.0629, +0.1226] | +3.67 | [+2.52, +4.90] | Moderate |
+| **0.08** | +0.0950 | [+0.0648, +0.1262] | +3.80 | [+2.59, +5.05] | Moderate |
+| 0.09 | +0.0881 | [+0.0570, +0.1212] | +3.52 | [+2.28, +4.85] | Moderate |
+| 0.10 | +0.0833 | [+0.0518, +0.1177] | +3.33 | [+2.07, +4.71] | Moderate |
+| 0.12 | +0.0785 | [+0.0474, +0.1117] | +3.14 | [+1.90, +4.47] | Moderate |
+| 0.15 | +0.0718 | [+0.0437, +0.1026] | +2.87 | [+1.75, +4.11] | Moderate |
+| 0.20 | +0.0445 | [+0.0211, +0.0695] | +1.78 | [+0.84, +2.78] | Neutral |
+| 0.30 | +0.0270 | [+0.0053, +0.0488] | +1.08 | [+0.21, +1.95] | Neutral |
+
+**Reading.** The sign is positive and the interval excludes zero at every cut
+from 0.02 to 0.30. The tier is Moderate for cuts up to 0.15 (scores +2.63 to +4.38)
+and Neutral from 0.20 (+1.78 at 0.20, +1.08 at 0.30). That follows from the
+definition: as the cut rises, fewer faces of either gender qualify, both rates
+fall toward zero, and so must their difference. The 0.08 used throughout sits
+inside the Moderate range, but the close-up *tier* is a property of the
+convention; what survives is the sign. A corpus-relative cut (a quantile) is the
+fix proposed in `FROZEN_EQUATION.md` section 7; this sweep shows how far the
+score can move with whichever cut is chosen.
+
+**Reproduce.** Edit `CLOSEUP_AREA` at the top of `c1_extract_ava.py`, then re-run
+`c1_extract_ava.py`, `c1_features6.py` and `c1_submetric.py` (run order in
+`src/visual/README.md`). Only the close-up row changes. It needs the AVA
+annotation archive and `entity_gender.csv`, which are not in the repository.

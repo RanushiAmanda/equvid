@@ -23,6 +23,14 @@ material, is one afforded more prominence?"  A window containing only men
 has no comparison to make and is returned as NA with a reason, never
 silently dropped (M2's output contract).
 
+NOTE (added after RESULTS.md Addendum 4): close-up and solo are LOG RATIOS
+here, as they were when Findings 2-3 were written.  That form drops every
+window in which one gender has a zero rate (292 of 819 windows, and
+one-sidedly), so the close-up and solo figures this script produces are the
+defective ones.  The sub-metric uses differences of proportions instead
+(c1_features6.py).  This script is left unchanged so that Findings 2-3
+still reproduce.
+
 ROBUSTNESS CHECK
 ----------------
 The label audit showed the labeller fails on small, peripheral faces.

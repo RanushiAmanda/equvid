@@ -3,12 +3,19 @@ C1 (EuqVid-Visual) — visual prominence feature extraction for AVA-ActiveSpeake
 
 WHY THIS RUNS WITHOUT VIDEO
 ---------------------------
-AVA-ActiveSpeaker ships human-verified face boxes (entity_box, already
-normalised to the frame) and an entity_id that links the same face across
-frames.  Every feature below is geometry over those boxes, so no face
-detector and no video decoding is required.  That is a methodological
-advantage, not a shortcut: a bias metric computed on top of a detector
-inherits that detector's error profile, and here there is no detector.
+AVA-ActiveSpeaker ships face boxes (entity_box, already normalised to the
+frame) and an entity_id that links the same face across frames.  Every
+feature below is geometry over those boxes, so no video decoding and no
+detector of our own is required.
+
+The boxes are NOT detector-free.  The AVA-ActiveSpeaker paper (Roth et
+al., arXiv 1901.01342) says they come from an automatic face detector and
+tracker, with annotators discarding false-positive tracks.  So C1 adds no
+detector, but it inherits the dataset's: a face that detector missed was
+never annotated, and the paper describes no step that adds misses.
+Detector recall by gender on AVA is unmeasured, which matters most for
+the presence dimension.  The check still to run is a hand count of
+visible against annotated faces, by gender, on a sample of frames.
 
 THE ENTITY_ID CAVEAT (important, and it changes what we can claim)
 -----------------------------------------------------------------
@@ -34,15 +41,17 @@ features but not all, and conflating them is a real error:
       face area, centre distance, close-up rate, solo rate
       -> no headcount division; the mean is already per-face
 
-Every feature is reported as a signed log parity:
-      parity = log( female_quantity / male_quantity )
-0 means parity, positive means the quantity is higher for women.  Log is used
-so +x and -x are symmetric, matching M2's sign convention proposal.
+This script writes raw per-gender quantities only; it computes no parity.
+Downstream (c1_features6.py) the ratio-scale quantities become signed log
+parities, parity = log( female_quantity / male_quantity ), and the two
+bounded proportions (close-up, solo) become differences of proportions,
+because a log ratio of a rate diverges as the rate approaches zero
+(RESULTS.md, Addendum 4).  0 means parity and positive means higher for
+women, matching M2's sign convention proposal (EuqAud's is the opposite).
 
 OUTPUT
 ------
   windows.csv   one row per (video, window) with raw per-gender quantities
-  videos.csv    one row per video, aggregated, with log-parity features
   entities.csv  one row per entity (for the detector/label-confound audit)
 
 Usage:
@@ -56,8 +65,9 @@ import sys
 from collections import defaultdict
 
 # A face is called a close-up when its box covers at least this fraction of
-# the frame.  Stated as a convention, not a measured quantity -- the
-# sensitivity of results to this value is reported separately.
+# the frame.  Stated as a convention, not a measured quantity.  The
+# sensitivity of the close-up score to this value is in RESULTS.md,
+# Addendum 9 (cuts 0.02 to 0.30; the other three scores do not use it).
 CLOSEUP_AREA = 0.08
 
 

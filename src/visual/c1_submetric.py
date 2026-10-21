@@ -8,9 +8,9 @@ corpus, how unequally are the genders treated?", so the unit of the score
 is the corpus.  Per-window values are the raw material and are far too
 noisy to read individually.
 
-THREE DIMENSIONS, NOT SIX
--------------------------
-The six nominal features reduced to three measured dimensions once each
+FOUR DIMENSIONS, NOT SIX
+------------------------
+The six nominal features reduced to four measured dimensions once each
 was tested (see RESULTS.md):
 
   presence    headcount        log(n_F / n_M)
@@ -23,18 +23,26 @@ bounded proportions: a log ratio diverges as either rate approaches zero,
 which drops windows and produces a tail that swallows the signal.
 
 Dropped, with reasons: mean face area is a weaker estimator of the same
-quantity as close-up share; screen time per person carries no signal; solo
-framing is not supported.  Every parity is signed so that POSITIVE means
-women are higher, matching M2's proposed convention.
+quantity as close-up share, and screen time per person carries no signal.
+Solo framing was set aside at one point (RESULTS.md, Addendum 3) and
+brought back once it was measured as a difference of proportions
+(Addendum 4); its tier is the least secure of the four (Addendum 7).
+
+Every parity is signed so that POSITIVE means women are higher, matching
+M2's proposed convention.  EuqAud's convention is the opposite (positive =
+male-dominant bias).  The group has not yet decided which one to use.
 
 WHY NO REGRESSION HERE
 ----------------------
 The proposal specified a degree-2 polynomial Ridge equation over six
-features.  Three of those features carry no signal, and a 21-coefficient
-model fitted against augmentation operators is the exact failure M2
-documented: their learned composite scored Spearman -0.28 against DOME
-while their simple parity measure scored +0.465.  So v1 is the simple
-measure, and any regression has to beat it to earn its place.
+features.  Two of those six were dropped on evidence (above).  A degree-2
+model has 28 coefficients over six features and 15 over the four reported
+dimensions, and it would be fitted against labels produced by our own
+augmentation operators.  That is the failure M2 documented: their learned
+composite scored Spearman -0.28 against DOME while their simple parity
+measure scored +0.465 (50 slices from 11 meetings, wide intervals; see
+docs/shared_conventions_M2_2026-10-06.md).  So v1 is the simple measure,
+and the regression stays in the plan as the comparison.
 
 CONFIDENCE INTERVALS ARE BOOTSTRAPPED OVER VIDEOS
 -------------------------------------------------
@@ -55,11 +63,14 @@ definition: |score| < 2 Neutral, 2-6 Moderate, > 6 Strong.
 
 WHERE THE PRESENCE ANCHOR COMES FROM  (it is derived, not chosen)
 -----------------------------------------------------------------
-EuqAud fixed the -10..+10 range and the tier cut-points but set them by
-min-max normalisation over whatever data it happened to hold, so adding a
-corpus rescales every earlier score.  This component fixes the anchor
-against two published sources instead, which keeps a score attached to the
-corpus it describes.
+EuqAud (Section III-E) scales its raw output to -10..+10 by min-max
+scaling, with bounds built from extreme feature settings; the paper does
+not say whether those bounds are recomputed for each dataset.  The tier
+cut-points 2 and 6 are EuqAud's and are used here unchanged.  What is
+derived is the PRESENCE ANCHOR: the headcount ratio at which this scale
+reaches those cut-points, fixed against two published sources.  Nothing in
+the equation is estimated from the corpus being scored, so a score cannot
+move when another corpus is added.
 
 Set the Moderate/Strong boundary at the measured industry norm:
 
@@ -74,14 +85,16 @@ Read back, anchor 4.0 places the tier boundaries at:
     |score| = 6  ->  2.297 : 1   (selection ratio 0.435)  the industry norm
     |score| = 2  ->  1.320 : 1   (selection ratio 0.758)
 
-and the second lands just inside the four-fifths rule, 29 C.F.R. 1607.4(D):
-a selection rate below 80% of the highest group's rate (1.25 : 1) is
-"generally regarded by the Federal enforcement agencies as evidence of
-adverse impact".  0.758 is slightly stricter than that 0.80.
+and the second sits close to the four-fifths rule, 29 C.F.R. 1607.4(D):
+a selection rate below 80% of the highest group's rate (1.25 : 1) "will
+generally be regarded by the Federal enforcement agencies as evidence of
+adverse impact".  0.758 is slightly MORE LENIENT than that 0.80: a
+selection rate of 0.78 (1.28 : 1) is flagged by the four-fifths rule and
+is Neutral here.
 
 So "Strong" begins where a corpus is more unequal than the measured
-industry average, and "Neutral" ends at about the legal adverse-impact
-line.  Both boundaries are citable.
+industry average, and "Neutral" ends a little beyond the legal
+adverse-impact line.  Both boundaries sit beside a published figure.
 
 LIMITS OF THAT DERIVATION, STATED
 ---------------------------------
@@ -118,9 +131,9 @@ BOOT = 2000
 # are ratio-scale, close-up and solo are bounded proportions.
 DIMS = [
     ("presence",   "identity",   "log",  4.0,
-     "DERIVED: exp(10*ln(2.30)/6) = 4.01, setting Moderate/Strong at the "
-     "Annenberg 2.30:1 industry norm; Neutral ends at 0.758, just inside "
-     "the four-fifths rule"),
+     "DERIVED: exp(10*ln(2.30)/6) = 4.0076, frozen as 4.00, setting "
+     "Moderate/Strong at the Annenberg 2.30:1 industry norm; Neutral ends "
+     "at 0.758, slightly more lenient than the four-fifths rule"),
     ("centrality", "centrality", "log",  1.5,
      "convention: 1.5:1 centre-distance saturates the scale (no published "
      "norm exists for framing position)"),

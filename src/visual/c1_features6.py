@@ -10,7 +10,10 @@ THE SIX FEATURES (as specified for this component)
   5 solo          visual isolation
   6 identity      headcount           (comparator)
 
-Each is reported as a signed log parity, log(F/M), positive = women higher.
+Each is reported as a signed parity, positive = women higher: log(F/M) for
+the ratio-scale quantities, and a difference of proportions (rate_F -
+rate_M) for close-up and solo, which are bounded rates (see build() below
+and RESULTS.md, Addendum 4).
 
 TWO DEPENDENCIES THAT ARE NOT OPTIONAL
 --------------------------------------
@@ -59,6 +62,10 @@ def lg_rate(c_f, n_f, c_m, n_m):
     female-disadvantaged cases and biases the feature upward.  The
     correction keeps every window and costs only a slight shrink toward
     zero for small counts.
+
+    NOT CALLED anywhere in this repository: build() uses the plain
+    difference of the two rates for close-up and solo, which needs no
+    correction.  Left in place unchanged; see RESULTS.md, Addendum 4.
     """
     if n_f <= 0 or n_m <= 0:
         return None
@@ -68,7 +75,8 @@ def lg_rate(c_f, n_f, c_m, n_m):
 
 
 def build(win_path, ent_path):
-    """One row per mixed-gender window, six log parities."""
+    """One row per mixed-gender window, six parities (log ratios, except
+    close-up and solo, which are differences of rates)."""
     # Intensive quantities are rebuilt from entities so they can be
     # frame-weighted: a person on screen longer should count more.
     ents = defaultdict(lambda: defaultdict(list))
@@ -175,7 +183,7 @@ def main(win_path, ent_path, out_dir):
 
     print()
     print("=" * 70)
-    print("FEATURE MEANS  (log parity, + = women higher)")
+    print("FEATURE MEANS  (+ = women higher; closeup, solo = rate differences)")
     print("=" * 70)
     for f in FEATURES:
         v = [r[f] for r in rows if r[f] is not None]

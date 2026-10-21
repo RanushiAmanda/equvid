@@ -4,9 +4,9 @@ Extraction, validation and the Visual-EuqVid v1 sub-metric for the visual
 component. The analysis scripts use the Python standard library only.
 
 **Reading the results docs.** `components/C1_Visual/results/RESULTS.md` and
-`FROZEN_EQUATION.md` were written against a flat layout and refer to
-`src/c1_*.py` and `out/`. In this repo the scripts are in `src/visual/`, and
-`out/` (intermediate tables) is not committed.
+`FROZEN_EQUATION.md` refer to the scripts as `src/visual/c1_*.py` and to the
+intermediate tables as `out/`. `out/` is not committed; the scripts regenerate
+it.
 
 ## Run order — AVA-ActiveSpeaker
 
@@ -29,10 +29,12 @@ python3 -I c1_validate.py out/sample_key.csv manual_labels.csv out/entities.csv
 python3 -I c1_decide.py out/entities.csv out/sample_key.csv manual_labels.csv
 ```
 
-MELD, development split:
+MELD (the extractor goes dev, then train, then test; the results here use dev
+and train only), then the framing gaps and checks on the single-face clips:
 
 ```
-python c1_meld_extract.py <MELD.Raw dir> out/meld_clips.csv [max_clips]
+python  c1_meld_extract.py <MELD.Raw dir> out/meld_clips.csv [max_clips]
+python3 -I c1_meld_replicate.py out/meld_clips.csv out/meld_replication.csv
 ```
 
 ## What each script does
@@ -42,21 +44,23 @@ python c1_meld_extract.py <MELD.Raw dir> out/meld_clips.csv [max_clips]
 | `c1_extract_ava.py` | Parses AVA-ActiveSpeaker boxes, joins the gender labels, writes per-entity and per-window geometry. No video decoding. |
 | `c1_audit.py` | Label coverage and confound audit: are label failures related to face geometry? |
 | `c1_score.py` | Step 2: log-parity features and the face-size robustness sweep. Close-up and solo are log ratios here; the sub-metric uses the difference form in `c1_features6.py`. |
-| `c1_stratify.py` | Size-stratified centrality test. |
+| `c1_stratify.py` | Size-stratified centrality test, and the within-scene gap with intervals that resample windows and videos. |
 | `c1_make_validation_sample.py` | Draws the blind stratified validation sample (seed 0). Writes a shuffled manifest with no labels and a held-back key. |
 | `c1_make_crops.py` | Cuts the face crops for that sample and builds a self-contained labelling page. |
 | `c1_validate.py` | Confusion matrix and Wilson intervals, model labels against human labels. |
-| `c1_decide.py` | Recomputes the centrality gap from human labels only, weighted back to the population. |
+| `c1_decide.py` | Recomputes the centrality gap from the human gender labels, weighted back to the population by (predicted group × size band) cell. |
 | `c1_features6.py` | The six specified features with correlations, VIF and the algebraic identity checks. |
 | `c1_submetric.py` | Visual-EuqVid v1: four dimensions, fixed anchors, tiers, bootstrap over videos. |
 | `c1_agg_check.py` | Does the pooling rule (window-mean, pooled, video-mean) change the score? |
-| `c1_meld_extract.py` | MELD dev split: single-face clips identify the speaker; gender from a six-character map. Resumable. |
+| `c1_meld_extract.py` | MELD: single-face clips are taken to be the speaker (not spot-checked); gender from a six-character map; a face detector is still used. Resumable. |
+| `c1_meld_replicate.py` | MELD framing gaps and presence score on dev and train with one fixed procedure (corpus-relative close-up cut frozen on dev, episode bootstrap), plus three post hoc checks. Standard library only. |
 
 ## Dependencies
 
 - Python 3. Run with `-I` (isolated mode) so nothing is imported from the
   working directory.
 - `c1_make_crops.py` and `c1_meld_extract.py` need OpenCV (`opencv-python`).
+  `c1_meld_replicate.py` needs nothing beyond the standard library.
 - `c1_meld_extract.py` uses MTCNN if it is installed, otherwise the YuNet ONNX
   model (`face_detection_yunet_2023mar.onnx`). The model file is **not** in this
   repo; the script's error message says where to put it.
