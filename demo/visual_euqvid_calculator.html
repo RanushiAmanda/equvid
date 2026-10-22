@@ -1,0 +1,132 @@
+<!doctype html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Visual-EuqVid Calculator</title>
+<style>
+:root{--bg:#f3f5f6;--panel:#fff;--fg:#14232b;--muted:#5b6b73;--line:#d9e0e3;--accent:#0b6e7f;--pos:#a04a16;--neg:#2b5fa8;
+--t0:#2f7d4f;--t1:#a8760a;--t2:#b3261e;
+--font:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;--mono:ui-monospace,Menlo,Consolas,monospace;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0f1a20;--panel:#16252d;--fg:#e4edf0;--muted:#93a6ae;--line:#2a3d47;--accent:#4fc1d4;--pos:#f09a62;--neg:#7ea8e6;--t0:#5fc086;--t1:#e0b050;--t2:#ff7a70;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#0f1a20;--panel:#16252d;--fg:#e4edf0;--muted:#93a6ae;--line:#2a3d47;--accent:#4fc1d4;--pos:#f09a62;--neg:#7ea8e6;--t0:#5fc086;--t1:#e0b050;--t2:#ff7a70;color-scheme:dark}
+*{box-sizing:border-box}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{background:var(--bg);color:var(--fg);font-family:var(--font);font-size:15px;line-height:1.5;margin:0;padding:24px max(16px,env(safe-area-inset-right,0px)) 40px max(16px,env(safe-area-inset-left,0px))}
+.wrap{max-width:1080px;margin:0 auto}
+h1{font-size:1.5rem;margin:0 0 4px}
+.sub{color:var(--muted);margin:0 0 18px;max-width:70ch}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:16px}
+button{font:inherit;font-size:.85rem;background:var(--panel);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 10px;cursor:pointer}
+button:hover{border-color:var(--accent)}
+.grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.1fr);gap:20px;align-items:start}
+@media (max-width:820px){.grid{grid-template-columns:minmax(0,1fr)}}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:8px;padding:16px;min-width:0}
+.panel h2{font-size:.78rem;text-transform:uppercase;letter-spacing:.08em;color:var(--muted);margin:0 0 10px}
+.row{display:grid;grid-template-columns:minmax(0,1fr) 84px 84px;gap:8px;align-items:center;margin-bottom:10px}
+.row.head{color:var(--muted);font-size:.78rem;margin-bottom:6px}
+.row label{font-size:.9rem}.row label small{display:block;color:var(--muted);font-size:.75rem}
+input{width:100%;font:inherit;font-family:var(--mono);font-size:.88rem;background:var(--bg);color:var(--fg);border:1px solid var(--line);border-radius:6px;padding:6px 8px;min-width:0}
+input:focus,button:focus-visible{outline:2px solid var(--accent);outline-offset:1px}
+.hint{color:var(--muted);font-size:.8rem;margin:8px 0 0}
+.card{border-top:1px solid var(--line);padding:12px 0}.card:first-child{border-top:0;padding-top:0}
+.top{display:flex;flex-wrap:wrap;gap:10px;align-items:baseline;justify-content:space-between}
+.name{font-weight:600}
+.big{font-family:var(--mono);font-size:1.7rem;font-weight:500;font-variant-numeric:tabular-nums}
+.chip{display:inline-block;padding:2px 9px;border-radius:999px;font-size:.78rem;font-weight:600;border:1px solid currentColor}
+.bar{position:relative;height:10px;background:var(--bg);border:1px solid var(--line);border-radius:5px;margin:8px 0 4px}
+.bar i{position:absolute;top:0;bottom:0}
+.bar b{position:absolute;left:50%;top:-3px;bottom:-3px;width:1px;background:var(--muted)}
+.ends{display:flex;justify-content:space-between;font-size:.7rem;color:var(--muted)}
+.read{color:var(--muted);font-size:.88rem;margin:4px 0 0}
+.warn{color:var(--t1);font-size:.82rem;margin:4px 0 0}
+.avg{background:var(--bg);border:1px dashed var(--line);border-radius:6px;padding:10px;margin-top:6px;font-size:.88rem}
+.err{color:var(--t2)}
+details{margin-top:14px;border-top:1px solid var(--line);padding-top:10px}
+summary{cursor:pointer;font-weight:600;font-size:.9rem;color:var(--accent)}
+.m{font-family:var(--mono);font-size:.8rem;color:var(--muted);overflow-wrap:anywhere;margin:8px 0 0}
+.legend{display:flex;gap:14px;font-size:.8rem;color:var(--muted);margin:0 0 12px}
+.legend span::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;margin-right:6px;vertical-align:-1px}
+.legend .p::before{background:var(--pos)}.legend .n::before{background:var(--neg)}
+</style></head><body>
+<div class="wrap">
+<h1>Visual-EuqVid Calculator</h1>
+<p class="sub">Enter the numbers for one scene (a window with at least one woman and one man in frame). Each of four questions gets its own score from −10 to +10. + means women ahead, − means men ahead, 0 means equal.</p>
+<div class="presets">
+<button type="button" data-p="ava">Example: AVA result</button>
+<button type="button" data-p="fair">Example: equal</button>
+<button type="button" data-p="men">Example: men far ahead</button>
+<button type="button" data-p="women">Example: women ahead</button>
+</div>
+<div class="grid">
+<div class="panel">
+<h2>Scene numbers</h2>
+<div class="row head"><span></span><span>Women</span><span>Men</span></div>
+<div class="row"><label for="nF">How many people<small>people in frame in a 60-second window</small></label><input type="number" id="nF" step="any"><input type="number" id="nM" step="any"></div>
+<div class="row"><label for="dF">Distance from centre<small>mean face distance from frame centre, any unit</small></label><input type="number" id="dF" step="any"><input type="number" id="dM" step="any"></div>
+<div class="row"><label for="cF">Close-up %<small>frames where the face fills 8% or more</small></label><input type="number" id="cF" step="any"><input type="number" id="cM" step="any"></div>
+<div class="row"><label for="sF">Alone in frame %<small>frames where this face is the only one</small></label><input type="number" id="sF" step="any"><input type="number" id="sM" step="any"></div>
+<p class="hint">Nothing is fitted. Each score is 10 × clip(gap ÷ anchor, −1, +1). Only the presence anchor is derived (USC Annenberg, 2.30 : 1). The other three anchors are declared conventions, so their sign and interval matter more than their size.</p>
+</div>
+<div class="panel" aria-live="polite">
+<h2>Four scores, reported separately</h2>
+<div class="legend"><span class="p">women ahead (+)</span><span class="n">men ahead (−)</span></div>
+<div id="res"></div>
+<details><summary>Show the maths</summary><div id="maths"></div></details>
+<details><summary>Tiers and anchors</summary>
+<p class="m">|score| &lt; 2 Neutral · 2 to 6 Moderate · above 6 Strong<br>
+presence: ln(F ÷ M) ÷ ln 4 (1 woman : 4 men = −10)<br>
+centrality: −ln(F ÷ M) ÷ ln 1.5 (1.5 times as far = −10)<br>
+close-up and solo: (F − M) ÷ 0.25 (25 points = ±10)</p></details>
+</div>
+</div>
+</div>
+<script>
+var LN4=Math.log(4),LN15=Math.log(1.5),M="\u2212";
+function $(i){return document.getElementById(i)}
+function clip(x){return Math.max(-1,Math.min(1,x))}
+function c10(x,a){return 10*clip(x/a)}
+function sg(x,d){var a=Math.abs(x).toFixed(d);if(parseFloat(a)===0)return(0).toFixed(d);return(x<0?M:"+")+a}
+function tier(s){var a=Math.abs(s);return a<2?["Neutral","--t0"]:(a<=6?["Moderate","--t1"]:["Strong","--t2"])}
+function near(s){var a=Math.abs(s);return Math.abs(a-2)<0.5||Math.abs(a-6)<0.5}
+var IDS=["nF","nM","dF","dM","cF","cM","sF","sM"];
+var PRE={ava:[1,1.888,87.72,100,39.5,30,35.27,30],fair:[2,2,100,100,30,30,30,30],men:[1,4,150,100,5,30,5,30],women:[3,1.5,70,100,55,25,50,20]};
+function read(){var v={};IDS.forEach(function(k){var t=$(k).value;v[k]=t===""?null:parseFloat(t)});return v}
+function dims(v){
+ var e=[];
+ if(!(v.nF>0&&v.nM>0))e.push("Number of people must be above 0 for both genders.");
+ if(!(v.dF>0&&v.dM>0))e.push("Distance from centre must be above 0 for both genders.");
+ ["cF","cM","sF","sM"].forEach(function(k){if(!(v[k]>=0&&v[k]<=100))e.push("Percentages must be between 0 and 100.")});
+ if(e.length)return{error:e.filter(function(x,i){return e.indexOf(x)===i}).join(" ")};
+ var pp=Math.log(v.nF/v.nM),pc=-Math.log(v.dF/v.dM),pu=(v.cF-v.cM)/100,ps=(v.sF-v.sM)/100;
+ return{list:[
+  {n:"Presence",q:"How many people?",p:pp,s:c10(pp,LN4),f:"ln("+v.nF+" ÷ "+v.nM+") = "+sg(pp,3)+"; ÷ ln 4 (1.386)",
+   r:v.nF===v.nM?"Equal numbers.":(v.nF<v.nM?"1 woman for every "+(v.nM/v.nF).toFixed(2)+" men.":"1 man for every "+(v.nF/v.nM).toFixed(2)+" women.")},
+  {n:"Centrality",q:"Closer to the centre?",p:pc,s:c10(pc,LN15),f:M+"ln("+v.dF+" ÷ "+v.dM+") = "+sg(pc,3)+"; ÷ ln 1.5 (0.405)",
+   r:v.dF===v.dM?"Equally far from centre.":(v.dF<v.dM?"Women sit "+((1-v.dF/v.dM)*100).toFixed(0)+"% closer to the centre.":"Women sit "+((v.dF/v.dM-1)*100).toFixed(0)+"% farther from the centre.")},
+  {n:"Close-up share",q:"Shown large?",p:pu,s:c10(pu,0.25),f:"("+v.cF+" "+M+" "+v.cM+") ÷ 100 = "+sg(pu,3)+"; ÷ 0.25",
+   r:v.cF===v.cM?"Equal close-up share.":"Women are in close-up "+Math.abs(v.cF-v.cM).toFixed(1)+" points "+(v.cF>v.cM?"more":"less")+" often."},
+  {n:"Solo framing",q:"Alone in frame?",p:ps,s:c10(ps,0.25),f:"("+v.sF+" "+M+" "+v.sM+") ÷ 100 = "+sg(ps,3)+"; ÷ 0.25",
+   r:v.sF===v.sM?"Equal solo share.":"Women are alone in frame "+Math.abs(v.sF-v.sM).toFixed(1)+" points "+(v.sF>v.sM?"more":"less")+" often."}]};
+}
+function card(d){
+ var t=tier(d.s),w=Math.min(50,Math.abs(d.s)/10*50),st=d.s>=0?"left:50%;width:"+w+"%;background:var(--pos)":"right:50%;width:"+w+"%;background:var(--neg)";
+ var dir=Math.abs(d.s)<0.005?"":(d.s>0?"women ahead":"men ahead");
+ return '<div class="card"><div class="top"><span class="name">'+d.n+' <span class="read">'+d.q+'</span></span>'+
+ '<span><span class="big">'+sg(d.s,2)+'</span> <span class="chip" style="color:var('+t[1]+')">'+t[0]+'</span></span></div>'+
+ '<div class="bar"><i style="'+st+'"></i><b></b></div><div class="ends"><span>'+M+'10</span><span>0</span><span>+10</span></div>'+
+ '<p class="read">'+d.r+(dir?" ("+dir+")":"")+'</p>'+(near(d.s)?'<p class="warn">Close to a tier boundary: read the sign, not the label.</p>':"")+'</div>';
+}
+function render(){
+ var r=dims(read());
+ if(r.error){$("res").innerHTML='<p class="err">'+r.error+'</p>';$("maths").innerHTML="";return}
+ var L=r.list,avg=L.reduce(function(a,d){return a+d.s},0)/4,pos=L.some(function(d){return d.s>0.005}),neg=L.some(function(d){return d.s<-0.005});
+ $("res").innerHTML=L.map(card).join("")+
+ '<div class="avg"><b>Why not average them?</b> The four-score mean here is '+sg(avg,2)+' ('+tier(avg)[0]+').'+
+ (pos&&neg?' The scores disagree in sign, so the mean hides real gaps in both directions. They are reported separately.':' Here the signs agree, but the dimensions still answer different questions, so they stay separate.')+'</div>';
+ $("maths").innerHTML=L.map(function(d){return '<p class="m"><b>'+d.n+'</b>: '+d.f+' = '+sg(d.p/(d.n==="Presence"?LN4:(d.n==="Centrality"?LN15:0.25)),3)+' &rarr; ×10 = '+sg(d.s,2)+(Math.abs(d.p/(d.n==="Presence"?LN4:(d.n==="Centrality"?LN15:0.25)))>1?" (clipped to ±10)":"")+'</p>'}).join("");
+}
+function load(p){PRE[p].forEach(function(x,i){$(IDS[i]).value=x});render()}
+document.querySelectorAll("[data-p]").forEach(function(b){b.addEventListener("click",function(){load(b.dataset.p)})});
+IDS.forEach(function(k){$(k).addEventListener("input",render)});
+load("ava");
+</script></body></html>
