@@ -1,0 +1,5 @@
+dimension,parity,n_windows,ci_lo,ci_hi,score,score_lo,score_hi,tier,kind,anchor,excludes_zero
+presence,-0.635417,819,-0.789252,-0.492648,-4.584,-5.693,-3.554,Moderate,log,4.0,1
+centrality,0.131027,819,0.094252,0.168713,3.232,2.325,4.161,Moderate,log,1.5,1
+closeup,0.095035,819,0.064751,0.126216,3.801,2.59,5.049,Moderate,diff,0.25,1
+solo,0.052733,819,0.020219,0.084054,2.109,0.809,3.362,Moderate,diff,0.25,1
